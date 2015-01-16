@@ -23,13 +23,13 @@ windows:
       layout: tiled
       panes:
         - 
-        - cd ~/vagrant/ssvm && vagrant up
+        - 
         - gst 
-        - cd public/assets && compass w 
+        - grunt watch 
   - remote:
       layout: tiled
       panes:
-        - ssh sem-webstg 
-        - ssh sem-webstg 
+        - ssh sem-webstg && cd tn/searchsuite
         - ssh sem-webstg 
         - ssh sem-dbstg 
+        - ssh sem-webstg && cd tn/searchsuite && grunt watch
