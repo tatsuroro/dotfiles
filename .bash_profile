@@ -8,6 +8,8 @@ PATH=$PATH:$HOME/bin
 export PATH
 
 # Aliases
+alias la='ls -lah'
+
 alias g='git'
 alias gst='git status'
 alias gd='git diff'

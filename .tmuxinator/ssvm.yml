@@ -1,6 +1,6 @@
-# ~/.tmuxinator/ss.yml
+# ~/.tmuxinator/ssvm.yml
 
-name: ss
+name: ssvm
 root: ~/workspace/searchsuite/
 
 # Optional tmux socket
@@ -19,28 +19,30 @@ pre_window: rbenv shell 2.1.2
 # tmux_command: byobu
 
 windows:
+  - vm:
+      layout: 929f,237x63,0,0[238x39,0,0{118x39,0,0,0,119x39,119,0,2},238x24,0,40{118x24,0,40,3,119x24,119,40,4}]
+      panes:
+        - Dev:
+            -
+            - cd sem_staging/tn/searchsuite
+            - gst
+        - Dev2:
+            -
+            -
+        - Grunt:
+            - cd ~/vagrant/ssvm
+            - vagrant up
+            - ssh vagrant-ss
+            - sudo apachectl start
+            - sh ./taillog.sh
+        - Log:
+            - cd ~/vagrant/ssvm
+            - sleep 25
+            - vagrant rsync-auto
   - local:
       layout: 929f,237x63,0,0[238x39,0,0{118x39,0,0,0,119x39,119,0,2},238x24,0,40{118x24,0,40,3,119x24,119,40,4}]
       panes:
         -
         -
         - gst
-        - grunt watch
-  - remote:
-      layout: 929f,237x63,0,0[238x39,0,0{118x39,0,0,0,119x39,119,0,2},238x24,0,40{118x24,0,40,3,119x24,119,40,4}]
-      panes:
-        - Dev:
-            - ssh sem-webstg
-            - cd sem_staging/tn/searchsuite
-            - gst
-        - Dev2:
-            - ssh sem-webstg
-            - cd sem_staging/falcon/searchsuite
-            - gst
-        - Grunt:
-            - ssh sem-webstg
-            - cd sem_staging/tn/searchsuite
-            - grunt watch
-        - Log:
-            - ssh sem-webstg
-            - ./taillog.sh
+        -
