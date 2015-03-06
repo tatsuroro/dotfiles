@@ -1,3 +1,13 @@
+set blame-view = date:local author:full id line-number:true,interval=1 text
+set main-view = line-number:true,interval=10 date:local author:full id commit-title:true,graph=true,refs=true
+set refs-view = date:local author:full id ref:true commit-title:true
+set status-view = file-name status:long
+
+# set line-graphics = asci
+
+# 空白のみ、インデントのみ変更行を無視
+set ignore-space = all
+
 # Vim Like KeyBind
 bind generic G none
 bind generic g move-first-line
@@ -35,6 +45,10 @@ bind main C !?git checkout %(commit))
 # ブランチ作成
 bind refs n !git checkout -b %(prompt) %(branch)
 
+# リモートブランチをTrackしつつチェックアウト
+bind refs T !git checkout -t %(branch)
+
+# リベース
 bind refs 3 !git rebase -i %(branch)
 
 # origin への push
