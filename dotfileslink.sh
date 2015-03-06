@@ -1,5 +1,6 @@
 #!/bin/sh
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
+ln -sf ~/dotfiles/.tigrc ~/.tigrc
 ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
 ln -sf ~/dotfiles/.zsh ~/.zsh
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
