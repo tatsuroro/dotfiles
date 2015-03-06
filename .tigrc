@@ -1,11 +1,41 @@
+# Vim Like KeyBind
 bind generic G none
 bind generic g move-first-line
 bind generic G move-last-line
-
 bind generic <Ctrl-f> scroll-page-down
 bind generic <Ctrl-b> scroll-page-up
 
+
+#####
+# All View
+#####
+
+# コミットやりなおし
 bind generic + !git commit --amend
+
+# commit hash を クリップボードへコピー
 bind generic 9 !@sh -c "echo %(commit) | pbcopy"
+
+
+#####
+# Main View
+#####
+
+# リモートブランチと同期
+bind main <Ctrl-r> !git pull
+
+# 特定コミットをチェックアウト
+bind main C !?git checkout %(commit))
+
+
+#####
+# Branch View
+#####
+
+# ブランチ作成
 bind refs n !git checkout -b %(prompt) %(branch)
+
 bind refs 3 !git rebase -i %(branch)
+
+# origin への push
+bind refs P !git push -u origin %(branch)
