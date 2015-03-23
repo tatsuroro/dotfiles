@@ -75,9 +75,9 @@ export SHELL='/usr/local/bin/zsh'
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-### Go path setting
+# GoRoot
 export GOPATH="$HOME/go"
-export PATH="$HOME/go/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
 
 export TERM=xterm-256color
 
