@@ -24,7 +24,7 @@ windows:
       panes:
         - gst
         -
-        -
+        - sudo iftop
         - grunt watch
   - remote:
       layout: 1d4c,364x88,0,0[365x47,0,0{101x47,0,0,1,135x47,102,0,8,127x47,238,0,5},365x41,0,48,7]

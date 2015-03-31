@@ -42,13 +42,17 @@ alias tm="tmux"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="yyyy-mm-dd"
 
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt share_history
+
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow osx tmux tmuxinator vagrant)
+plugins=(git git-flow osx tmux tmuxinator vagrant scala)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -91,3 +95,7 @@ source ~/bin/cdd/cdd
 
 typeset -ga chpwd_functions
 chpwd_functions+=_cdd_chpwd
+
+
+## Qiita Rb Api Access Token
+export QIITA_ACCESS_TOKEN="3b71f5af9803771ea59b48617fd2ced0460c5d4d"
