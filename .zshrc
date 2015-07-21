@@ -54,6 +54,9 @@ setopt share_history
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git git-flow osx tmux tmuxinator vagrant scala)
 
+# custom plugins
+plugins+=(zsh-completions)
+
 source $ZSH/oh-my-zsh.sh
 
 

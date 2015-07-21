@@ -1,7 +1,7 @@
 # ~/.tmuxinator/fam.yml
 
-name: fam 
-root: ~/workspace/fam/
+name: cabuki-facebook
+root: ~/workspace/cabuki/cabuki-facebook
 
 # Optional tmux socket
 # socket_name: foo

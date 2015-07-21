@@ -81,6 +81,7 @@ NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'dterei/VimCobaltColourScheme'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'jonathanfilip/vim-lucius'
+NeoBundle 'rking/ag.vim'
 
 " if_luaが有効ならneocompleteを使う
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'

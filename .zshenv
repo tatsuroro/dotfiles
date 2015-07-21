@@ -1,6 +1,6 @@
 export PATH=./bin:$HOME/bin:$HOME/.nodebrew/current/bin:$PATH
 
-nodebrew use v0.10
+nodebrew use v0.12
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:$PATH
 
