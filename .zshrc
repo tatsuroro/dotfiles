@@ -42,8 +42,8 @@ alias tm="tmux"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="yyyy-mm-dd"
 
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt share_history
 
 # Would you like to use another custom folder than $ZSH/custom?
@@ -59,6 +59,12 @@ plugins+=(zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
+
+alias ls="ls -GAF"
+
+# dont save dupulicate commands && no needs commands
+export HISTCONTROL=ignoreboth:erasedups
+export HISTIGNORE="ls:ls *:la:la *:cd:cd -:pwd"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
