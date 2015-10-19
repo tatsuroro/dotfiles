@@ -100,8 +100,6 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 
-source ~/bin/cdd/cdd
-
 typeset -ga chpwd_functions
 chpwd_functions+=_cdd_chpwd
 
