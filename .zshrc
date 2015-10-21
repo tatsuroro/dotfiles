@@ -8,6 +8,7 @@ alias zshconfig="s ~/.zshrc"
 alias ohmyzsh="s ~/.oh-my-zsh"
 
 alias sudo="sudo "
+alias v="vim"
 alias vi="vim"
 alias tm="tmux"
 
