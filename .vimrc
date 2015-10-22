@@ -1,116 +1,4 @@
-set nocompatible
-set notimeout
-set ttimeout
-set timeoutlen=100
-set history=100
-set nobackup
-set noswapfile
-set clipboard+=autoselect
-
-set autoread
-
-set imdisable
-
-" indent
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set softtabstop=2
-
-set autoindent
-set smartindent
-
-set backspace=indent,eol,start
-set list
-set listchars=tab:»-,trail:*,extends:»,precedes:«,nbsp:%
-
-" ui
-set number cursorline
-set showmatch
-set wildmenu
-set wildmode=longest,full
-set wrap
-set showtabline=2
-set laststatus=2
-
-" search
-set ignorecase
-set incsearch
-
-set showmatch "対応する括弧を表示
-
-" auto Trailing WhiteSpace
-autocmd BufWritePre * :%s/\s\+$//e
-
-" カーソル復元
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-
-" Ruby
-autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-" YAML
-autocmd FileType yaml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-" ERUBY
-autocmd FileType eruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-" HAML
-autocmd FileType haml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-
-" CoffeeScript, JavaScript
-autocmd FileType coffee,javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-
-
-"Coffee script
-au BufRead,BufNewFile *.coffee set filetype=coffee
-au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
-
-"node
-au BufRead,BufNewFile *.js set filetype=node
-au BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
-autocmd FileType node setlocal sw=2 sts=2 ts=2 et
-
-"Cakefile
-au BufRead,BufNewFile Cakefile set filetype=coffee
-au BufNewFile,BufReadPost Cakefile setl shiftwidth=2 expandtab
-autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
-
-"Go
-au BufRead,BufNewFile *.go set filetype=go
-au BufNewFile,BufReadPost *.go setl shiftwidth=2 expandtab
-autocmd FileType go setlocal sw=2 sts=2 ts=2 et
-
-"Markdown
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile GHI_ISSUE set filetype=markdown
-
-"HTML
-au BufRead,BufNewFile *.html set filetype=html
-au BufNewFile,BufReadPost *.html setl shiftwidth=2 expandtab
-autocmd FileType html setlocal sw=2 sts=2 ts=2 et
-
-filetype plugin indent on
-
-" 全角スペースをハイライト表示
-function! ZenkakuSpace()
-  highlight ZenkakuSpace cterm=reverse ctermfg=lightblue gui=reverse guifg=DarkMagenta
-endfunction
-
-if has('syntax')
-  augroup ZenkakuSpace
-    autocmd!
-    autocmd ColorScheme       * call ZenkakuSpace()
-    autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
-  augroup END
-  call ZenkakuSpace()
-endif
-
-" 日本語入力をリセット
-au BufNewFile,BufRead * set iminsert=0
-
-if !has('gui_running')
-  set t_co=256
-endif
-
-filetype plugin indent off
+""" Bundles
 
 if has('vim_starting')
   if &compatible
@@ -122,7 +10,6 @@ endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-
 
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc', {
@@ -175,8 +62,133 @@ NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 call neobundle#end()
 
 filetype plugin indent on
-
 NeoBundleCheck
+
+""" Base Setting
+
+set nocompatible
+set notimeout ttimeout timeoutlen=100
+set history=100
+set nobackup
+set noswapfile
+set clipboard+=autoselect
+set confirm
+
+" 文字、改行コードを自動判別する
+:set encoding=utf-8
+:set fileencodings=default,euc-jp,sjis,utf-8
+:set fileformats=unix,dos,mac
+
+set autoread
+
+set imdisable
+
+set backspace=indent,eol,start
+set list
+set listchars=tab:»-,trail:*,extends:»,precedes:«,nbsp:%
+
+" ui
+set number cursorline
+set showmatch
+set wildmenu
+set wildmode=longest,full
+set wrap
+set showtabline=2
+set laststatus=2
+
+" search
+set ignorecase
+set smartcase
+
+set hlsearch
+set incsearch
+
+set showmatch "対応する括弧を表示
+
+set t_co=256
+
+" indent
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set softtabstop=2
+
+set autoindent
+set smartindent
+
+""" filetype IndentSettings
+" Ruby
+autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+" YAML
+autocmd FileType yaml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+" ERUBY
+autocmd FileType eruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+" HAML
+autocmd FileType haml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+" CoffeeScript, JavaScript
+autocmd FileType coffee,javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+
+"Coffee script
+au BufRead,BufNewFile *.coffee set filetype=coffee
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
+
+"node
+au BufRead,BufNewFile *.js set filetype=node
+au BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
+autocmd FileType node setlocal sw=2 sts=2 ts=2 et
+
+"Cakefile
+au BufRead,BufNewFile Cakefile set filetype=coffee
+au BufNewFile,BufReadPost Cakefile setl shiftwidth=2 expandtab
+autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
+
+"Go
+au BufRead,BufNewFile *.go set filetype=go
+au BufNewFile,BufReadPost *.go setl shiftwidth=2 expandtab
+autocmd FileType go setlocal sw=2 sts=2 ts=2 et
+
+"Markdown
+au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile GHI_ISSUE set filetype=markdown
+
+"HTML
+au BufRead,BufNewFile *.html set filetype=html
+au BufNewFile,BufReadPost *.html setl shiftwidth=2 expandtab
+autocmd FileType html setlocal sw=2 sts=2 ts=2 et
+
+filetype plugin indent on
+
+syntax enable
+syntax on
+
+" auto Trailing WhiteSpace
+autocmd BufWritePre * :%s/\s\+$//e
+
+" カーソル復元
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+" 全角スペースをハイライト表示
+function! ZenkakuSpace()
+  highlight ZenkakuSpace cterm=reverse ctermfg=lightblue gui=reverse guifg=DarkMagenta
+endfunction
+
+if has('syntax')
+  augroup ZenkakuSpace
+    autocmd!
+    autocmd ColorScheme       * call ZenkakuSpace()
+    autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+  augroup END
+  call ZenkakuSpace()
+endif
+
+" 日本語入力をリセット
+au BufNewFile,BufRead * set iminsert=0
+
+
+"-------------------------------------------------
+"  autoCmd
+"-------------------------------------------------
 
 
 " neocomplete
@@ -228,12 +240,6 @@ let g:unite_source_file_mru_limit = 200
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
-" grep検索
-nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-
-" カーソル位置の単語をgrep検索
-nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
@@ -241,7 +247,7 @@ if executable('ag')
   let g:unite_source_grep_recursive_opt = ''
 endif
 
-
+" syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_mode_map = { 'mode': 'passive',
     \ 'active_filetypes': ['ruby'] }
@@ -273,8 +279,6 @@ hi CursorLineNr ctermbg=4 ctermfg=0
 hi clear CursorLine
 
 
-syntax enable
-syntax on
 
 " IndentGuide Setting
 let g:indent_guides_enable_on_vim_startup = 1
@@ -284,6 +288,7 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 30
 hi IndentGuidesOdd  ctermbg=darkgray
 hi IndentGuidesEven ctermbg=black
+
 
 """ Commmands
 
@@ -321,6 +326,14 @@ nnoremap ZQ <Nop>
 " set us mode
 nnoremap : ;
 nnoremap ; :
+
+" Ctrl+d / Ctrl+l to Esc
+inoremap <C-d> <Esc>
+vnoremap <C-l> <Esc>
+
+" Command Mode HistoryMove
+inoremap <C-k> <Up>
+vnoremap <C-j> <Down>
 
 " vv -> select to lineEnd
 vnoremap v $h
@@ -370,7 +383,13 @@ nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
 nnoremap <silent> [unite]r :<C-u>UniteWithBufferDir file<CR>
 nnoremap <silent> [unite]p :<C-u>UniteResume<CR>
 
-nnoremap <silent> ,vr :<CR>
+" grep検索
+nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+" カーソル位置の単語をgrep検索
+nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+" grep検索結果の再呼出
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+
 " unite outline
 nnoremap <Leader>o :Unite -vertical -no-quit -winwidth=32 outline<CR>
 
@@ -427,20 +446,19 @@ nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
-nnoremap sn gt
-nnoremap sp gT
 nnoremap sr <C-w>r
 nnoremap s= <C-w>=
 nnoremap so <C-w>_<C-w>|
 nnoremap sO <C-w>=
-nnoremap sN :<C-u>bn<CR>
-nnoremap sP :<C-u>bp<CR>
+nnoremap sn :<C-u>bn<CR>
+nnoremap sp :<C-u>bp<CR>
 nnoremap st :<C-u>tabnew<CR>
 nnoremap sT :<C-u>Unite tab<CR>
 nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap sq :<C-u>bd<CR>
 nnoremap sQ :<C-u>q<CR>
+
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
