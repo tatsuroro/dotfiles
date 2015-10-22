@@ -1,0 +1,27 @@
+# ~/.tmuxinator/sg.yml
+
+name: saigon-front
+root: ~/github.com/CyberAgent/saigon-front
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+pre_window: rbenv shell 2.1.2
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - local:
+      layout: a19b,178x48,0,0[178x39,0,0,7,178x8,0,40,8]
+      panes:
+        - v
+        - cd ../saigon-web/saigon-vagrant && vagrant up && vagrant ssh 
+

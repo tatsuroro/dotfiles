@@ -22,7 +22,7 @@ set smartindent
 
 set backspace=indent,eol,start
 set list
-set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
+set listchars=tab:»-,trail:*,extends:»,precedes:«,nbsp:%
 
 " ui
 set number cursorline
@@ -38,6 +38,9 @@ set ignorecase
 set incsearch
 
 set showmatch "対応する括弧を表示
+
+" auto Trailing WhiteSpace
+autocmd BufWritePre * :%s/\s\+$//e
 
 " カーソル復元
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
@@ -84,9 +87,7 @@ au BufRead,BufNewFile *.html set filetype=html
 au BufNewFile,BufReadPost *.html setl shiftwidth=2 expandtab
 autocmd FileType html setlocal sw=2 sts=2 ts=2 et
 
-
-filetype indent on
-filetype plugin on
+filetype plugin indent on
 
 " 全角スペースをハイライト表示
 function! ZenkakuSpace()
@@ -112,11 +113,17 @@ endif
 filetype plugin indent off
 
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle'))
-endif 
+  if &compatible
+    set nocompatible
+  endif
 
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
+
+
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -131,7 +138,7 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neomru.vim'
-" NeoBundle 'Shougo/vimfiler'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/nerdtree'
@@ -139,11 +146,13 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'chrismccord/bclose.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'kana/vim-submode'
+" syntax
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'elixir-lang/vim-elixir'
 NeoBundle 'kchmck/vim-coffee-script'
@@ -155,12 +164,22 @@ NeoBundle '5t111111/neat-json.vim'
 NeoBundle 'dgryski/vim-godef'
 NeoBundle 'vim-jp/vim-go-extra'
 NeoBundle 'cakebaker/scss-syntax.vim'
+" colorscheme
 NeoBundle 'dterei/VimCobaltColourScheme'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'jonathanfilip/vim-lucius'
 
 " if_luaが有効ならneocompleteを使う
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
+
+call neobundle#end()
+
+filetype plugin indent on
+
+NeoBundleCheck
+
+
+" neocomplete
 
 if neobundle#is_installed('neocomplete')
   " neocomplete用設定
@@ -194,8 +213,12 @@ let g:quickrun_config = {
   \   },
   \}
 
+" ctrlp
+" let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
 " Unite Setting
-" let g:unite_enable_start_insert = 1
+let g:unite_enable_start_insert = 1
 let g:unite_split_rule = 'rightbelow'
 let g:unite_winwidth = 40
 let g:unite_source_history_yank_enable =1
@@ -219,8 +242,6 @@ if executable('ag')
 endif
 
 
-filetype plugin indent on
-
 let g:syntastic_check_on_open = 1
 let g:syntastic_mode_map = { 'mode': 'passive',
     \ 'active_filetypes': ['ruby'] }
@@ -242,22 +263,27 @@ let g:lightline = {
   \ }
 
 " カラースキーム
-let g:hybrid_use_iTerm_colors = 0
-let g:lucius_no_term_bg = 1
+set background=dark
 colorscheme hybrid
+let g:hybrid_use_iTerm_colors = 0
+
+" 行番号の色を設定
+hi LineNr ctermbg=0 ctermfg=0
+hi CursorLineNr ctermbg=4 ctermfg=0
+hi clear CursorLine
+
+
 syntax enable
 syntax on
 
-set background=dark
-
 " IndentGuide Setting
-hi IndentGuidesOdd  ctermbg=8
-hi IndentGuidesEven ctermbg=236
-let g:indent_guides_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 1
-" let g:indent_guides_guide_size = 1
-
+let g:indent_guides_start_level = 2
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+let g:indent_guides_color_change_percent = 30
+hi IndentGuidesOdd  ctermbg=darkgray
+hi IndentGuidesEven ctermbg=black
 
 """ Commmands
 
@@ -268,6 +294,17 @@ command! Todo edit ~/Dropbox/memo/todo.txt
 command! -nargs=1 -complete=filetype Tmp edit ~/.vim_tmp/tmp.<args>
 command! -nargs=1 -complete=filetype Temp edit ~/.vim_tmp/tmp.<args>>>"
 
+
+" vp doesn't replace paste buffer
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
 
 "-------------------------------------------------
 "  Keymaps
@@ -281,24 +318,32 @@ nnoremap Q <Nop>
 " disable shortcut exit without save
 nnoremap ZQ <Nop>
 
+" set us mode
+nnoremap : ;
+nnoremap ; :
+
 " vv -> select to lineEnd
 vnoremap v $h
 
 " delete buffer without close split view
 nmap <C-W>w <Plug>Bclose
 
+" quick save
+nnoremap <Leader>w :w<CR>
+
 " leader + cで行の先頭にコメントをつけたり外したりできる
 nmap <Leader>c <Plug>(caw:i:toggle)
 vmap <Leader>c <Plug>(caw:i:toggle)
 
-" replace for easy input
-noremap <Leader>h  ^
-noremap <Leader>l  $
-nnoremap <Leader>/  *
-noremap <Leader>m  %
-
 """ nerdTree
 noremap <Leader>e :NERDTreeToggle<CR>
+let NERDTreeWinSize=26
+let NERDTreeShowHidden = 1
+" 引数なしで実行したとき、NERDTreeを実行する
+let file_name = expand("%:p")
+if has('vim_starting') &&  file_name == ""
+  autocmd VimEnter * execute 'NERDTree ./'
+endif
 
 """ vimshell shortcuts
 
@@ -318,23 +363,26 @@ nnoremap [unite] <Nop>
 nmap <Leader>f [unite]
 
 nnoremap [unite]u  :<C-u>Unite -no-split<Space>
-nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer<CR>
-nnoremap <silent> [unite]b :<C-u>Unite<Space>bookmark<CR>
+nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
+nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
+nnoremap <silent> [unite]k :<C-u>Unite<Space>bookmark<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
 nnoremap <silent> [unite]r :<C-u>UniteWithBufferDir file<CR>
-nnoremap <silent> ,vr :UniteResume<CR>
- 
-" unite-build map
-nnoremap <silent> ,vb :Unite build<CR>
-nnoremap <silent> ,vcb :Unite build:!<CR>
-nnoremap <silent> ,vch :UniteBuildClearHighlight<CR>
+nnoremap <silent> [unite]p :<C-u>UniteResume<CR>
 
+nnoremap <silent> ,vr :<CR>
 " unite outline
 nnoremap <Leader>o :Unite -vertical -no-quit -winwidth=32 outline<CR>
 
+" easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 """ function keys
 
-nnoremap <F10> :VimFiler<CR>
 nnoremap <F11> :UniteBookmarkAdd<CR>
 nnoremap <F12> :Unite bookmark<CR>
 
@@ -343,13 +391,16 @@ nnoremap <F12> :Unite bookmark<CR>
 " insert mode での移動
 inoremap <C-e> <END>
 inoremap <C-a> <HOME>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+
+" command line mode での移動
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-d> <Del>
 
 " 左右のカーソル移動で行間移動可能にする。
 set whichwrap=b,s,<,>,[,]
-
-" タブ切り替え
-nmap <Tab> gt
-nmap <S-Tab> gT
 
 """ 入力補完
 
@@ -388,10 +439,14 @@ nnoremap st :<C-u>tabnew<CR>
 nnoremap sT :<C-u>Unite tab<CR>
 nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
-nnoremap sq :<C-u>q<CR>
-nnoremap sQ :<C-u>bd<CR>
+nnoremap sq :<C-u>bd<CR>
+nnoremap sQ :<C-u>q<CR>
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
+
+" タブ切り替え
+nmap <Tab> gt
+nmap <S-Tab> gT
 
 call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
 call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
