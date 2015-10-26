@@ -355,20 +355,16 @@ nnoremap ZQ <Nop>
 nnoremap : ;
 nnoremap ; :
 
-" Edit / Reload vimrc
-nmap <Leader>sv :source $MYVIMRC<CR>
-nmap <Leader>ev :e $MYVIMRC<CR>
-
 " Ctrl+d / Ctrl+l to Esc
 inoremap <C-D> <Esc>
-vnoremap <C-L> <Esc>
+inoremap <C-L> <Esc>
 
 " esc * 2 -> cancel search highlight
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " Command Mode HistoryMove
 inoremap <C-K> <Up>
-vnoremap <C-J> <Down>
+inoremap <C-J> <Down>
 
 " vv -> select to lineEnd
 vnoremap v $h
