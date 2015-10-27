@@ -39,14 +39,17 @@ NeoBundle 'kana/vim-submode'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'elixir-lang/vim-elixir'
 NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'moll/vim-node'
 NeoBundle 'mattn/jscomplete-vim'
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'myhere/vim-nodejs-complete'
 NeoBundle '5t111111/neat-json.vim'
 NeoBundle 'dgryski/vim-godef'
 NeoBundle 'vim-jp/vim-go-extra'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
 " colorscheme
 NeoBundle 'w0ng/vim-hybrid'
@@ -130,8 +133,8 @@ au BufRead,BufNewFile *.coffee set filetype=coffee
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
 
-"node
-au BufRead,BufNewFile *.js set filetype=javascript
+"node / js
+au BufRead,BufNewFile *.js set filetype=javascript.jsx
 au BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
 autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
 
@@ -156,6 +159,8 @@ autocmd FileType html setlocal sw=2 sts=2 ts=2 et
 
 filetype plugin indent on
 
+" syntax option
+set regexpengine=1
 syntax enable
 syntax on
 
@@ -219,6 +224,10 @@ endif
 endif
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" emmet
+let g:user_emmet_leader_key='<C-m>'
+let g:use_emmet_complete_tag = 1
 
 """ quickrun
 let g:quickrun_config = {

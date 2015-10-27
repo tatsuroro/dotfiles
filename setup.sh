@@ -2,6 +2,7 @@
 mkdir ~/.vim_tmp
 
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
+ln -sf ~/dotfiles/.snippets.json ~/.snippets.json
 ln -sf ~/dotfiles/.tigrc ~/.tigrc
 ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
 ln -sf ~/dotfiles/.zsh ~/.zsh
