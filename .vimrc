@@ -157,6 +157,11 @@ au BufRead,BufNewFile *.html set filetype=html
 au BufNewFile,BufReadPost *.html setl shiftwidth=2 expandtab
 autocmd FileType html setlocal sw=2 sts=2 ts=2 et
 
+"CSS
+au BufRead,BufNewFile *.css set filetype=css
+au BufNewFile,BufReadPost *.css setl shiftwidth=2 expandtab
+autocmd FileType css setlocal sw=2 sts=2 ts=2 et
+
 filetype plugin indent on
 
 " syntax option
