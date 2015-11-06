@@ -313,6 +313,8 @@ hi clear CursorLine
 
 " vim-airline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
 
 """ IndentGuide Setting
 let g:indent_guides_enable_on_vim_startup = 1
