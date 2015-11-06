@@ -28,7 +28,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'bling/vim-airline'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'chrismccord/bclose.vim'
@@ -192,7 +192,6 @@ endif
 " 日本語入力をリセット
 au BufNewFile,BufRead * set iminsert=0
 
-
 "-------------------------------------------------
 "  Settings / autoCmd
 "-------------------------------------------------
@@ -302,35 +301,26 @@ let g:syntastic_warning_symbol = '⚠'
 " jsファイルで jsx シンタックスを有効にする
 let g:jsx_ext_required = 0
 
-" lightline
-let g:lightline = {
-  \ 'colorscheme': 'wombat',
-  \ 'component': {
-  \   'readonly': '%{&readonly?"":""}',
-  \ },
-  \ 'separator': { 'left': '', 'right': '' },
-  \ 'subseparator': { 'left': '', 'right': '' }
-  \ }
-
 " カラースキーム
 set background=dark
 colorscheme hybrid
 let g:hybrid_use_iTerm_colors = 0
 
 " 行番号の色を設定
-hi LineNr ctermbg=0 ctermfg=0
+hi LineNr ctermbg=0 ctermfg=235
 hi CursorLineNr ctermbg=4 ctermfg=0
 hi clear CursorLine
 
+" vim-airline
+let g:airline_powerline_fonts = 1
 
 """ IndentGuide Setting
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 2
 let g:indent_guides_auto_colors = 0
-let g:indent_guides_guide_size = 1
-let g:indent_guides_color_change_percent = 30
-hi IndentGuidesOdd  ctermbg=darkgray
-hi IndentGuidesEven ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=233
 
 
 """ Commmands
