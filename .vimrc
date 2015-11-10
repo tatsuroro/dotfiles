@@ -366,7 +366,7 @@ inoremap <C-D> <Esc>
 inoremap <C-L> <Esc>
 
 " esc * 2 -> cancel search highlight
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
+nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " Command Mode HistoryMove
 inoremap <C-K> <Up>
