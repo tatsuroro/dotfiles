@@ -90,7 +90,7 @@ export SHELL='/usr/local/bin/zsh'
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # GoRoot
-export GOPATH="$HOME/go"
+export GOPATH=$HOME
 export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
 
 export TERM=xterm-256color
@@ -107,3 +107,16 @@ chpwd_functions+=_cdd_chpwd
 
 ## Qiita Rb Api Access Token
 export QIITA_ACCESS_TOKEN="3b71f5af9803771ea59b48617fd2ced0460c5d4d"
+
+
+# ghq peco repo search
+function peco-src () {
+    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-src
+bindkey '^S' peco-src
