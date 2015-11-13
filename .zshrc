@@ -93,6 +93,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export GOPATH=$HOME
 export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
 
+# shell scripts
+export PATH="$PATH:$HOME/Dropbox/sh"
+
 export TERM=xterm-256color
 
 # enable load
