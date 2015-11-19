@@ -247,15 +247,19 @@ let g:vimfiler_enable_auto_cd = 1
 autocmd FileType vimfiler nmap <buffer> <CR> <Plug>(vimfiler_expand_or_edit)
 
 """ Unite Setting
-" let g:unite_enable_start_insert = 1
+let g:unite_enable_start_insert = 1
 " let g:unite_split_rule = 'rightbelow'
 let g:unite_winwidth = 40
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
 
-" ESCキーを2回押すと終了する
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+" unite.vim上でのキーマッピング
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+  " ESCキーを2回押すと終了する
+  nmap <silent><buffer> <ESC><ESC> q
+  imap <silent><buffer> <ESC><ESC> <ESC>q
+endfunction
 
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
