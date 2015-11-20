@@ -1,1 +1,0 @@
-/Users/t00522/dotfiles/.tmux.d

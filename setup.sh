@@ -13,3 +13,7 @@ ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/.tmux-powerlinerc ~/.tmux-powerlinerc
 ln -sf ~/dotfiles/.tmux.d ~/.tmux.d
 ln -sf ~/dotfiles/.tmuxinator ~/.tmuxinator
+
+sh ./setup_neobundle.sh
+
+
