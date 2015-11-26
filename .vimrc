@@ -26,7 +26,6 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -35,27 +34,31 @@ NeoBundle 'chrismccord/bclose.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'kana/vim-submode'
-" syntax
+
+" syntax & complete
+
+" if_luaが有効ならneocompleteを使う
+NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
+
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'elixir-lang/vim-elixir'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'moll/vim-node'
-NeoBundle 'mattn/jscomplete-vim'
+" NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'mattn/emmet-vim'
-NeoBundle 'myhere/vim-nodejs-complete'
+" NeoBundle 'myhere/vim-nodejs-complete'
 NeoBundle '5t111111/neat-json.vim'
 NeoBundle 'dgryski/vim-godef'
 NeoBundle 'vim-jp/vim-go-extra'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
+
 " colorscheme
 NeoBundle 'w0ng/vim-hybrid'
-
-" if_luaが有効ならneocompleteを使う
-NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 
 call neobundle#end()
 
@@ -115,6 +118,8 @@ set softtabstop=2
 
 set autoindent
 set smartindent
+
+set completeopt=menuone
 
 """ filetype IndentSettings
 " Ruby
@@ -195,14 +200,6 @@ au BufNewFile,BufRead * set iminsert=0
 "-------------------------------------------------
 "  Settings / autoCmd
 "-------------------------------------------------
-
-""" jscomplete / node-complete
-:setl omnifunc=jscomplete#CompleteJS
-if !exists('g:neocomplcache_omni_functions')
-  let g:neocomplcache_omni_functions = {}
-endif
-let g:neocomplcache_omni_functions.javascript = 'nodejscomplete#CompleteJS'
-let g:node_usejscomplete = 1
 
 """ neocomplete
 if neobundle#is_installed('neocomplete')
