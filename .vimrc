@@ -445,6 +445,10 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+let g:easy_align_delimiters = {
+\ ':': { 'pattern': ':', 'left_margin': 0, 'right_margin': 1, 'stick_to_left': 0 },
+\ }
+
 """ function keys
 
 nnoremap <F10> :VimFiler<CR>
