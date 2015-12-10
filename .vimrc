@@ -365,6 +365,7 @@ nnoremap ; :
 
 " Ctrl+d / Ctrl+l to Esc
 inoremap <C-D> <Esc>
+inoremap <silent>jj <Esc>
 inoremap <C-L> <Esc>
 
 " esc * 2 -> cancel search highlight

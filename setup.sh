@@ -14,4 +14,3 @@ ln -sf ~/dotfiles/.tmuxinator ~/.tmuxinator
 
 sh ./setup_neobundle.sh
 
-

@@ -1,0 +1,44 @@
+# ~/.tmuxinator/fam.yml
+
+name: saigon
+root: ~/src/github.com/CyberAgent/saigon-front
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.1.2
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# 1: saigon* (2 panes) [178x48] [layout a386,178x48,0,0{124x48,0,0,0,53x48,125,0,6}] @0 (active)
+# 2: sub- (2 panes) [178x48] [layout 9d88,178x48,0,0[178x33,0,0,1,178x14,0,34,5]] @1
+# 3: sandbox (2 panes) [178x48] [layout 595d,178x48,0,0{89x48,0,0,2,88x48,90,0,4}] @2
+
+windows:
+  - saigon:
+    layout: a386,178x48,0,0{89x48,0,0,19,88x48,90,0,20}
+    panes:
+      - P1:
+        - v
+      - P2:
+        - gst
+        - gb -a
+        - git remote prune origin
+  - sub:
+    layout: 9d88,178x48,0,0[178x33,0,0,21,178x14,0,34,22]
+    panes:
+      - tig
+      -
+  - sandbox:
+    layout: 595d,178x48,0,0{89x48,0,0,2,88x48,90,0,4}
+    panes:
+      - gst
+      -
