@@ -1,5 +1,5 @@
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:$PATH
-export PATH=./bin:$HOME/bin:$HOME/.nodebrew/current/bin:$PATH
+export PATH=./bin:$HOME/bin:$PATH
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -7,6 +7,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # GoRoot
 export GOPATH=$HOME
 export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
+
+# nodenv
+export NODENV_ROOT="/usr/local/var/nodenv"
 
 # rbenv
 export RBENV_ROOT="/usr/local/var/rbenv"
