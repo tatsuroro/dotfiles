@@ -56,6 +56,9 @@ export HISTIGNORE="ls:ls *:la:la *:cd:cd -:pwd"
 export EDITOR='vim'
 export SHELL='/usr/local/bin/zsh'
 
+# direnv bootstrap
+eval "$(direnv hook zsh)"
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -73,10 +76,11 @@ zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 typeset -ga chpwd_functions
 chpwd_functions+=_cdd_chpwd
 
+# nodenv
+if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
+
 #rbenv
-if which rbenv > /dev/null; then
-    eval "$(rbenv init -)";
-fi
+if which rbenv > /dev/null; then  eval "$(rbenv init -)"; fi
 
 ## Qiita Rb Api Access Token
 export QIITA_ACCESS_TOKEN="3b71f5af9803771ea59b48617fd2ced0460c5d4d"
