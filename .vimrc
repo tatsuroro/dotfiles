@@ -26,6 +26,7 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -47,6 +48,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'moll/vim-node'
+NeoBundle 'slim-template/vim-slim'
 " NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'mattn/emmet-vim'
 " NeoBundle 'myhere/vim-nodejs-complete'
@@ -87,6 +89,8 @@ set imdisable
 set backspace=indent,eol,start
 set list
 set listchars=tab:»-,trail:*,extends:»,precedes:«,nbsp:%
+" showbreaks
+set showbreak=↪
 
 " ui
 set number cursorline
@@ -374,6 +378,14 @@ nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 " Command Mode HistoryMove
 inoremap <C-K> <Up>
 inoremap <C-J> <Down>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
+" 日本語入力がオンのままでも使えるコマンド(Enterキーは必要)
+nnoremap あ a
+nnoremap い i
+nnoremap う u
+nnoremap お o
 
 " vv -> select to lineEnd
 vnoremap v $h
