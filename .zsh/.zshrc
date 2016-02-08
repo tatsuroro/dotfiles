@@ -39,7 +39,7 @@ setopt share_history
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew brew-cask git git-hubflow github osx tmux tmuxinator vagrant rails ruby rbenv node npm nvm golang)
+plugins=(brew brew-cask git git-hubflow github osx tmux tmuxinator vagrant rails ruby rbenv node npm nodenv golang)
 
 # custom plugins
 plugins+=(zsh-completions)
@@ -115,3 +115,8 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+
+function propen() {
+  local current_branch_name=$(git symbolic-ref --short HEAD | xargs perl -MURI::Escape -e 'print uri_escape($ARGV[0]);')
+  git config --get remote.origin.url | sed -e "s/^.*[:\/]\(.*\/.*\).git$/https:\/\/github.com\/\1\//" | sed -e "s/$/pull\/${current_branch_name}/" | xargs open
+}
