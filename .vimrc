@@ -247,6 +247,14 @@ let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_enable_auto_cd = 1
 autocmd FileType vimfiler nmap <buffer> <CR> <Plug>(vimfiler_expand_or_edit)
 
+""" ctrlp
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_extensions = ['mixed']
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|\.git|\.hgn)$'
+let g:ctrlp_max_files = 100000
+let g:ctrlp_max_depth = 40
+
 """ Unite Setting
 let g:unite_enable_start_insert = 1
 " let g:unite_split_rule = 'rightbelow'
@@ -367,8 +375,7 @@ nnoremap ZQ <Nop>
 nnoremap : ;
 nnoremap ; :
 
-" Ctrl+d / Ctrl+l to Esc
-inoremap <C-D> <Esc>
+" Ctrl+l to Esc
 inoremap <silent>jj <Esc>
 inoremap <C-L> <Esc>
 
@@ -378,8 +385,7 @@ nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 " Command Mode HistoryMove
 inoremap <C-K> <Up>
 inoremap <C-J> <Down>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
+inoremap <C-H> <Left>
 
 " 日本語入力がオンのままでも使えるコマンド(Enterキーは必要)
 nnoremap あ a
