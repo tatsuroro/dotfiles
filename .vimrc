@@ -28,7 +28,8 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'chrismccord/bclose.vim'
@@ -42,8 +43,8 @@ NeoBundle 'kana/vim-submode'
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'mtscout6/syntastic-local-eslint.vim'
 NeoBundle 'tpope/vim-rails'
-NeoBundle 'elixir-lang/vim-elixir'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
@@ -53,8 +54,9 @@ NeoBundle 'slim-template/vim-slim'
 NeoBundle 'mattn/emmet-vim'
 " NeoBundle 'myhere/vim-nodejs-complete'
 NeoBundle '5t111111/neat-json.vim'
-NeoBundle 'dgryski/vim-godef'
-NeoBundle 'vim-jp/vim-go-extra'
+" NeoBundle 'dgryski/vim-godef'
+" NeoBundle 'vim-jp/vim-go-extra'
+" NeoBundle 'toyamarinyon/vim-swift'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
@@ -132,8 +134,6 @@ autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType yaml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 " ERUBY
 autocmd FileType eruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-" HAML
-autocmd FileType haml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 " CoffeeScript, JavaScript
 autocmd FileType coffee,javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
@@ -165,6 +165,9 @@ au BufRead,BufNewFile GHI_ISSUE set filetype=markdown
 au BufRead,BufNewFile *.html set filetype=html
 au BufNewFile,BufReadPost *.html setl shiftwidth=2 expandtab
 autocmd FileType html setlocal sw=2 sts=2 ts=2 et
+
+"Jade -> slim
+autocmd BufNewFile,BufRead *.jade set filetype=slim
 
 "CSS
 au BufRead,BufNewFile *.css set filetype=css
@@ -278,11 +281,11 @@ if executable('ag')
   let g:unite_source_grep_max_candidates = 200
 endif
 
-" open Unite file_mru on init
-let file_name = expand("%:p")
-if has('vim_starting') &&  file_name == ""
-  autocmd VimEnter * execute ':Unite file_mru'
-endif
+" " open ctrlP on init
+" let file_name = expand("%:p")
+" if has('vim_starting') &&  file_name == ""
+"   autocmd VimEnter * execute ':CtrlP'
+" endif
 
 let g:unite_source_menu_menus = {
 \   "shortcut" : {
@@ -304,13 +307,17 @@ function! s:unite_my_keymappings()
 endfunction
 
 """ syntastic
-let g:syntastic_check_on_open = 1
 let g:syntastic_mode_map = { 'mode': 'passive',
     \ 'active_filetypes': ['ruby'] }
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
+" let g:syntastic_javascript_checkers = ['eslint']
+
+" let g:syntastic_enable_signs = 0
+" let g:syntastic_error_symbol = '✗'
+" let g:syntastic_warning_symbol = '⚠'
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " jsファイルで jsx シンタックスを有効にする
 let g:jsx_ext_required = 0
@@ -409,6 +416,26 @@ vmap <Leader>c <Plug>(caw:i:toggle)
 """ vimfiler
 noremap <C-K> :VimFiler -split -simple -winwidth=26 -no-quit<CR>
 
+""" neosnippet
+" Plugin key-mappings.
+imap <C-j>     <Plug>(neosnippet_expand_or_jump)
+smap <C-j>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-j>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+
 """ vimshell shortcuts
 
 " ,is: シェルを起動
@@ -438,12 +465,13 @@ nmap <Leader>f [unite]
 nnoremap [unite]u  :<C-u>Unite -no-split<Space>
 nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
 nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
+nnoremap <silent> [unite]t :<C-u>Unite<Space>tab<CR>
 nnoremap <silent> [unite]k :<C-u>Unite<Space>bookmark<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
 nnoremap <silent> [unite]a :<C-u>Unite buffer file file_mru bookmark<CR>
-nnoremap <silent> [unite]r :<C-u>Unite<Space>register<CR>
+nnoremap <silent> [unite]p :<C-u>Unite<Space>register<CR>
 nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir file<CR>
-nnoremap <silent> [unite]p :<C-u>UniteResume<CR>
+nnoremap <silent> [unite]r :<C-u>UniteResume<CR>
 
 " grep検索
 nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
@@ -521,7 +549,6 @@ nnoremap sO <C-w>=
 nnoremap sn :<C-u>bn<CR>
 nnoremap sp :<C-u>bp<CR>
 nnoremap st :<C-u>tabnew<CR>
-nnoremap sT :<C-u>Unite tab<CR>
 nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap sq :<C-u>bd<CR>

@@ -1,5 +1,6 @@
 #!/bin/sh
-mkdir ~/.vim_tmp
+mkdir ~/.config
+mkdir ~/.config/nvim
 
 ln -sf ~/dotfiles/.zshenv ~/.zshenv
 ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
@@ -11,6 +12,4 @@ ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/.tmux-powerlinerc ~/.tmux-powerlinerc
 ln -sf ~/dotfiles/.tmux.d ~/.tmux.d
 ln -sf ~/dotfiles/.tmuxinator ~/.tmuxinator
-
-sh ./setup_neobundle.sh
 

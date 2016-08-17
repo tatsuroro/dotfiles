@@ -5,7 +5,10 @@ ZSH_THEME="wedisagree"
 
 alias sudo="sudo "
 alias v="vim"
+alias nv="nvim"
 alias vi="vim"
+alias grep="ag"
+alias sed="gsed"
 alias tm="tmux"
 
 alias ls="ls -GAF"
@@ -39,7 +42,7 @@ setopt share_history
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew brew-cask git git-hubflow github osx tmux tmuxinator vagrant rails ruby rbenv node npm nodenv golang)
+plugins=(brew brew-cask git git-hubflow github osx tmux tmuxinator rails ruby rbenv node npm nodenv golang)
 
 # custom plugins
 plugins+=(zsh-completions)
@@ -53,10 +56,13 @@ export HISTIGNORE="ls:ls *:la:la *:cd:cd -:pwd"
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export EDITOR='vim'
+export EDITOR='nvim'
 export SHELL='/usr/local/bin/zsh'
 
-# direnv bootstrap
+# for neovim
+export XDG_CONFIG_HOME=$HOME/.config
+
+ #direnv bootstrap
 eval "$(direnv hook zsh)"
 
 # Compilation flags
@@ -85,10 +91,9 @@ if which rbenv > /dev/null; then  eval "$(rbenv init -)"; fi
 ## Qiita Rb Api Access Token
 export QIITA_ACCESS_TOKEN="3b71f5af9803771ea59b48617fd2ced0460c5d4d"
 
-
 # ghq peco repo search
 function peco-src () {
-    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    local selected_dir=$(ghq list --full-path | awk '!a[$0]++' | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
@@ -108,6 +113,7 @@ function peco-select-history() {
     fi
     BUFFER=$(\history -n 1 | \
         eval $tac | \
+        awk '!a[$0]++' | \
         peco --query "$LBUFFER")
     CURSOR=$#BUFFER
     zle clear-screen
@@ -118,5 +124,5 @@ bindkey '^r' peco-select-history
 
 function propen() {
   local current_branch_name=$(git symbolic-ref --short HEAD | xargs perl -MURI::Escape -e 'print uri_escape($ARGV[0]);')
-  git config --get remote.origin.url | sed -e "s/^.*[:\/]\(.*\/.*\).git$/https:\/\/github.com\/\1\//" | sed -e "s/$/pull\/${current_branch_name}/" | xargs open
+  hub browse -- pull/${current_branch_name}
 }

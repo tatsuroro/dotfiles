@@ -24,8 +24,33 @@ echo '-----'
 
 echo 'add `[ghq] root = ~/src` to ~/.gitconfig'
 
+
+# [user]
+#   name = tatsuroro
+#   email = tatsuro.nakamura@kaizenplatform.com
+#
+# [ghq]
+#   root = ~/src
+#
+# [push]
+#   default = current
+#
+# [rebase]
+#   autosquash = true
+#
+# [color]
+#   ui = true
+#
+# [pager]
+#   log = diff-highlight | less -r
+#   show = diff-highlight | less -r
+#   diff = diff-highlight | less -r
+#
+
+### add gitconfig options
+### below : link diff-highlight command to PATH
+# ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
+
 echo '-----'
 
-echo 'after setup ruby, gem install tmuxinator'
-
-
+echo 'after setup ruby, exec `gem install tmuxinator`'
