@@ -10,6 +10,7 @@ alias vi="vim"
 alias grep="ag"
 alias sed="gsed"
 alias tm="tmux"
+alias mux="tmuxinator"
 
 alias ls="ls -GAF"
 
