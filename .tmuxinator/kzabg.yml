@@ -5,8 +5,8 @@ windows:
       root: ~/src/github.com/kaizenplatform/kaizen-ad-frontend
       layout: even-horizontal
       panes:
-        - npm start
-        - npm run-script test:watch
+        - yarn start
+        - yarn test:watch
   - kaizen-ad-background:
       layout: even-horizontal
       panes:
@@ -14,6 +14,8 @@ windows:
           - git fetch --all
           - git checkout master
           - git pull
+          - bundle
+          - bundle exec rake db:migrate
           - bundle exec rails server -p 3010
         - P2:
           - cd ~/src/github.com/kaizenplatform/planbcd

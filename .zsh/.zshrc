@@ -11,8 +11,14 @@ alias grep="ag"
 alias sed="gsed"
 alias tm="tmux"
 alias mux="tmuxinator"
+alias gat="gatsby"
+
+alias gfx="git fixup"
+alias gbra="git branch-list"
 
 alias ls="ls -GAF"
+
+alias zrc="nvim ~/dotfiles/.zsh/.zshrc"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
