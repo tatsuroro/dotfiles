@@ -23,4 +23,4 @@ windows:
           - git checkout master
           - git pull
           - bundle exec rails server -p 3000
-  - sandbox: fluentd -c ~/etc/fluentd.conf/fluent.conf -d 9999
+  - sandbox: sh ~/dotfiles/sh/fluentd.sh
