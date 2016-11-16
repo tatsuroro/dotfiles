@@ -1,6 +1,4 @@
-"---------------------------------------------------------------------------
-" deoplete.nvim
-"
+""" deoplete.nvim
 
 " <TAB>: completion.
 imap <silent><expr> <TAB>
@@ -21,7 +19,7 @@ inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
 
 inoremap <expr><C-g> deoplete#mappings#undo_completion()
 " <C-l>: redraw candidates
-" inoremap <expr><C-l>       deoplete#mappings#refresh()
+" inoremap <expr><C-l> deoplete#mappings#refresh()
 
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>

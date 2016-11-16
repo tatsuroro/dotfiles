@@ -1,41 +1,5 @@
 [[plugins]]
-repo = 'Shougo/neosnippet'
-depents = ['neosnippet-snippets', 'context_filetype.vim']
-on_i = 1
-on_ft = 'snippet'
-
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-on_if = 1
-
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-on_if = 1
-on_source = 'unite.vim'
-
-[[plugins]]
-repo = 'Shougo/unite.vim'
-depends = 'neomru.vim'
-
-[[plugins]]
-repo = 'Shougo/unite-outline'
-on_source = 'unite.vim'
-
-[[plugins]]
-repo = 'sorah/unite-ghq'
-on_source = 'unite.vim'
-
-[[plugins]]
-repo = 'osyo-manga/unite-filetype'
-on_source = 'unite.vim'
-
-[[plugins]]
-repo = 'thinca/vim-unite-history'
-on_source = 'unite.vim'
-
-[[plugins]]
-repo = 'Shougo/vimfiler'
-depends = 'unite.vim'
+repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
@@ -47,7 +11,31 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
+repo = 'Shougo/denite.nvim'
+on_cmd = 'Denite'
+hook_source = '''
+  source ~/.config/nvim/plugins/denite.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_if = 1
+on_source = ['unite.vim', 'denite.nvim']
+hook_source = '''
+  let g:neomru#file_mru_limit = 20000
+'''
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_if = 1
+on_event = 'TextYankPost'
+on_source = ['unite.vim', 'denite.nvim']
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+depents = ['neosnippet-snippets', 'context_filetype.vim']
+on_i = 1
+on_ft = 'snippet'
 
 [[plugins]]
 repo = 'osyo-manga/vim-monster'
@@ -74,8 +62,8 @@ repo = 'moll/vim-node'
 on_ft = 'node'
 
 [[plugins]]
-repo = 'slim-template/vim-slim'
-on_ft = 'slim'
+repo = 'digitaltoad/vim-pug'
+on_ft = ['slim', 'jade', 'pug']
 
 [[plugins]]
 repo = 'mattn/emmet-vim'

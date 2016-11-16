@@ -3,6 +3,10 @@ if has("multi_lang")
   language C
 endif
 
+" set encoding=utf-8
+" set fileencodings=default,euc-jp,sjis,utf-8
+" set fileformats=unix,dos,mac
+
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible   " Be iMproved
@@ -45,27 +49,25 @@ set nobackup
 set noswapfile
 set clipboard+=unnamedplus
 set confirm
-
-" 文字、改行コードを自動判別する
-" set encoding=utf-8
-" set fileencodings=default,euc-jp,sjis,utf-8
-" set fileformats=unix,dos,mac
-
 set autoread
 
 set imdisable
 
 set backspace=indent,eol,start
 set list
-set listchars=tab:»-,trail:*,extends:»,precedes:«,nbsp:%
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
+
 " showbreaks
 set showbreak=↪
 
+" show too long line
+set display=lastline
+
 " ui
-set number cursorline
-set showmatch
+set number
 set wildmenu
 set wildmode=longest,full
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png
 set wrap
 set showtabline=2
 set laststatus=2
@@ -73,12 +75,11 @@ set laststatus=2
 " search
 set ignorecase
 set smartcase
-
 set hlsearch
 set incsearch
-
-set showmatch "対応する括弧を表示
-
+" 対応する括弧を表示
+set showmatch
+set matchtime=1
 set matchpairs+=「:」,『:』,（:）,【:】,《:》,〈:〉,［:］,‘:’,“:”
 
 set t_co=<t_co>
@@ -97,51 +98,38 @@ set smartindent
 set completeopt=menuone
 
 """ filetype IndentSettings
-" Ruby
-autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-" YAML
-autocmd FileType yaml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-" ERUBY
-autocmd FileType eruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-" CoffeeScript, JavaScript
-autocmd FileType coffee,javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+augroup Indent
+  autocmd!
+  " common indent
+  autocmd FileType ruby,yaml,eruby,coffee,javascript,go,html,css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
-"Coffee script
-au BufRead,BufNewFile *.coffee set filetype=coffee
-au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
+  "Coffee script
+  autocmd BufRead,BufNewFile *.coffee set filetype=coffee
+  autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+  "node / js
+  autocmd BufRead,BufNewFile *.js set filetype=javascript.jsx
+  autocmd BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
+  "Cakefile
+  autocmd BufRead,BufNewFile Cakefile set filetype=coffee
+  autocmd BufNewFile,BufReadPost Cakefile setl shiftwidth=2 expandtab
+  "Go
+  autocmd BufRead,BufNewFile *.go set filetype=go
+  autocmd BufNewFile,BufReadPost *.go setl shiftwidth=2 expandtab
+  "Markdown
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile GHI_ISSUE set filetype=markdown
+  "HTML
+  autocmd BufRead,BufNewFile *.html set filetype=html
+  autocmd BufNewFile,BufReadPost *.html setl shiftwidth=2 expandtab
+  "Jade -> slim
+  autocmd BufNewFile,BufRead *.jade set filetype=slim
+  "CSS
+  autocmd BufRead,BufNewFile *.css set filetype=css
+  autocmd BufNewFile,BufReadPost *.css setl shiftwidth=2 expandtab
 
-"node / js
-au BufRead,BufNewFile *.js set filetype=javascript.jsx
-au BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
-autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
-
-"Cakefile
-au BufRead,BufNewFile Cakefile set filetype=coffee
-au BufNewFile,BufReadPost Cakefile setl shiftwidth=2 expandtab
-autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
-
-"Go
-au BufRead,BufNewFile *.go set filetype=go
-au BufNewFile,BufReadPost *.go setl shiftwidth=2 expandtab
-autocmd FileType go setlocal sw=2 sts=2 ts=2 et
-
-"Markdown
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile GHI_ISSUE set filetype=markdown
-
-"HTML
-au BufRead,BufNewFile *.html set filetype=html
-au BufNewFile,BufReadPost *.html setl shiftwidth=2 expandtab
-autocmd FileType html setlocal sw=2 sts=2 ts=2 et
-
-"Jade -> slim
-autocmd BufNewFile,BufRead *.jade set filetype=slim
-
-"CSS
-au BufRead,BufNewFile *.css set filetype=css
-au BufNewFile,BufReadPost *.css setl shiftwidth=2 expandtab
-autocmd FileType css setlocal sw=2 sts=2 ts=2 et
+  " list chars color
+  autocmd VimEnter,Colorscheme * highlight SpecialKey term=bold ctermfg=241
+augroup END
 
 filetype plugin indent on
 
@@ -150,11 +138,13 @@ set regexpengine=1
 syntax enable
 syntax on
 
-" auto Trailing WhiteSpace
-autocmd BufWritePre * :%s/\s\+$//e
-
-" カーソル復元
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup Buffer
+  autocmd!
+  " auto Trailing WhiteSpace
+  autocmd BufWritePre * :%s/\s\+$//e
+  " カーソル復元
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
 
 " 全角スペースをハイライト表示
 function! ZenkakuSpace()
@@ -162,9 +152,10 @@ function! ZenkakuSpace()
 endfunction
 
 if has('syntax')
-  augroup ZenkakuSpace
+  augroup TatsuroroHighlihgt
     autocmd!
-    autocmd ColorScheme       * call ZenkakuSpace()
+    autocmd ColorScheme * highlight Search ctermfg=139 ctermbg=none
+    autocmd ColorScheme * call ZenkakuSpace()
     autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
   augroup END
   call ZenkakuSpace()
@@ -177,7 +168,7 @@ au BufNewFile,BufRead * set iminsert=0
 "  Settings / autoCmd
 "-------------------------------------------------
 
-" emmet
+""" emmet
 let g:user_emmet_leader_key='<C-m>'
 let g:use_emmet_complete_tag = 1
 
@@ -189,67 +180,38 @@ let g:quickrun_config = {
   \   },
   \}
 
-""" Unite Setting
-let g:unite_enable_start_insert = 1
-" let g:unite_split_rule = 'rightbelow'
-let g:unite_winwidth = 40
-let g:unite_source_history_yank_enable =1
-let g:unite_source_file_mru_limit = 200
-
-" unite.vim上でのキーマッピング
-autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()
-  " ESCキーを2回押すと終了する
-  nmap <silent><buffer> <ESC><ESC> q
-  imap <silent><buffer> <ESC><ESC> <ESC>q
-endfunction
-
-" unite keymapping
-autocmd FileType unite call s:unite_my_keymappings()
-function! s:unite_my_keymappings()
-  " fを押下でカーソル下の候補を選択状態にする
-  nmap <buffer> f <Plug>(unite_toggle_mark_current_candidate)
-endfunction
-
-" unite grep に ag(The Silver Searcher) を使う
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --line-numbers --hidden --ignore ''.git'''
-  let g:unite_source_grep_recursive_opt = ''
-  let g:unite_source_grep_max_candidates = 200
-endif
-
-let g:unite_source_menu_menus = {
-\   "shortcut" : {
-\       "description" : "sample unite-menu",
-\       "command_candidates" : [
-\           ["edit vimrc", "edit $MYVIMRC"],
-\           ["unite-file_mru", "Unite file_mru"],
-\           ["Unite Beautiful Attack", "Unite -auto-preview colorscheme"],
-\           ["unite-output:message", "Unite output:message"],
-\       ],
-\   },
-\}
-
-""" vimfiler
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_enable_auto_cd = 1
-autocmd FileType vimfiler nmap <buffer> <CR> <Plug>(vimfiler_cd_or_edit)
-
 """ ctrlp
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_extensions = ['mixed']
+let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|\.git|\.hgn)$'
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/](node_modules|\.(git|hg|hgn|svn))$',
+  \ 'file': '\v\.(exe|so|dll|png|jpg|gif)$',
+  \ 'link': '',
+  \ }
 let g:ctrlp_max_files = 100000
 let g:ctrlp_max_depth = 40
+let g:ctrlp_user_command = 'files -a -i "^(.git|node_modules)$" %s'
+
+""" vim-easymotion
+"Disable default mappings
+let g:EasyMotion_do_mapping = 0
+
+" Jump to first match with enter & space
+let g:EasyMotion_enter_jump_first = 1
+let g:EasyMotion_space_jump_first = 1
+
+""" vim-gista
+let g:gista#client#default_username = 'tatsuroro'
 
 " jsファイルで jsx シンタックスを有効にする
 let g:jsx_ext_required = 0
 
 " カラースキーム
 if has('nvim')
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 endif
 
 set background=dark
@@ -257,21 +219,20 @@ colorscheme hybrid
 let g:hybrid_use_iTerm_colors = 0
 
 " 行番号の色を設定
-hi LineNr ctermbg=0 ctermfg=235
+set cursorline
+hi LineNr ctermbg=235 ctermfg=241
 hi CursorLineNr ctermbg=4 ctermfg=0
 hi clear CursorLine
+hi CursorLine ctermbg=236
 
-" vim-airline
+""" vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-""" IndentGuide Setting
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 2
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=233
+""" indentLine
+let g:indentLine_color_term = 241
+let g:indentLine_color_gui = '#eeeeee'
+let g:indentLine_char = '¦' "use ¦, ┆ or │
 
 " Set async completion. With deoplete.nvim
 let g:monster#completion#rcodetools#backend = "async_rct_complete"
@@ -279,8 +240,8 @@ let g:deoplete#sources#omni#input_patterns = {
 \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
 \}
 
-
-""" Commmands
+" -----
+" Commmands
 
 " vp doesn't replace paste buffer
 function! RestoreRegister()
@@ -293,12 +254,15 @@ function! s:Repl()
 endfunction
 vmap <silent> <expr> p <sid>Repl()
 
+" sudo save"
+cabbr w!! w !sudo tee > /dev/null %
+
 "-------------------------------------------------
 "  Keymaps
 "-------------------------------------------------
 
 " set Leader
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
 " disable ex mode
 nnoremap Q <Nop>
@@ -310,6 +274,13 @@ nnoremap : ;
 nnoremap ; :
 vnoremap : ;
 vnoremap ; :
+
+" yank to end of line
+nnoremap Y y$
+
+" increment
+nnoremap + <C-a>
+nnoremap - <C-x>
 
 " Ctrl+l to Esc
 inoremap <silent>jj <Esc>
@@ -342,36 +313,6 @@ nnoremap <Leader>w :w<CR>
 nmap <Leader>c <Plug>(caw:i:toggle)
 vmap <Leader>c <Plug>(caw:i:toggle)
 
-""" unite
-nnoremap [unite] <Nop>
-nmap <Leader>f [unite]
-
-nnoremap [unite]u  :<C-u>Unite -no-split<Space>
-nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
-nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
-nnoremap <silent> [unite]t :<C-u>Unite<Space>tab<CR>
-nnoremap <silent> [unite]k :<C-u>Unite<Space>bookmark<CR>
-nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
-nnoremap <silent> [unite]a :<C-u>Unite buffer file file_mru bookmark<CR>
-nnoremap <silent> [unite]p :<C-u>Unite<Space>register<CR>
-nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir file<CR>
-nnoremap <silent> [unite]r :<C-u>UniteResume<CR>
-
-" grep検索
-nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-" カーソル位置の単語をgrep検索
-nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-" ディレクトリを指定してgrep検索
-nnoremap <silent> ,dg  :<C-u>Unite grep -buffer-name=search-buffer<CR>
-" grep検索結果の再呼出
-nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
-
-" unite outline
-nnoremap <Leader>o :Unite -vertical -no-quit -winwidth=32 outline<CR>
-
-""" vimfiler
-noremap <C-K> :VimFilerExplorer -simple -winwidth=26 -no-quit<CR>
-
 """ vimshell shortcuts
 " ,is: シェルを起動
 nnoremap <silent> ,is :VimShell<CR>
@@ -396,15 +337,73 @@ nnoremap <Leader>gc :<C-u>Gcommit<CR>
 nnoremap <Leader>gC :<C-u>Git commit --amend<CR>
 nnoremap <Leader>gb :<C-u>Gblame<CR>
 
-""" function keys
-nnoremap <F10> :VimFiler<CR>
+""" Denite
+nnoremap [denite] <Nop>
+nmap <Leader>f [denite]
+
+nnoremap [denite]u  :<C-u>Denite -no-split<Space>
+nnoremap <silent> [denite]f :<C-u>Denite file_rec<CR>
+nnoremap <silent> [denite]b :<C-u>Denite buffer<CR>
+nnoremap <silent> [denite]l :<C-u>Denite line<CR>
+nnoremap <silent> [denite]m :<C-u>Denite file_mru<CR>
+nnoremap <silent> <C-k> :<C-u>Denite file_mru<CR>
+nnoremap <silent> [denite]y :<C-u>Denite neoyank<CR>
+nnoremap <silent> [denite]h :<C-u>Denite help<CR>
+nnoremap <silent> [denite]a :<C-u>Denite buffer file_mru<CR>
+
+" Denite grep検索
+nnoremap <silent> ,g  :<C-u>Denite grep:. -buffer-name=search-buffer<CR>
+" カーソル位置の単語をgrep検索
+nnoremap <silent> ,mg :<C-u>Denite grep:. -buffer-name=search-buffer<CR><C-R><C-W><CR>
+" grep検索結果の再呼出
+nnoremap <silent> ,r  :<C-u>DeniteResume search-buffer<CR>
 
 """ neosnippet
 " Plugin key-mappings.
-imap <C-j>     <Plug>(neosnippet_expand_or_jump)
-smap <C-j>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-j>     <Plug>(neosnippet_expand_target)
+imap <C-j> <Plug>(neosnippet_expand_or_jump)
+smap <C-j> <Plug>(neosnippet_expand_or_jump)
+xmap <C-j> <Plug>(neosnippet_expand_target)
 
+""" vim-gista-ctrlp
+nnoremap <silent> <C-g> :CtrlPGista<CR>
+
+""" operator-replace
+nmap R <Plug>(operator-replace)
+
+""" operator-surround
+nmap <silent> sa <Plug>(operator-surround-append)
+nmap <silent> sd <Plug>(operator-surround-delete)
+nmap <silent> sr <Plug>(operator-surround-replace)
+" カーソル位置から一番近い括弧を削除する
+nmap <silent> sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
+" カーソル位置から一番近い括弧を変更する
+nmap <silent> srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
+
+""" textobj-multiblock
+omap ab <Plug>(textobj-multiblock-a)
+omap ib <Plug>(textobj-multiblock-i)
+vmap ab <Plug>(textobj-multiblock-a)
+vmap ib <Plug>(textobj-multiblock-i)
+
+""" vim-quickhl
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-resetl)l
+
+" for masui special. 編集箇所を戻る
+noremap g<CR> g;
+
+" qでウインドウを閉じて Qでマクロ
+nnoremap Q q
+
+""" vim-easymotion
+nmap q <Plug>(easymotion-s2)
+xmap q <Plug>(easymotion-s2)
+" surround.vimと被らないように
+omap q <Plug>(easymotion-s2)
+
+""" -----
 """ Move Setting
 
 " insert mode での移動
@@ -422,21 +421,14 @@ cnoremap <C-d> <Del>
 set whichwrap=b,s,<,>,[,]
 
 """ 入力補完
-
 inoremap { {}<LEFT>
 inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 inoremap < <><LEFT>
-vnoremap { "zdi^V{<C-R>z}<ESC>
-vnoremap [ "zdi^V[<C-R>z]<ESC>
-vnoremap ( "zdi^V(<C-R>z)<ESC>
-vnoremap " "zdi^V"<C-R>z^V"<ESC>
-vnoremap ' "zdi'<C-R>z'<ESC>
 
 """ window and tab controls
-
 nnoremap s <Nop>
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
@@ -452,27 +444,17 @@ nnoremap so <C-w>_<C-w>|
 nnoremap sO <C-w>=
 nnoremap sn :<C-u>bn<CR>
 nnoremap sp :<C-u>bp<CR>
-nnoremap st :<C-u>tabnew<CR>
-nnoremap ss :<C-u>sp<CR>
+nnoremap st :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap sq :<C-u>bd<CR>
 nnoremap sQ :<C-u>q<CR>
-
-""" textobj-multiblock
-omap ab <Plug>(textobj-multiblock-a)
-omap ib <Plug>(textobj-multiblock-i)
-vmap ab <Plug>(textobj-multiblock-a)
-vmap ib <Plug>(textobj-multiblock-i)
 
 " タブ切り替え
 nmap <Tab> gt
 nmap <S-Tab> gT
 
-call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
-call submode#map('bufmove', 'n', '', '>', '<C-w>>')
-call submode#map('bufmove', 'n', '', '<', '<C-w><')
-call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+" ウインドウサイズ変更
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>

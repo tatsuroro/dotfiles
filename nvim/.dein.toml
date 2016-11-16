@@ -2,17 +2,18 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
+repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'Shougo/vimproc.vim'
+build = 'make'
 
 [[plugins]]
 repo = 'Shougo/vimshell'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
+repo = 'nixprime/cpsm'
+build = 'env PY3=ON ./install.sh'
 
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
@@ -27,13 +28,22 @@ repo = 'vim-airline/vim-airline'
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
+repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = 'chrismccord/bclose.vim'
 
 [[plugins]]
+repo = 'easymotion/vim-easymotion'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
 repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
 
 [[plugins]]
 repo = 'tpope/vim-abolish'
@@ -45,14 +55,46 @@ repo = 'tyru/caw.vim'
 repo = 'kana/vim-submode'
 
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
-
+repo = 'lambdalisue/vim-gista'
 
 [[plugins]]
-repo = 'kana/vim-textobj-entire'
+repo = 'lambdalisue/vim-gista-ctrlp'
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
 repo = 'kana/vim-textobj-user'
 
 [[plugins]]
+repo = 'kana/vim-textobj-entire'
+
+[[plugins]]
+repo = 'kana/vim-textobj-indent'
+
+[[plugins]]
+repo = 'kana/vim-textobj-datetime'
+
+[[plugins]]
 repo = 'osyo-manga/vim-textobj-multiblock'
+
+[[plugins]]
+repo = 'mattn/vim-textobj-url'
+
+[[plugins]]
+repo = 'thinca/vim-textobj-between'
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+
+[[plugins]]
+repo = 'rhysd/vim-operator-surround'
+
+[[plugins]]
+repo = 'thinca/vim-operator-sequence'
+
+[[plugins]]
+repo = 't9md/vim-quickhl'
