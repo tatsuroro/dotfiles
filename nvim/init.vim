@@ -343,20 +343,20 @@ nmap <Leader>f [denite]
 
 nnoremap [denite]u  :<C-u>Denite -no-split<Space>
 nnoremap <silent> [denite]f :<C-u>Denite file_rec<CR>
-nnoremap <silent> [denite]b :<C-u>Denite buffer<CR>
-nnoremap <silent> [denite]l :<C-u>Denite line<CR>
+nnoremap <silent> [denite]b :<C-u>Denite buffer -no-empty -mode=normal<CR>
+nnoremap <silent> [denite]l :<C-u>Denite line -no-empty<CR>
 nnoremap <silent> [denite]m :<C-u>Denite file_mru<CR>
 nnoremap <silent> <C-k> :<C-u>Denite file_mru<CR>
-nnoremap <silent> [denite]y :<C-u>Denite neoyank<CR>
+nnoremap <silent> [denite]y :<C-u>Denite neoyank -mode=normal<CR>
 nnoremap <silent> [denite]h :<C-u>Denite help<CR>
 nnoremap <silent> [denite]a :<C-u>Denite buffer file_mru<CR>
 
 " Denite grep検索
-nnoremap <silent> ,g  :<C-u>Denite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> ,g  :<C-u>Denite grep:. -no-empty -mode=normal -buffer-name=search-buffer<CR>
 " カーソル位置の単語をgrep検索
-nnoremap <silent> ,mg :<C-u>Denite grep:. -buffer-name=search-buffer<CR><C-R><C-W><CR>
+nnoremap <silent> ,mg :<C-u>Denite grep:. -no-empty -mode=normal -buffer-name=search-buffer<CR><C-R><C-W><CR>
 " grep検索結果の再呼出
-nnoremap <silent> ,r  :<C-u>DeniteResume search-buffer<CR>
+nnoremap <silent> ,r  :<C-u>Denite grep -resume -no-empty -select=+1 -mode=normal -buffer-name=search-buffer<CR>
 
 """ neosnippet
 " Plugin key-mappings.

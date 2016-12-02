@@ -13,6 +13,7 @@ windows:
         - P1:
           - git fetch --all
           - git checkout master
+          - git reset --hard
           - git pull
           - bundle
           - bundle exec rake db:migrate
@@ -21,6 +22,8 @@ windows:
           - cd ~/src/github.com/kaizenplatform/planbcd
           - git fetch --all
           - git checkout master
+          - git reset --hard
           - git pull
+          - bundle
           - bundle exec rails server -p 3000
   - sandbox: sh ~/dotfiles/sh/fluentd.sh
