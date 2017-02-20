@@ -74,6 +74,9 @@ Plug 'ctrlpvim/ctrlp.vim'
   Plug 'lambdalisue/vim-gista'
   Plug 'lambdalisue/vim-gista-ctrlp'
 Plug 'LeafCage/yankround.vim'
+Plug 'editorconfig/editorconfig-vim'
+" Plug 'justinmk/vim-dirvish'
+Plug 'cocopon/vaffle.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -100,7 +103,7 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
-"
+" deo
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
@@ -109,7 +112,7 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " syntax
 Plug 'osyo-manga/vim-monster', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffeeScript' }
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript.jsx' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 Plug 'moll/vim-node', { 'for': 'node' }
@@ -148,7 +151,7 @@ augroup Indent
   autocmd BufRead,BufNewFile *.html set filetype=html
   autocmd BufNewFile,BufReadPost *.html setl shiftwidth=2 expandtab
   "Jade -> slim
-  autocmd BufNewFile,BufRead *.jade set filetype=slim
+  autocmd BufNewFile,BufRead *.jade set filetype=pug
   "CSS
   autocmd BufRead,BufNewFile *.css set filetype=css
   autocmd BufNewFile,BufReadPost *.css setl shiftwidth=2 expandtab
@@ -225,7 +228,7 @@ let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 let g:ctrlp_match_window = 'bottom,min:1,max:30'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/](node_modules|\.(git|hg|hgn|svn))$',
+  \ 'dir': '\v[\/](node_modules|tmp|temp|\.(git|hg|hgn|svn))$',
   \ 'file': '\v\.(exe|so|dll|png|jpg|gif)$',
   \ 'link': '',
   \ }
@@ -255,6 +258,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " indentLine
+let g:indentLine_enabled = 0
 let g:indentLine_color_term = 241
 let g:indentLine_color_gui = '#eeeeee'
 let g:indentLine_char = '¦' "use ¦, ┆ or │
@@ -363,7 +367,7 @@ nmap P <Plug>(yankround-P)
 nmap gp <Plug>(yankround-gp)
 xmap gp <Plug>(yankround-gp)
 nmap gP <Plug>(yankround-gP)
-nmap <C-l> <Plug>(yankround-prev)
+nmap <C-j> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
 
 " for masui special. 編集箇所を戻る
@@ -391,9 +395,10 @@ vmap <Leader>c <Plug>(caw:i:toggle)
 nnoremap <silent><C-p> :CtrlPRoot<CR>
 nnoremap <silent><C-m> :CtrlPMRU<CR>
 nnoremap <Leader>b :<C-u>CtrlPBuffer<CR>
+nnoremap <Leader>l :<C-u>CtrlPClearAllCaches<CR>
 " ctrlp-history
 nnoremap <silent><C-e> :<C-u>CtrlPCmdHistory<CR>
-nnoremap <Leader>s :<C-u>CtrlPSearchHistory<CR>
+nnoremap <silent><C-s> :<C-u>CtrlPSearchHistory<CR>
 " ctrlp-yankround
 nnoremap <silent><C-y> :<C-u>CtrlPYankRound<CR>
 " ctrlp-filetype
