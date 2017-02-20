@@ -2,4 +2,5 @@
 *rsa
 *.pub
 *.log
+.netrwhist
 */.zcompdump*
