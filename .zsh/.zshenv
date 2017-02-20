@@ -20,8 +20,11 @@ export PATH="$PATH:$HOME/Dropbox/sh"
 
 typeset -gxU PATH
 
-
- [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator]]
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator]]
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# for neovim
+export XDG_CONFIG_HOME=$HOME/.config
+
+export ZPLUG_HOME=/usr/local/opt/zplug
