@@ -114,6 +114,8 @@ Plug 'osyo-manga/vim-monster', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript.jsx' }
+Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 Plug 'moll/vim-node', { 'for': 'node' }
 Plug 'digitaltoad/vim-pug', { 'for': ['slim', 'jade', 'pug'] }
@@ -130,31 +132,28 @@ call plug#end()
 augroup Indent
   autocmd!
   " common indent
-  autocmd FileType ruby,yaml,eruby,coffee,javascript,go,html,css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType ruby,yaml,eruby,coffee,typescript,javascript,go,html,css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
   "Coffee script
   autocmd BufRead,BufNewFile *.coffee set filetype=coffee
-  autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+  "TypeScript
+  autocmd BufRead,BufNewFile *.ts set filetype=typescript
+  autocmd BufRead,BufNewFile *.tsx set filetype=typescript
   "node / js
   autocmd BufRead,BufNewFile *.js set filetype=javascript.jsx
-  autocmd BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
   "Cakefile
   autocmd BufRead,BufNewFile Cakefile set filetype=coffee
-  autocmd BufNewFile,BufReadPost Cakefile setl shiftwidth=2 expandtab
   "Go
   autocmd BufRead,BufNewFile *.go set filetype=go
-  autocmd BufNewFile,BufReadPost *.go setl shiftwidth=2 expandtab
   "Markdown
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile GHI_ISSUE set filetype=markdown
   "HTML
   autocmd BufRead,BufNewFile *.html set filetype=html
-  autocmd BufNewFile,BufReadPost *.html setl shiftwidth=2 expandtab
   "Jade -> slim
   autocmd BufNewFile,BufRead *.jade set filetype=pug
   "CSS
   autocmd BufRead,BufNewFile *.css set filetype=css
-  autocmd BufNewFile,BufReadPost *.css setl shiftwidth=2 expandtab
 
   " list chars color
   autocmd VimEnter,Colorscheme * highlight SpecialKey term=bold ctermfg=241
