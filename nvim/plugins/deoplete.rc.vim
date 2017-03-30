@@ -52,19 +52,30 @@ call deoplete#custom#set('_', 'converters', [
 
 let g:deoplete#keyword_patterns = {}
 let g:deoplete#keyword_patterns._ = '[a-zA-Z_]\k*\(?'
-" let g:deoplete#keyword_patterns.tex = '\\?[a-zA-Z_]\w*'
 let g:deoplete#keyword_patterns.tex = '[^\w|\s][a-zA-Z_]\w*'
 
 let g:deoplete#omni#input_patterns = {}
-let g:deoplete#omni#input_patterns.python = ''
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.lua = 'xolox#lua#omnifunc'
+" let g:deoplete#omni#input_patterns.python = ''
+" let g:deoplete#omni#input_patterns.html = '<[^>]*'
+" let g:deoplete#omni#input_patterns.xml = '<[^>]*'
+" let g:deoplete#omni#input_patterns.md = '<[^>]*'
+" let g:deoplete#omni#input_patterns.css = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
+" let g:deoplete#omni#input_patterns.scss = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
+" let g:deoplete#omni#input_patterns.sass = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
+" let g:deoplete#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+" let g:deoplete#omni#input_patterns.cpp = ['[^. *\t]\.\w*', '[^. *\t]\::\w*', '[^. *\t]\->\w*', '[<"].*/']
+" let g:deoplete#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+" let g:deoplete#omni#input_patterns.typescript = '[^. *\t]\.\w*\|\h\w*::'
+" let g:deoplete#omni#functions = {}
+" let g:deoplete#omni#functions.lua = 'xolox#lua#omnifunc'
 
 " inoremap <silent><expr> <C-t> deoplete#mappings#manual_complete('file')
 
-" let g:deoplete#enable_refresh_always = 1
-let g:deoplete#enable_camel_case = 1
-" let g:deoplete#auto_complete_start_length = 3
+let g:deoplete#enable_refresh_always = 1
+" let g:deoplete#enable_camel_case = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#auto_complete_start_length = 0
+let g:auto_complete_start_length = 0
 
 " compile_commands.json directory path
 " Not file path. Need build directory path

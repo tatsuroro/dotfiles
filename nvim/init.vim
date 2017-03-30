@@ -124,6 +124,7 @@ Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 Plug 'cespare/vim-toml', {'for': 'toml' }
+Plug 'mechatroner/rainbow_csv', {'for': ['csv', 'tsv']}
 call plug#end()
 
 " -----
@@ -132,7 +133,7 @@ call plug#end()
 augroup Indent
   autocmd!
   " common indent
-  autocmd FileType ruby,yaml,eruby,coffee,typescript,javascript,go,html,css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType ruby,yaml,eruby,coffee,typescript,javascript,go,html,css,json setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
   "Coffee script
   autocmd BufRead,BufNewFile *.coffee set filetype=coffee
@@ -154,9 +155,22 @@ augroup Indent
   autocmd BufNewFile,BufRead *.jade set filetype=pug
   "CSS
   autocmd BufRead,BufNewFile *.css set filetype=css
+  "TSV
+  autocmd BufRead,BufNewFile *.tsv set filetype=tsv
+  autocmd FileType tsv, setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
   " list chars color
   autocmd VimEnter,Colorscheme * highlight SpecialKey term=bold ctermfg=241
+augroup END
+
+augroup Completion
+  autocmd!
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  autocmd FileType typescript setlocal completeopt+=menu,preview
+  autocmd FileType go setlocal completeopt+=noinsert,noselect
 augroup END
 
 filetype plugin indent on
@@ -269,9 +283,6 @@ runtime! plugins/deoplete.rc.vim
 
 " Set async completion. With deoplete.nvim
 let g:monster#completion#rcodetools#backend = 'async_rct_complete'
-let g:deoplete#sources#omni#input_patterns = {
-\   'ruby' : '[^. *\t]\.\w*\|\h\w*::',
-\}
 
 " -----
 " Commmands
