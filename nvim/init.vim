@@ -90,7 +90,7 @@ Plug 'kana/vim-textobj-user'
   Plug 'thinca/vim-textobj-between'
 Plug 'kana/vim-operator-user'
   Plug 'kana/vim-operator-replace'
-  Plug "osyo-manga/vim-operator-search"
+  Plug 'osyo-manga/vim-operator-search'
   Plug 'rhysd/vim-operator-surround'
   Plug 'thinca/vim-operator-sequence'
 Plug 't9md/vim-quickhl'
