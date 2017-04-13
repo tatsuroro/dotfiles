@@ -1,0 +1,22 @@
+## !! Be careful with yml indent rules
+
+name: aladdin-designer
+root: ~/src/github.com/kaizenplatform/aladdin-designer-web/
+windows:
+  - editor:
+      layout: e012,143x41,0,0{96x41,0,0,0,46x41,97,0[46x20,97,0,3,46x20,97,21,11]}
+      panes:
+        - nvim
+        - yarn build -- --watch
+        - ls
+  - git: gst
+  - process:
+      layout: 7859,143x41,0,0{71x41,0,0,2,71x41,72,0[71x20,72,0,5,71x20,72,21,6]}
+      panes:
+        - clear
+        - clear
+        - yarn serve
+  - advertiser:
+      root: ~/src/github.com/kaizenplatform/aladdin-advertiser-web/
+      panes:
+        - clear
