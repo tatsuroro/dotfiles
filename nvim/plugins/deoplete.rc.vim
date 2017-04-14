@@ -1,33 +1,14 @@
-""" deoplete.nvim
-
-" <TAB>: completion.
-imap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort "{{{
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
-
-" <S-TAB>: completion back.
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
-
-inoremap <expr><C-g> deoplete#mappings#undo_completion()
-" <C-l>: redraw candidates
-" inoremap <expr><C-l> deoplete#mappings#refresh()
-
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function() abort
-  return deoplete#mappings#close_popup() . "\<CR>"
-endfunction
-
-inoremap <expr> '  pumvisible() ? deoplete#mappings#close_popup() : "'"
+" Enable omni completion.
+augroup Completion
+  autocmd!
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  autocmd FileType typescript setlocal completeopt+=menu,preview
+  autocmd FileType typescript setlocal omnifunc=tsuquyomi#complete
+  autocmd FileType go setlocal completeopt+=noinsert,noselect
+augroup END
 
 " call deoplete#custom#set('_', 'matchers', ['matcher_head'])
 call deoplete#custom#set('ghc', 'sorters', ['sorter_word'])
@@ -65,9 +46,11 @@ let g:deoplete#omni#input_patterns = {}
 " let g:deoplete#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
 " let g:deoplete#omni#input_patterns.cpp = ['[^. *\t]\.\w*', '[^. *\t]\::\w*', '[^. *\t]\->\w*', '[<"].*/']
 " let g:deoplete#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-" let g:deoplete#omni#input_patterns.typescript = '[^. *\t]\.\w*\|\h\w*::'
-" let g:deoplete#omni#functions = {}
+let g:deoplete#omni#input_patterns.typescript = '[^. *\t]\.\w*\|\h\w*::'
+
+let g:deoplete#omni#functions = {}
 " let g:deoplete#omni#functions.lua = 'xolox#lua#omnifunc'
+let g:deoplete#omni#functions.typescript = 'tsuquyomi#complete'
 
 " inoremap <silent><expr> <C-t> deoplete#mappings#manual_complete('file')
 
