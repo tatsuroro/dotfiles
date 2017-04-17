@@ -1,12 +1,17 @@
+# Display Settings
 set blame-view = date:default author:full id line-number:true,interval=1 text
 set main-view = line-number:true,interval=10 date:default author:full id commit-title:true,graph=true,refs=true
 set refs-view = date:default author:full id ref:true commit-title:true
 set status-view = file-name status:long
 
-# set line-graphics = asci
+set line-graphics = utf-8
 
 # 空白のみ、インデントのみ変更行を無視
 set ignore-space = all
+
+#####
+# All View
+#####
 
 # Vim Like KeyBind
 bind generic G none
@@ -15,17 +20,11 @@ bind generic G move-last-line
 bind generic <Ctrl-f> scroll-page-down
 bind generic <Ctrl-b> scroll-page-up
 
-
-#####
-# All View
-#####
-
 # コミットやりなおし
 bind generic + !git commit --amend
 
 # commit hash を クリップボードへコピー
 bind generic 9 !@sh -c "echo %(commit) | pbcopy"
-
 
 #####
 # Main View
@@ -36,7 +35,6 @@ bind main <Ctrl-r> !git pull
 
 # 特定コミットをチェックアウト
 bind main C !?git checkout %(commit))
-
 
 #####
 # Branch View
@@ -53,3 +51,10 @@ bind refs 3 !git rebase -i %(branch)
 
 # origin への push
 bind refs P !git push -u origin %(branch)
+
+#####
+# Status View
+#####
+
+# 差分表示モードでコミット画面を開く
+bind status V !git commit -v
