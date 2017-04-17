@@ -1,4 +1,5 @@
 scriptencoding utf-8
+filetype off
 
 let g:python3_host_prog = '/usr/local/bin/python3'
 if has('multi_lang')
@@ -17,22 +18,34 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'AndrewRadev/switch.vim'
+Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'nixprime/cpsm', { 'dir': '~/.local/share/nvim/plugged/cpsm/', 'do': 'env PY3=ON ./install.sh' }
 Plug 'ctrlpvim/ctrlp.vim'
   Plug 'mattn/ctrlp-filer'
+  Plug 'mattn/ctrlp-register'
   Plug 'ompugao/ctrlp-history'
   Plug 'endel/ctrlp-filetype.vim'
   Plug 'lokikl/vim-ctrlp-ag'
   Plug 'lambdalisue/vim-gista'
   Plug 'lambdalisue/vim-gista-ctrlp'
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'justinmk/vim-dirvish'
 Plug 'cocopon/vaffle.vim'
+Plug 'chrismccord/bclose.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'kana/vim-submode'
+Plug 't9md/vim-quickhl'
+Plug 'thinca/vim-template'
+Plug 'osyo-manga/vim-over'
+Plug 'tyru/caw.vim'
+Plug 'matchit.zip'
+Plug 'ruby-matchit'
+Plug 'smartchr'
+Plug 'rhysd/clever-f.vim'
 Plug 'kana/vim-textobj-user'
   Plug 'kana/vim-textobj-entire'
   Plug 'kana/vim-textobj-function'
@@ -46,41 +59,54 @@ Plug 'kana/vim-operator-user'
   Plug 'osyo-manga/vim-operator-search'
   Plug 'rhysd/vim-operator-surround'
   Plug 'thinca/vim-operator-sequence'
-Plug 't9md/vim-quickhl'
-Plug 'tyru/caw.vim'
-Plug 'w0rp/ale'
-Plug 'chrismccord/bclose.vim'
-Plug 'easymotion/vim-easymotion'
-" visual
+" display
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'w0ng/vim-hybrid'
 Plug 'Yggdroot/indentLine'
-" deo
-Plug 'Shougo/neosnippet-snippets'
+" colorsceme
+Plug 'w0ng/vim-hybrid'
+" completement
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'Shougo/neosnippet'
-" syntax
-Plug 'osyo-manga/vim-monster', { 'for': 'ruby' }
-Plug 'tpope/vim-rails', { 'for': 'ruby' }
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'jsx'] }
+Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'zchee/deoplete-zsh'
+Plug 'fishbullet/deoplete-ruby'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm i -g tern' }
+Plug 'mhartington/nvim-typescript'
+Plug 'wellle/tmux-complete.vim'
+Plug 'ujihisa/neco-look'
+Plug 'Shougo/neco-vim'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'Quramy/tsuquyomi', { 'for': ['typescript', 'tsx'] }
+" code style
+Plug 'sbdchd/neoformat'
+Plug 'w0rp/ale'
+Plug 'jason0x43/vim-js-indent'
+" syntax highlight
+Plug 'osyo-manga/vim-monster'
+Plug 'tpope/vim-rails'
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'tsx'] }
-Plug 'mxw/vim-jsx', { 'for': ['jsx', 'tsx'] }
-Plug 'jason0x43/vim-js-indent', { 'for': ['javascript', 'typescript', 'html', 'jsx', 'tsx' ] }
-Plug 'moll/vim-node', { 'for': 'node' }
-Plug 'digitaltoad/vim-pug', { 'for': ['slim', 'jade', 'pug'] }
-Plug '5t111111/neat-json.vim', { 'for': 'json' }
-Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
-Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
-Plug 'cespare/vim-toml', {'for': 'toml' }
-Plug 'mechatroner/rainbow_csv', {'for': ['csv', 'tsv']}
+Plug 'moll/vim-node'
+Plug 'digitaltoad/vim-pug'
+Plug 'elzr/vim-json'
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'cespare/vim-toml'
+Plug 'rcmdnk/vim-markdown'
+Plug 'joker1007/vim-markdown-quote-syntax'
+Plug 'mechatroner/rainbow_csv', { 'for': ['csv', 'tsv'] }
+Plug 'evanmiller/nginx-vim-syntax'
+
 call plug#end()
+
+filetype plugin indent on
 
 runtime! option.rc.vim
 runtime! plugin.rc.vim

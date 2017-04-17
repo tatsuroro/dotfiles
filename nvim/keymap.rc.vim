@@ -14,8 +14,11 @@ nnoremap ; :
 vnoremap : ;
 vnoremap ; :
 
-" yank to end of line
+" yank to line end
 nnoremap Y y$
+
+" vv -> select to line end
+vnoremap v $h
 
 " increment
 nnoremap + <C-a>
@@ -39,16 +42,13 @@ nnoremap い i
 nnoremap う u
 nnoremap お o
 
-" vv -> select to lineEnd
-vnoremap v $h
-
 " delete buffer without close split view
 nmap <C-W>w <Plug>Bclose
 
 " quick save
 nnoremap <Leader>w :w<CR>
 
-" for masui special. 編集箇所を戻る
+" 編集箇所を戻る
 noremap g<CR> g;
 
 " qでウインドウを閉じて Qでマクロ
@@ -71,12 +71,6 @@ nmap <Space>s <Plug>(operator-search)
 " require - https://github.com/kana/vim-textobj-function
 nmap <Space>/ <Plug>(operator-search)if
 
-" for masui special. 編集箇所を戻る
-noremap g<CR> g;
-
-" qでウインドウを閉じて Qでマクロ
-nnoremap Q q
-
 " leader + cで行の先頭にコメントをつけたり外したりできる
 nmap <Leader>c <Plug>(caw:i:toggle)
 vmap <Leader>c <Plug>(caw:i:toggle)
@@ -89,6 +83,8 @@ nnoremap <Leader>l :<C-u>CtrlPClearAllCaches<CR>
 " ctrlp-history
 nnoremap <silent><C-e> :<C-u>CtrlPCmdHistory<CR>
 nnoremap <silent><C-s> :<C-u>CtrlPSearchHistory<CR>
+" ctrlp-register
+nnoremap <silent><C-y> :<C-u>CtrlPRegister<CR>
 " ctrlp-filetype
 nnoremap <silent><Leader>f :<C-u>CtrlPFiletype<CR>
 " ctrlp-ag
@@ -96,8 +92,6 @@ nnoremap <silent>,f :<C-u>CtrlPag<CR>
 vnoremap <silent>,f :<C-u>CtrlPagVisual<CR>
 nnoremap <silent>,mf :<C-u>CtrlPagLocate<space>
 nnoremap <silent>,r :<C-u>CtrlPagPrevious<CR>
-" filer
-nnoremap <silent><C-k> :CtrlPFiler<CR>
 " vim-gista-ctrlp
 nnoremap <silent><C-g> :CtrlPGista<CR>
 
@@ -112,6 +106,20 @@ nnoremap <Leader>ga :<C-u>Gwrite<CR>
 nnoremap <Leader>gc :<C-u>Gcommit<CR>
 nnoremap <Leader>gC :<C-u>Git commit --amend<CR>
 nnoremap <Leader>gb :<C-u>Gblame<CR>
+
+""" vaffle
+function! s:customize_vaffle_mappings() abort
+  " Customize key mappings here
+  nmap K <Plug>(vaffle-mkdir)
+  nmap N <Plug>(vaffle-new-file)
+endfunction
+
+augroup vimrc_vaffle
+  autocmd!
+  autocmd FileType vaffle call s:customize_vaffle_mappings()
+augroup END
+
+nnoremap <silent><C-k> :Vaffle<CR>
 
 """ neosnippet
 " Plugin key-mappings.
@@ -129,13 +137,11 @@ function! s:check_back_space() abort "{{{
   let l:col = col('.') - 1
   return !l:col || getline('.')[l:col - 1]  =~ '\s'
 endfunction"}}}
-
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function() abort
   return deoplete#mappings#close_popup() . "\<CR>"
 endfunction
-
 " <S-TAB>: completion back.
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
 " <C-h>, <BS>: close popup and delete backword char.
@@ -158,12 +164,6 @@ nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-resetl)
-
-""" vim-easymotion
-nmap q <Plug>(easymotion-s2)
-xmap q <Plug>(easymotion-s2)
-" surround.vimと被らないように
-omap q <Plug>(easymotion-s2)
 
 " -----
 " Move Setting
