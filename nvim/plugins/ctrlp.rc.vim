@@ -4,7 +4,7 @@ scriptencoding utf-8
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_extensions = ['root', 'mixed']
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
-let g:ctrlp_match_window = 'bottom,min:1,max:30'
+let g:ctrlp_match_window = 'bottom,min:1,max:40'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/](node_modules|tmp|temp|\.(git|hg|hgn|svn))$',
