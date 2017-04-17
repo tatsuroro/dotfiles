@@ -73,9 +73,6 @@ set regexpengine=1
 syntax enable
 syntax on
 
-" -----
-" Indent
-
 augroup Indent
   autocmd!
   " common indent
@@ -106,12 +103,20 @@ augroup Indent
   autocmd BufRead,BufNewFile *.tsv     set filetype=tsv
 augroup END
 
+augroup Format
+  autocmd!
+  autocmd FileType javascript.jsx set formatprg=prettier\ --stdin\ --single-quote\ --parser\ flow\ --trailing-comma\ es5
+  autocmd FileType typescript.tsx set formatprg=tsfmt\
+  autocmd FileType typescript set formatprg=tsfmt\
+augroup END
+
 augroup Buffer
   autocmd!
   " auto Trailing WhiteSpace
   autocmd BufWritePre * :%s/\s\+$//e
   " auto format
-  autocmd BufWritePre * Neoformat
+  autocmd BufWritePre *.js Neoformat
+  autocmd BufWritePre *.jsx Neoformat
   " カーソル復元
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END

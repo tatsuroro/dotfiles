@@ -55,4 +55,5 @@ let g:monster#completion#rcodetools#backend = 'async_rct_complete'
 let g:neosnippet#enable_completed_snippet = 1
 
 " neoformat
-let g:neoformat_only_msg_on_error = 1
+" let g:neoformat_only_msg_on_error = 1
+let g:neoformat_try_formatprg = 1
