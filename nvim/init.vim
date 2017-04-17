@@ -78,6 +78,7 @@ Plug 'mhartington/nvim-typescript'
 Plug 'wellle/tmux-complete.vim'
 Plug 'ujihisa/neco-look'
 Plug 'Shougo/neco-vim'
+Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Quramy/tsuquyomi', { 'for': ['typescript', 'tsx'] }
