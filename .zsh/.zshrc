@@ -54,6 +54,8 @@ export HISTIGNORE="ls:ls *:la:la *:cd:cd -:pwd"
 source $ZPLUG_HOME/init.zsh
 
 zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "Tarrasch/zsh-bd"
 
 #oh-my-zsh
 zplug "plugins/brew", from:oh-my-zsh, if:"which brew"
@@ -107,31 +109,34 @@ chpwd_functions+=_cdd_chpwd
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 if which rbenv > /dev/null; then  eval "$(rbenv init -)"; fi
 
+# autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
 # ghq peco repo search
 function peco-src() {
-    local selected_dir=$(ghq list --full-path | awk '!a[$0]++' | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
-    zle clear-screen
+  local selected_dir=$(ghq list --full-path | awk '!a[$0]++' | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
 }
 zle -N peco-src
 
 # command history search
 function peco-select-history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(history -n 1 | \
-        eval $tac | \
-        awk '!a[$0]++' | \
-        peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
+  local tac
+  if which tac > /dev/null; then
+    tac="tac"
+  else
+    tac="tail -r"
+  fi
+  BUFFER=$(history -n 1 | \
+    eval $tac | \
+    awk '!a[$0]++' | \
+    peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle clear-screen
 }
 zle -N peco-select-history
 
@@ -154,10 +159,44 @@ zle -N peco-path
 
 # peco process kill
 function peco-kill-process() {
-    ps -ef | peco | awk '{ print $2 }' | xargs kill
-    zle clear-screen
+  ps -ef | peco | awk '{ print $2 }' | xargs kill
+  zle clear-screen
 }
 zle -N peco-kill-process
+
+function peco-git-branch () {
+  local current_buffer=$BUFFER
+  local selected_branch_name="$(git branch -a | peco | tr -d ' ' | tr -d '*')"
+  case "$selected_branch_name" in
+    *-\>* )
+      selected_branch_name="$(echo ${selected_branch_name} | perl -ne 's/^.*->(.*?)\/(.*)$/\2/;print')";;
+    remotes* )
+      selected_branch_name="$(echo ${selected_branch_name} | perl -ne 's/^.*?remotes\/(.*?)\/(.*)$/\2/;print')";;
+  esac
+  if [ -n "$selected_branch_name" ]; then
+    BUFFER="${current_buffer}${selected_branch_name}"
+    CURSOR=$#BUFFER
+  fi
+}
+zle -N peco-git-branch
+
+function peco-git-hash () {
+  local current_buffer=$BUFFER
+  local git_hash="$(git log --oneline --branches | peco | awk '{print $1}')"
+  BUFFER="${current_buffer}${git_hash}"
+  # move cursor pos to line end
+  CURSOR=$#BUFFER
+}
+zle -N peco-git-hash
+
+function peco-git-stash () {
+  local current_buffer=$BUFFER
+  local stash="$(git stash list | peco | awk -F'[ :]' '{print $1}')"
+  BUFFER="${current_buffer}${stash}"
+  # move cursor pos to line end
+  CURSOR=$#BUFFER
+}
+zle -N peco-git-stash
 
 # keybind
 bindkey -e
@@ -165,6 +204,9 @@ bindkey '^s' peco-src
 bindkey '^r' peco-select-history
 bindkey '^z' peco-path
 bindkey '^q' peco-kill-process
+bindkey '^fb' peco-git-branch
+bindkey '^fh' peco-git-hash
+bindkey '^fs' peco-git-stash
 stty -ixon
 
 #alias
