@@ -57,3 +57,9 @@ let g:neosnippet#enable_completed_snippet = 1
 " neoformat
 " let g:neoformat_only_msg_on_error = 1
 let g:neoformat_try_formatprg = 1
+
+" vim-markdown
+let g:vim_markdown_folding_disabled=1
+
+"previm
+let g:previm_open_cmd = 'open -a Firefox'

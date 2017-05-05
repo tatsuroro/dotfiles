@@ -64,6 +64,7 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
+Plug 'kannokanno/previm'
 " colorsceme
 Plug 'w0ng/vim-hybrid'
 " completement
