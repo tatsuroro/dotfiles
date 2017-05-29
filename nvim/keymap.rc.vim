@@ -24,23 +24,14 @@ vnoremap v $h
 nnoremap + <C-a>
 nnoremap - <C-x>
 
-" Ctrl+l to Esc
-inoremap <silent>jj <Esc>
-inoremap <C-L> <Esc>
-
 " esc * 2 -> cancel search highlight
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 
-" Command Mode HistoryMove
-inoremap <C-K> <Up>
-inoremap <C-J> <Down>
-inoremap <C-H> <Left>
+" Ctrl+l to Esc
+inoremap <silent>jj <Esc>
 
-" 日本語入力がオンのままでも使えるコマンド(Enterキーは必要)
-nnoremap あ a
-nnoremap い i
-nnoremap う u
-nnoremap お o
+" IME off on esc
+inoremap <Esc> <Esc>:set iminsert=0<CR>
 
 " delete buffer without close split view
 nmap <C-W>w <Plug>Bclose
@@ -175,14 +166,27 @@ nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '��!', 'g')<
 " previm
 nnoremap <leader>k :PrevimOpen<CR>
 
+" quickrun
+nnoremap <C-x> :QuickRun<CR>
+
 " -----
 " Move Setting
+
+" disable unneed move
+nnoremap <C-j> <Nop>
+
+" disable for practice
+inoremap <C-c> <Nop>
 
 " insert mode での移動
 inoremap <C-e> <END>
 inoremap <C-a> <HOME>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
 
 " command line mode での移動
 cnoremap <C-b> <Left>

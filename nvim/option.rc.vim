@@ -1,3 +1,8 @@
+" auto detect character code
+set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileformats=unix,dos,mac
+
 scriptencoding utf-8
 
 set notimeout ttimeout timeoutlen=100
@@ -101,6 +106,7 @@ augroup Indent
   autocmd BufNewFile,BufRead *.jade    set filetype=pug
   autocmd BufRead,BufNewFile *.css     set filetype=css
   autocmd BufRead,BufNewFile *.tsv     set filetype=tsv
+  autocmd Bufread,BufNewFile *key.md   set filetype=markdown.slide
 augroup END
 
 augroup Format
@@ -147,4 +153,3 @@ au BufNewFile,BufRead * set iminsert=0
 
 " sudo save
 cabbr w!! w !sudo tee > /dev/null %
-

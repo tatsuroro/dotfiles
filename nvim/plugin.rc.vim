@@ -8,6 +8,14 @@ let g:quickrun_config = {
   \   },
   \}
 
+let g:quickrun_config['markdown.slide'] = {
+  \  'outputter' : 'null',
+  \  'command'   : 'open',
+  \  'cmdopt'    : '-a',
+  \  'args'      : 'Deckset',
+  \  'exec'      : '%c %o %a %s',
+  \}
+
 runtime! plugins/ctrlp.rc.vim
 
 " vim-js-indent
