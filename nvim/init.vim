@@ -104,6 +104,7 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'cespare/vim-toml'
 Plug 'rcmdnk/vim-markdown'
 Plug 'joker1007/vim-markdown-quote-syntax'
+Plug 'dart-lang/dart-vim-plugin'
 Plug 'mechatroner/rainbow_csv', { 'for': ['csv', 'tsv'] }
 Plug 'evanmiller/nginx-vim-syntax'
 

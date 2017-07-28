@@ -28,6 +28,7 @@ nnoremap - <C-x>
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " Ctrl+l to Esc
+inoremap <C-l> <Esc>
 inoremap <silent>jj <Esc>
 
 " IME off on esc
@@ -176,17 +177,13 @@ nnoremap <C-x> :QuickRun<CR>
 nnoremap <C-j> <Nop>
 
 " disable for practice
-inoremap <C-c> <Nop>
+" inoremap <C-c> <Nop>
 
 " insert mode での移動
 inoremap <C-e> <END>
 inoremap <C-a> <HOME>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
 
 " command line mode での移動
 cnoremap <C-b> <Left>
