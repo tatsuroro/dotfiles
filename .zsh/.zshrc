@@ -116,7 +116,7 @@ if which rbenv > /dev/null; then  eval "$(rbenv init -)"; fi
 function peco-src() {
   local selected_dir=$(ghq list --full-path | awk '!a[$0]++' | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
+    cd ${selected_dir}
     zle accept-line
   fi
   zle clear-screen
@@ -198,9 +198,36 @@ function peco-git-stash () {
 }
 zle -N peco-git-stash
 
+# ghq peco repo browse
+function peco-hub-browse() {
+  local selected_dir=$(ghq list | peco)
+  if [ -n "$selected_dir" ]; then
+    local repo_name=$(echo ${selected_dir} | cut -d "/" -f 2,3)
+    hub browse ${repo_name}
+    cd $(ghq root)/${selected_dir}
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-hub-browse
+
+# ghq peco vscode
+function peco-vscode() {
+  local selected_dir=$(ghq list | peco)
+  if [ -n "$selected_dir" ]; then
+    code $(ghq root)/${selected_dir}
+    cd $(ghq root)/${selected_dir}
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-vscode
+
 # keybind
 bindkey -e
 bindkey '^s' peco-src
+bindkey '^b' peco-hub-browse
+bindkey '^v' peco-vscode
 bindkey '^r' peco-select-history
 bindkey '^z' peco-path
 bindkey '^q' peco-kill-process
