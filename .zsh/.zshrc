@@ -249,6 +249,7 @@ alias gat="gatsby"
 alias gfx="git fixup"
 alias gbra="git branch-list"
 
+alias ls="exa"
 alias ls="ls -GAF"
 alias la="ls -la"
 
