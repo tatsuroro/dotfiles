@@ -127,6 +127,21 @@ set smartindent
 
 set completeopt=menuone
 
+" MacVim Settings
+if has('gui_macvim')
+  set showtabline=2	" タブを常に表示
+  set imdisable	" IMを無効化
+  set transparency=10	" 透明度を指定
+  set antialias
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+  colorscheme macvim
+endif
+
+if has("gui_running")
+  set fuoptions=maxvert,maxhorz
+  " au GUIEnter * set fullscreen
+endif
+
 """ filetype IndentSettings
 " Ruby
 autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
