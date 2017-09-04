@@ -16,7 +16,7 @@ export RBENV_ROOT="/usr/local/var/rbenv"
 export PATH="/usr/local/opt/rbenv/bin:$PATH"
 
 # shell scripts
-export PATH="$PATH:$HOME/Dropbox/sh"
+export PATH="$PATH:$HOME/sh"
 
 typeset -gxU PATH
 
