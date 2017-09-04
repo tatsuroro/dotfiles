@@ -168,7 +168,7 @@ nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '��!', 'g')<
 nnoremap <leader>k :PrevimOpen<CR>
 
 " quickrun
-nnoremap <C-x> :QuickRun<CR>
+" nnoremap <C-q> :QuickRun<CR>
 
 " -----
 " Move Setting
