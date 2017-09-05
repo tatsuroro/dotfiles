@@ -57,7 +57,7 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "Tarrasch/zsh-bd"
 
-#oh-my-zsh
+# oh-my-zsh
 zplug "plugins/brew", from:oh-my-zsh, if:"which brew"
 zplug "plugins/git", from:oh-my-zsh, if:"which git"
 zplug "plugins/tmux", from:oh-my-zsh, if:"which tmux"
@@ -66,7 +66,11 @@ zplug "plugins/ruby", from:oh-my-zsh, if:"which ruby"
 zplug "plugins/rbenv", from:oh-my-zsh, if:"which rbenv"
 zplug "plugins/nodenv", from:oh-my-zsh, if:"which nodenv"
 
-zplug "themes/wedisagree", from:oh-my-zsh
+# zplug "themes/wedisagree", from:oh-my-zsh
+
+# 'pure' prompt
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 if ! zplug check; then
   printf "Install zplug items? [y/N]: "
