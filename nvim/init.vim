@@ -107,6 +107,7 @@ Plug 'joker1007/vim-markdown-quote-syntax'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'mechatroner/rainbow_csv', { 'for': ['csv', 'tsv'] }
 Plug 'evanmiller/nginx-vim-syntax'
+Plug 'dag/vim-fish'
 
 call plug#end()
 
