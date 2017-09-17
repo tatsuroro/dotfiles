@@ -133,8 +133,8 @@ if has('gui_macvim')
   set imdisable	" IMを無効化
   set transparency=10	" 透明度を指定
   set antialias
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
-  colorscheme macvim
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h16
+  " colorscheme macvim
 endif
 
 if has("gui_running")
