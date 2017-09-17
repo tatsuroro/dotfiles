@@ -2,9 +2,8 @@
 mkdir ~/.config
 mkdir ~/.config/nvim
 
-ln -sf ~/dotfiles/.zshenv ~/.zshenv
-ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
+ln -sf ~/dotfiles/fish ~/.config/fish
 ln -sf ~/dotfiles/nvim ~/.config/nvim
 ln -sf ~/dotfiles/.vim ~/.vim
 ln -sf ~/dotfiles/.snippets.json ~/.snippets.json

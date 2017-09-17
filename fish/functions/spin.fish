@@ -1,0 +1,1 @@
+/Users/tatsuroro/.config/fisherman/spin/spin.fish
