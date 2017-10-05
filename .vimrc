@@ -7,6 +7,10 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 
+if $SHELL =~ '/fish$'
+  set shell=bash
+endif
+
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -134,8 +138,10 @@ if has('gui_macvim')
   set transparency=10	" 透明度を指定
   set antialias
   set guifont=Source\ Code\ Pro\ for\ Powerline:h16
-  " colorscheme macvim
+  colorscheme slate
 endif
+
+hi String guifg=white
 
 if has("gui_running")
   set fuoptions=maxvert,maxhorz

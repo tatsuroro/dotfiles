@@ -6,6 +6,10 @@ if has('multi_lang')
   language C
 endif
 
+if $SHELL =~? '/fish$'
+  set shell=bash
+endif
+
 " -----
 " vim-plug
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
