@@ -80,7 +80,7 @@ set notimeout ttimeout timeoutlen=100
 set history=100
 set nobackup
 set noswapfile
-set clipboard+=autoselect
+set clipboard+=unnamed
 set confirm
 
 " 文字、改行コードを自動判別する
