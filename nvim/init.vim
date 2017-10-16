@@ -1,4 +1,12 @@
+" auto detect character code
+" set fileencoding=utf-8
+set fileencodings=utf-8,cp932,sjis,iso-2022-jp,euc-jp
+
+set encoding=utf-8
+set fileformat=unix
+
 scriptencoding utf-8
+
 filetype off
 
 let g:python3_host_prog = '/usr/local/bin/python3'

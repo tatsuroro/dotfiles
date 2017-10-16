@@ -1,11 +1,3 @@
-" auto detect character code
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
-set fileformats=unix,dos,mac
-
-scriptencoding utf-8
-
 set notimeout ttimeout timeoutlen=100
 set history=100
 set nobackup
