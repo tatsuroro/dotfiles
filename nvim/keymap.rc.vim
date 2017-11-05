@@ -46,6 +46,9 @@ noremap g<CR> g;
 " qでウインドウを閉じて Qでマクロ
 nnoremap Q q
 
+""" yank register paste
+nnoremap P "0p
+
 """ operator-replace
 nmap R <Plug>(operator-replace)
 
@@ -111,7 +114,7 @@ augroup vimrc_vaffle
   autocmd FileType vaffle call s:customize_vaffle_mappings()
 augroup END
 
-nnoremap <silent><C-k> :Vaffle<CR>
+nnoremap <silent><C-k> :execute 'Vaffle ' . ((strlen(bufname('')) == 0) ? '.' : '%:h')<CR>
 
 """ neosnippet
 " Plugin key-mappings.
@@ -184,10 +187,13 @@ inoremap <C-e> <END>
 inoremap <C-a> <HOME>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
+inoremap <C-d> <Del>
 
 " command line mode での移動
 cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
+cnoremap <C-a> <HOME>
+cnoremap <C-e> <END>
 cnoremap <C-d> <Del>
 
 " 左右のカーソル移動で行間移動可能にする。
@@ -227,7 +233,7 @@ nmap <Tab> gt
 nmap <S-Tab> gT
 
 " ウインドウサイズ変更
-nnoremap <S-Left>  <C-w><<CR>
-nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Left>  <C-w>>CR>
+nnoremap <S-Right> <C-w><<CR>
 nnoremap <S-Up>    <C-w>-<CR>
 nnoremap <S-Down>  <C-w>+<CR>
