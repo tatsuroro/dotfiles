@@ -69,12 +69,16 @@ if has('gui_macvim')
   set transparency=10
   set antialias
   set guifont=Source\ Code\ Pro\ for\ Powerline:h16
-  colorscheme slate
+  colorscheme iceberg
 endif
 
 if has('gui_running')
   set fuoptions=maxvert,maxhorz
+
+  augroup Gui
+    autocmd GUIEnter * cd ~/Google Drive/texts/
   " au GUIEnter * set fullscreen
+  augroup END
 endif
 
 hi String guifg=white
@@ -120,7 +124,10 @@ augroup END
 
 augroup Buffer
   autocmd!
-  " auto Trailing WhiteSpace
+  " change current directory
+  autocmd VimEnter * cd %:p:h
+
+  " Trailing WhiteSpace
   autocmd BufWritePre * :%s/\s\+$//e
 
   " カーソル復元
