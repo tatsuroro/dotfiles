@@ -12,7 +12,7 @@ set notimeout ttimeout timeoutlen=100
 set history=100
 set nobackup
 set noswapfile
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 set confirm
 set autoread
 
@@ -83,13 +83,26 @@ endif
 
 hi String guifg=white
 
-" IME off on file open
-au BufNewFile,BufRead * set iminsert=0
-
 """ syntax option
 set regexpengine=1
 syntax enable
 syntax on
+
+augroup Buffer
+  autocmd!
+
+  " IME off on file open
+  autocmd BufNewFile,BufRead * set iminsert=0
+
+  " change current directory
+  autocmd VimEnter * cd %:p:h
+
+  " Trailing WhiteSpace
+  autocmd BufWritePre * :%s/\s\+$//e
+
+  " Restore cursor
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
 
 augroup Indent
   autocmd!
@@ -111,7 +124,6 @@ augroup Indent
   autocmd BufRead,BufNewFile *.tsx     set filetype=typescript.tsx
   autocmd BufRead,BufNewFile *.js      set filetype=javascript.jsx
   autocmd BufRead,BufNewFile *.jsx     set filetype=jsx
-  autocmd BufRead,BufNewFile Cakefile  set filetype=coffee
   autocmd BufRead,BufNewFile *.go      set filetype=go
   autocmd BufRead,BufNewFile *.md      set filetype=markdown
   autocmd BufRead,BufNewFile GHI_ISSUE set filetype=markdown
@@ -120,16 +132,4 @@ augroup Indent
   autocmd BufRead,BufNewFile *.css     set filetype=css
   autocmd BufRead,BufNewFile *.tsv     set filetype=tsv
   autocmd Bufread,BufNewFile *key.md   set filetype=markdown.slide
-augroup END
-
-augroup Buffer
-  autocmd!
-  " change current directory
-  autocmd VimEnter * cd %:p:h
-
-  " Trailing WhiteSpace
-  autocmd BufWritePre * :%s/\s\+$//e
-
-  " カーソル復元
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
