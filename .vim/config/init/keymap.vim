@@ -81,19 +81,6 @@ cnoremap <C-d> <Del>
 " enable moving toward lines with left-right cursor
 set whichwrap=b,s,<,>,[,]
 
-""" brackets complete
-inoremap { {}<LEFT>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
-inoremap < <><LEFT>
-vnoremap { "zdi^V{<C-R>z}<ESC>
-vnoremap [ "zdi^V[<C-R>z]<ESC>
-vnoremap ( "zdi^V(<C-R>z)<ESC>
-vnoremap " "zdi^V"<C-R>z^V"<ESC>
-vnoremap ' "zdi'<C-R>z'<ESC>
-
 """ window and tab controls
 nnoremap s <Nop>
 nnoremap sj <C-w>j

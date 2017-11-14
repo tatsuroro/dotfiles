@@ -52,6 +52,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 't9md/vim-quickhl'
 Plug 'thinca/vim-template'
 Plug 'haya14busa/vim-asterisk'
+Plug 'jiangmiao/auto-pairs'
 
 """ text obj / operator
 Plug 'kana/vim-textobj-user'
