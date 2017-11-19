@@ -8,12 +8,8 @@
 set -gx NODENV_ROOT /usr/local/var/nodenv
 set -gx RBENV_ROOT /usr/local/var/rbenv
 
-if test nodenv
-  eval (nodenv init - | source)
-end
-if test rbenv
-  eval (rbenv init - | source)
-end
+status --is-interactive; and source (nodenv init -|psub)
+status --is-interactive; and source (rbenv init -|psub)
 
 # Ensure fisherman and plugins are installed
 if not test -f $HOME/.config/fish/functions/fisher.fish
