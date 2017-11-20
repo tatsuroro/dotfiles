@@ -11,8 +11,5 @@ set -gx PATH $PATH $GOPATH/bin /usr/local/opt/go/libexec/bin
 #flutter
 set -gx PATH $HOME/src/github.com/flutter/flutter/bin $PATH
 
-#homebrew cask
-set -gx HOMEBREW_CASK_OPTS "--appdir=/Applications"
-
 # for neovim
 set -gx XDG_CONFIG_HOME $HOME/.config
