@@ -1,0 +1,1 @@
+/Users/tatsuroro/.config/fisherman/nodenv/conf.d/nodenv.fish
