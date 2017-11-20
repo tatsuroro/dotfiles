@@ -5,4 +5,4 @@
 .netrwhist
 */.zcompdump*
 fishd.*
-dot/vim/plugged/*
+dot/vim/plugged
