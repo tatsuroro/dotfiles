@@ -120,9 +120,11 @@ cask kindle
 cask licecap
 cask postman
 cask sequel-pro
+cask simplenote
 cask sketch
 cask skitch
 cask skype
+cask slack
 cask sourcetree
 cask spectacle
 cask spotify
