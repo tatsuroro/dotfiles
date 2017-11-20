@@ -9,11 +9,11 @@ xcode-select --install
 curl -fsSL https://raw.github.com/rcmdnk/homebrew-file/install/install.sh | sh
 
 brew update
-brew install caskroom/cask/brew-cask
+brew tap caskroom/cask
 brew install mas
 brew install rcmdnk/file/brew-file
 
-brew file install
+brew file install -f "$HOME/dotfiles/Brewfile"
 
 source "sync.sh"
 
@@ -26,4 +26,7 @@ killall Finder
 echo "+++ add git util to PATH"
 ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
 
-echo 'after setup ruby, exec `gem install tmuxinator`'
+echo "+++ install neovim: need for vim8 & deoplete"
+pip3 install neovim
+
+echo '+++ after setup rbenv, exec `gem install tmuxinator`'

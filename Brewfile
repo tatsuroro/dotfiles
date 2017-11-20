@@ -107,7 +107,6 @@ cask docker
 cask fantastical
 cask firefox
 cask google-chrome
-cask google-drive
 cask google-japanese-ime
 cask graphiql
 cask intellij-idea-ce
