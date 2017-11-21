@@ -97,6 +97,7 @@ cask android-studio
 cask atom
 cask aware
 cask bartender
+cask bettertouchtool
 cask bitbar
 cask brave
 cask caskroom/versions/istat-menus5
