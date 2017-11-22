@@ -129,6 +129,7 @@ cask slack
 cask sourcetree
 cask spectacle
 cask spotify
+cask steermouse
 cask totalspaces
 cask visual-studio-code
 cask vlc
