@@ -20,25 +20,15 @@ nnoremap Y y$
 " vv -> select to lineEnd
 vnoremap v $h
 
-" increment
-nnoremap + <C-a>
-nnoremap - <C-x>
-
-" Ctrl+l to Esc
-inoremap <silent>jj <Esc>
-inoremap <C-L> <Esc>
-
 " esc * 2 -> cancel search highlight
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " IME off on esc
 inoremap <Esc> <Esc>:set iminsert=0<CR>
 
-" enable commands with IME on
-nnoremap あ a
-nnoremap い i
-nnoremap う u
-nnoremap お o
+" Ctrl+l to Esc
+imap <silent>jj <Esc>
+imap <C-L> <Esc>
 
 " delete buffer without close split view
 nmap <C-W>w <Plug>Bclose
@@ -63,6 +53,7 @@ inoremap ,time <C-R>=strftime('%H:%M:%S')<CR>
 """ Move Setting
 " disable unneed move
 nnoremap <C-j> <Nop>
+nnoremap <silent><CR> <Nop>
 
 " cursor controls in insert mode
 inoremap <C-e> <END>

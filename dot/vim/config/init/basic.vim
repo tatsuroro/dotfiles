@@ -23,6 +23,7 @@ set fileformats=unix,dos,mac
 " switch buffer without save
 set hidden
 
+" IME Off when changing mode (effective for only MacVim...)
 set imdisable
 
 " search
@@ -65,7 +66,6 @@ set completeopt=menuone
 """ MacVim Settings
 if has('gui_macvim')
   set showtabline=2	" show
-  set imdisable
   set transparency=10
   set antialias
   set guifont=Source\ Code\ Pro\ for\ Powerline:h16
