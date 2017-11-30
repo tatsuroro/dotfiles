@@ -14,8 +14,20 @@ let g:ctrlp_max_files = 100000
 let g:ctrlp_max_depth = 40
 " use mattn/files for file list (need to `go install mattn/files`)
 let g:ctrlp_user_command = 'files -a -i "^(.git|node_modules)\$" %s'
-let g:ctrlp_prompt_mappings = { 'PrtExit()': ['<ESC>', '<c-g>', '<c-c>', '<c-q>'] }
 let g:ctrlp_root_markers = ['.git', 'package.json', 'Gemfile', 'build.xml']
+
+  let g:ctrlp_prompt_mappings = {
+    \ 'PrtDelete()':          ['<c-d>', '<del>'],
+    \ 'PrtClear()':           ['<c-k>'],
+    \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
+    \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
+    \ 'PrtHistory(-1)':       ['<c-j>'],
+    \ 'PrtHistory(1)':        ['<c-l>'],
+    \ 'PrtCurLeft()':         ['<c-b>', '<left>', '<c-^>'],
+    \ 'PrtCurRight()':        ['<c-f>', '<right>'],
+    \ 'PrtExit()'   :         ['<ESC>', '<c-g>', '<c-c>', '<c-q>'],
+    \ 'ToggleByFname()':      ['<c-t>'],
+  \ }
 
 """ keymap
 nnoremap <silent><C-p> :CtrlPRoot<CR>
