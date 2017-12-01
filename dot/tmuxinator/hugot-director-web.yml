@@ -3,14 +3,15 @@
 name: hugot-web-director
 root: ~/src/github.com/kaizenplatform/hugot-director-webclient
 windows:
+  - vim: v
+  - git: gst
   - process:
       layout: 7859,143x41,0,0{71x41,0,0,2,71x41,72,0[71x20,72,0,5,71x20,72,21,6]}
       panes:
         - clear
         - build:
           - npm run serve -- --project hugot-latest
-        -
-  - git: gst
+        - npm run build -- --watch
   - appendix:
       panes:
         - clear

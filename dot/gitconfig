@@ -14,6 +14,12 @@
   interactive=auto
   grep=auto
 
+[color "diff"]
+  meta = green
+  frag = blue
+  old = red
+  new = white
+
 [ghq]
 	root = /Users/tatsuroro/src
 
