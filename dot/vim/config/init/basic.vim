@@ -100,6 +100,10 @@ augroup Buffer
   " Trailing WhiteSpace
   autocmd BufWritePre * :%s/\s\+$//e
 
+  " change cursor in InsertMode
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+
   " Restore cursor
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
