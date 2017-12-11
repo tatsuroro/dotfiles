@@ -100,7 +100,7 @@ cask bartender
 cask bettertouchtool
 cask bitbar
 cask brave
-cask caskroom/versions/istat-menus5
+cask istat-menus
 cask charles
 cask dash
 cask discord
@@ -112,6 +112,7 @@ cask google-japanese-ime
 cask graphiql
 cask intellij-idea-ce
 cask iterm2
+cask jasper
 cask java
 cask kap
 cask karabiner-elements
@@ -140,7 +141,6 @@ appstore 443987910 1Password (6.8.2)
 appstore 995124504 ASUS Device Discovery (1.1.9)
 appstore 1082170746 Aware (1.0.3)
 appstore 1091189122 Bear (1.3.1)
-appstore 1126100185 Cashew (1.10.4)
 appstore 847496013 Deckset (1.8.3)
 appstore 775737590 iA Writer (4.0.4)
 appstore 409183694 Keynote (7.3)
