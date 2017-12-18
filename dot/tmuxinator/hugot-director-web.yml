@@ -1,17 +1,22 @@
 ## !! Be careful with yml indent rules
 
+# layout: 7859,143x41,0,0{71x41,0,0,2,71x41,72,0[71x20,72,0,5,71x20,72,21,6]}
+
 name: hugot-web-director
 root: ~/src/github.com/kaizenplatform/hugot-director-webclient
 windows:
   - git: gst
   - vim: v
   - process:
-      layout: 7859,143x41,0,0{71x41,0,0,2,71x41,72,0[71x20,72,0,5,71x20,72,21,6]}
+      layout: tiled
       panes:
         - clear
-        - build:
+        - serve:
           - npm run serve -- --project hugot-latest
-        - npm run build -- --watch
+        - test:
+          - npm test -- --watch
+        - build:
+          - npm run build -- --watch
   - appendix:
       panes:
         - clear
