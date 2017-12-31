@@ -10,4 +10,4 @@ let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_javascript_prettier_options = '--single-quote'
 let g:ale_javascript_prettier_eslint_options = '--single-quote'
 
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1

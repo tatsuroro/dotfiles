@@ -125,7 +125,7 @@ augroup Indent
 
   autocmd BufRead,BufNewFile *.coffee  set filetype=coffee
   autocmd BufRead,BufNewFile *.ts      set filetype=typescript
-  autocmd BufRead,BufNewFile *.tsx     set filetype=typescript
+  autocmd BufRead,BufNewFile *.tsx     set filetype=typescript.tsx
   autocmd BufRead,BufNewFile *.js      set filetype=javascript.jsx
   autocmd BufRead,BufNewFile *.jsx     set filetype=jsx
   autocmd BufRead,BufNewFile *.go      set filetype=go

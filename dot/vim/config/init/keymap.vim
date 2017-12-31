@@ -46,8 +46,8 @@ nnoremap Q q
 nnoremap P "0p
 
 """ insert date time
-inoremap ,todo <C-R>=strftime('%Y-%m-%d %a')<CR>
-inoremap ,date <C-R>=strftime('%Y-%m-%d')<CR>
+inoremap ,todo <C-R>=strftime('%Y/%m/%d %a')<CR>
+inoremap ,date <C-R>=strftime('%Y/%m/%d')<CR>
 inoremap ,time <C-R>=strftime('%H:%M:%S')<CR>
 
 """ Move Setting
