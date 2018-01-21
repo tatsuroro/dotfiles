@@ -6,6 +6,14 @@ balias sed gsed
 balias tm tmux
 balias mux tmuxinator
 
+balias ls exa
+balias ll "exa -GaF"
+balias la "ls -la"
+
+# enable cd in the terminal that has executed ghq-init
+balias ghq-init "source ~/sh/ghq-init"
+
+# git
 balias g git
 balias gst "git status"
 balias ga "git add"
@@ -61,7 +69,3 @@ balias gsts "git stash show --text"
 
 balias gfx "git fixup"
 balias gbra "git branch-list"
-
-balias ls exa
-balias ll "exa -GaF"
-balias la "ls -la"
