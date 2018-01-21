@@ -46,6 +46,7 @@ brew libvterm
 brew libxml2
 brew libyaml
 brew libzip
+brew llvm
 brew lua
 brew macvim
 brew msgpack
@@ -82,10 +83,8 @@ brew xz
 brew yarn
 
 tap nodenv/nodenv
-brew nodenv-default-packages
 brew nodenv-npm-migrate
 brew nodenv-package-rehash
-brew nodenv-package-json-engine
 
 tap dart-lang/dart
 brew dart
@@ -120,6 +119,8 @@ cask kaleidoscope
 cask keybase
 cask kindle
 cask licecap
+cask oni
+cask paste
 cask postman
 cask sequel-pro
 cask simplenote
@@ -140,7 +141,6 @@ cask zoomus
 appstore 443987910 1Password (6.8.2)
 appstore 995124504 ASUS Device Discovery (1.1.9)
 appstore 1082170746 Aware (1.0.3)
-appstore 1091189122 Bear (1.3.1)
 appstore 847496013 Deckset (1.8.3)
 appstore 775737590 iA Writer (4.0.4)
 appstore 409183694 Keynote (7.3)
