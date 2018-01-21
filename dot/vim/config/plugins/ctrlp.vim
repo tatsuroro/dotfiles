@@ -5,15 +5,11 @@ let g:ctrlp_extensions = ['root', 'mixed']
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 let g:ctrlp_match_window = 'bottom,min:1,max:40'
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/](node_modules|tmp|temp|\.(git|hg|hgn|svn))$',
-  \ 'file': '\v\.(exe|so|dll|png|jpg|gif)$',
-  \ 'link': '',
-  \ }
 let g:ctrlp_max_files = 100000
 let g:ctrlp_max_depth = 40
-" use mattn/files for file list (need to `go install mattn/files`)
-let g:ctrlp_user_command = 'files -a -i "^(.git|node_modules)\$" %s'
+"
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
 let g:ctrlp_root_markers = ['.git', 'package.json', 'Gemfile', 'build.xml']
 
   let g:ctrlp_prompt_mappings = {
@@ -36,7 +32,7 @@ nnoremap <Leader>b :<C-u>CtrlPBuffer<CR>
 nnoremap <Leader>l :<C-u>CtrlPClearAllCaches<CR>
 " ctrlp-history
 nnoremap <silent><C-e> :<C-u>CtrlPCmdHistory<CR>
-nnoremap <silent><C-s> :<C-u>CtrlPSearchHistory<CR>
+nnoremap <silent><C-s> :<C-u>CtrlPGhq<cr>
 " ctrlp-register
 nnoremap <silent><C-y> :<C-u>CtrlPRegister<CR>
 " ctrlp-filetype

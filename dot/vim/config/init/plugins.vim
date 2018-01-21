@@ -16,17 +16,25 @@ call plug#begin('~/.vim/plugged')
 
 """ enhancement
 Plug 'nixprime/cpsm', { 'dir': '~/.vim/plugged/cpsm/', 'do': 'env PY3=ON ./install.sh' }
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/context_filetype.vim'
 
-""" Launcher
-Plug 'Shougo/neomru.vim'
-Plug 'Shougo/denite.nvim'
+" Plug 'roxma/nvim-yarp'
+" Plug 'roxma/vim-hug-neovim-rpc'
 
+" editor UI
+Plug 'itchyny/lightline.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+
+" colorscheme
+Plug 'w0ng/vim-hybrid'
+Plug 'cocopon/iceberg.vim'
+
+""" launcher
 Plug 'ctrlpvim/ctrlp.vim'
   Plug 'mattn/ctrlp-filer'
   Plug 'mattn/ctrlp-register'
+  Plug 'mattn/ctrlp-ghq'
   Plug 'ompugao/ctrlp-history'
   Plug 'endel/ctrlp-filetype.vim'
   Plug 'lokikl/vim-ctrlp-ag'
@@ -53,6 +61,8 @@ Plug 't9md/vim-quickhl'
 Plug 'thinca/vim-template'
 Plug 'haya14busa/vim-asterisk'
 Plug 'jiangmiao/auto-pairs'
+Plug 'rizzatti/dash.vim'
+Plug 'kannokanno/previm'
 
 """ text obj / operator
 Plug 'kana/vim-textobj-user'
@@ -76,23 +86,41 @@ Plug 'w0rp/ale'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
-""" completement
-Plug 'Shougo/deoplete.nvim'
-Plug 'zchee/deoplete-go', { 'do': 'make' }
-Plug 'zchee/deoplete-zsh'
-Plug 'fishbullet/deoplete-ruby'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm i -g tern' }
+""" complement
+" Plug 'Shougo/deoplete.nvim'
+" Plug 'zchee/deoplete-go', { 'do': 'make' }
+" Plug 'zchee/deoplete-zsh'
+" Plug 'fishbullet/deoplete-ruby'
+" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm i -g tern' }
+" Plug 'wellle/tmux-complete.vim'
+" Plug 'ujihisa/neco-look'
+"
+
+""" lang support
+" Plug 'Quramy/tsuquyomi', { 'for': ['typescript', 'tsx'] }
+
+""" Language Server Protocol Client
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+
+""" complementation
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
 Plug 'wellle/tmux-complete.vim'
-Plug 'ujihisa/neco-look'
-Plug 'Shougo/neco-vim'
 Plug 'Shougo/neco-syntax'
+Plug 'prabirshrestha/asyncomplete-necosyntax.vim'
+Plug 'Shougo/neco-vim'
+Plug 'prabirshrestha/asyncomplete-necovim.vim'
 
-" lang support
-Plug 'Quramy/tsuquyomi', { 'for': ['typescript', 'tsx'] }
-
-""" syntax highlight
-" shell / script
+""" syntax
 Plug 'dag/vim-fish'
+Plug 'cespare/vim-toml'
+Plug 'rcmdnk/vim-markdown'
+Plug 'joker1007/vim-markdown-quote-syntax'
+Plug 'mechatroner/rainbow_csv', { 'for': ['csv', 'tsv'] }
 
 " frontend
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
@@ -111,28 +139,6 @@ Plug 'moll/vim-node'
 Plug 'osyo-manga/vim-monster'
 Plug 'tpope/vim-rails'
 Plug 'dart-lang/dart-vim-plugin'
-
-" misc
-Plug 'cespare/vim-toml'
-Plug 'rcmdnk/vim-markdown'
-Plug 'joker1007/vim-markdown-quote-syntax'
-Plug 'mechatroner/rainbow_csv', { 'for': ['csv', 'tsv'] }
-
-"""
-
-" markdown preview
-Plug 'kannokanno/previm'
-
-" editor UI
-Plug 'itchyny/lightline.vim'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
-
-" colorscheme
-Plug 'w0ng/vim-hybrid'
-Plug 'cocopon/iceberg.vim'
 
 call plug#end()
 

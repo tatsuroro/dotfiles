@@ -1,5 +1,7 @@
 scriptencoding utf-8
 
+let g:over_enable_auto_nohlsearch = 1
+
 " 選択範囲置換
 nnoremap <silent> <Leader>o :OverCommandLine<CR>%s//g<Left><Left>
 

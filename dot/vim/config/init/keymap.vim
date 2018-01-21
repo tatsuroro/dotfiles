@@ -39,6 +39,9 @@ nnoremap <Leader>w :w<CR>
 " back to editted cursor pos
 noremap g<CR> g;
 
+" `gf` opens file under cursor in a new vertical split
+nnoremap gf :vertical wincmd f<CR>
+
 " q: close window, Q: macro
 nnoremap Q q
 
