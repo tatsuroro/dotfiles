@@ -64,20 +64,14 @@ set pastetoggle=<C-q>
 set completeopt=menuone
 
 """ MacVim Settings
-if has('gui_macvim')
+if has('gui_running')
   set showtabline=2	" show
   set transparency=10
+  set fuoptions=maxvert,maxhorz
   set antialias
   set guifont=Source\ Code\ Pro\ for\ Powerline:h16
-  colorscheme iceberg
-endif
 
-if has('gui_running')
-  set fuoptions=maxvert,maxhorz
-
-  augroup Gui
-    autocmd GUIEnter * cd ~/Google Drive/texts/
-  augroup END
+  autocmd GUIEnter * cd ~/src/
 endif
 
 hi String guifg=white
