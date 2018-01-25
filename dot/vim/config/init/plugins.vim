@@ -62,6 +62,7 @@ Plug 'thinca/vim-template'
 Plug 'haya14busa/vim-asterisk'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rizzatti/dash.vim'
+Plug 'glidenote/memolist.vim'
 Plug 'kannokanno/previm'
 
 """ text obj / operator
