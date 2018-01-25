@@ -21,7 +21,6 @@ dotfiles=(
   tmux.d
   tmuxinator
   config/fish
-  config/nvim
   config/karabiner/assets/complex_modifications/personal_settings.json
   config/lgtm.sh/sources
 )
