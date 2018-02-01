@@ -20,15 +20,15 @@ nnoremap Y y$
 " vv -> select to lineEnd
 vnoremap v $h
 
+" highlight word under cursor
+nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+
 " esc * 2 -> cancel search highlight
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 
-" IME off on esc
-inoremap <Esc> <Esc>:set iminsert=0<CR>
-
 " Ctrl+l to Esc
-imap <silent>jj <Esc>
-imap <C-L> <Esc>
+imap <silent>jj <Esc><Esc>
+imap <C-L> <Esc><Esc>
 
 " delete buffer without close split view
 nmap <C-W>w <Plug>Bclose
@@ -53,6 +53,14 @@ inoremap ,todo <C-R>=strftime('%Y/%m/%d %a')<CR>
 inoremap ,date <C-R>=strftime('%Y/%m/%d')<CR>
 inoremap ,time <C-R>=strftime('%H:%M:%S')<CR>
 
+" Move line
+nnoremap <C-Up> "zdd<Up>"zP
+nnoremap <C-Down> "zdd"zp
+
+" Move selected lines
+vnoremap <C-p> "zx<Up>"zP`[V`]
+vnoremap <C-n> "zx"zp`[V`]
+
 """ Move Setting
 " disable unneed move
 nnoremap <C-j> <Nop>
@@ -66,6 +74,8 @@ inoremap <C-f> <Right>
 inoremap <C-d> <Del>
 
 " cursor controls in command line mode
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
 cnoremap <C-a> <HOME>

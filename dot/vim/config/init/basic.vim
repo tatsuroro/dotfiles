@@ -59,6 +59,8 @@ set showmatch " show pair-bracket
 set matchtime=1
 set matchpairs+=「:」,『:』,（:）,【:】,《:》,〈:〉,［:］,‘:’,“:”
 
+set nocursorline " not emphasize cursor line
+
 set pastetoggle=<C-q>
 
 set completeopt=menuone
@@ -69,9 +71,9 @@ if has('gui_running')
   set transparency=10
   set fuoptions=maxvert,maxhorz
   set antialias
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h16
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
 
-  autocmd GUIEnter * cd ~/src/
+  autocmd GUIEnter * cd ~/Google\ Drive/memo
 endif
 
 hi String guifg=white
@@ -92,6 +94,8 @@ augroup Buffer
 
   " Trailing WhiteSpace
   autocmd BufWritePre * :%s/\s\+$//e
+
+  autocmd InsertEnter,InsertLeave * set cursorline!
 
   " change cursor in InsertMode
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
