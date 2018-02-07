@@ -20,18 +20,33 @@ nnoremap Y y$
 " vv -> select to lineEnd
 vnoremap v $h
 
+" no use x to yank
+nnoremap x "_x
+
+" yank register paste
+nnoremap P "0p
+
+" no yank on visual mode pasting
+xnoremap <expr> p 'pgv"'.v:register.'y`>'
+
 " highlight word under cursor
 nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 
 " esc * 2 -> cancel search highlight
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 
-" Ctrl+l to Esc
+" cancel search highlight and refresh screen
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+" Esc on insert mode
 imap <silent>jj <Esc><Esc>
-imap <C-L> <Esc><Esc>
+imap <C-l> <Esc><Esc>
+
+" Esc on insert mode and move cursor right (!!disable ctag)
+inoremap <C-]> <Esc><Esc><Right>
 
 " delete buffer without close split view
-nmap <C-W>w <Plug>Bclose
+nmap <C-w>w <Plug>Bclose
 
 " quick save
 nnoremap <Leader>w :w<CR>
@@ -45,13 +60,11 @@ nnoremap gf :vertical wincmd f<CR>
 " q: close window, Q: macro
 nnoremap Q q
 
-""" yank register paste
-nnoremap P "0p
-
-""" insert date time
+" insert date time
 inoremap ,todo <C-R>=strftime('%Y/%m/%d %a')<CR>
 inoremap ,date <C-R>=strftime('%Y/%m/%d')<CR>
 inoremap ,time <C-R>=strftime('%H:%M:%S')<CR>
+nnoremap <silent> ,w :read !week<CR>
 
 " Move line
 nnoremap <C-Up> "zdd<Up>"zP
@@ -61,7 +74,7 @@ nnoremap <C-Down> "zdd"zp
 vnoremap <C-p> "zx<Up>"zP`[V`]
 vnoremap <C-n> "zx"zp`[V`]
 
-""" Move Setting
+""" Cursor Move Setting
 " disable unneed move
 nnoremap <C-j> <Nop>
 nnoremap <silent><CR> <Nop>
