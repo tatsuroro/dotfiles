@@ -38,11 +38,11 @@ augroup Asyncomplete
     \ }))
 
 " nosnippet
-  autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
-    \ 'name': 'neosnippet',
-    \ 'whitelist': ['*'],
-    \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
-    \ }))
+  " autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
+  "   \ 'name': 'neosnippet',
+  "   \ 'whitelist': ['*'],
+  "   \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
+  "   \ }))
 
 " neco-syntax
   autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#necosyntax#get_source_options({

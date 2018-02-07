@@ -83,9 +83,9 @@ Plug 'kana/vim-operator-user'
 """ code lint / styling
 Plug 'w0rp/ale'
 
-""" snippet
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+" """ snippet
+" Plug 'Shougo/neosnippet'
+" Plug 'Shougo/neosnippet-snippets'
 
 """ complement
 " Plug 'Shougo/deoplete.nvim'
@@ -109,7 +109,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'prabirshrestha/asyncomplete-file.vim'
-Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
+" Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
 Plug 'wellle/tmux-complete.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'prabirshrestha/asyncomplete-necosyntax.vim'
