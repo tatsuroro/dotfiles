@@ -17,6 +17,7 @@ brew exa
 brew fish
 brew gettext
 brew ghq
+brew gibo
 brew gist
 brew git
 brew gnu-sed
