@@ -50,6 +50,7 @@ Plug 'lambdalisue/gina.vim'
 """ editing utils
 Plug 'chrismccord/bclose.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'fuenor/qfixgrep'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'

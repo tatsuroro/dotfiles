@@ -134,3 +134,7 @@ augroup Indent
   autocmd BufRead,BufNewFile *.tsv     set filetype=tsv
   autocmd Bufread,BufNewFile *key.md   set filetype=markdown.slide
 augroup END
+
+augroup Grep
+  autocmd QuickfixCmdPost make,grep,grepadd,vimgrep if len(getqflist()) != 0 | cwindow | endif
+augroup End
