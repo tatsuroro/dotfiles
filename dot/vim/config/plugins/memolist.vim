@@ -4,6 +4,7 @@ let g:memolist_path = "$HOME/Google\ Drive/memo"
 let g:memolist_template_dir_path = "~/.vim/template/memolist"
 
 let g:memolist_prompt_categories = 1
+let g:memolist_prompt_tags = 1
 " let g:memolist_qfixgrep = 1
 let g:memolist_ex_cmd = 'CtrlP'
 

@@ -59,7 +59,7 @@ set showmatch " show pair-bracket
 set matchtime=1
 set matchpairs+=「:」,『:』,（:）,【:】,《:》,〈:〉,［:］,‘:’,“:”
 
-set nocursorline " not emphasize cursor line
+set cursorline
 
 set pastetoggle=<C-q>
 
@@ -94,8 +94,6 @@ augroup Buffer
 
   " Trailing WhiteSpace
   autocmd BufWritePre * :%s/\s\+$//e
-
-  autocmd InsertEnter,InsertLeave * set cursorline!
 
   " change cursor in InsertMode
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"

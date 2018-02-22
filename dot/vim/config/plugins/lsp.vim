@@ -21,3 +21,7 @@ if executable('typescript-language-server')
       \ 'whitelist': ['typescript', 'typescript.tsx', 'javascript', 'javascript.jsx']
       \ })
 endif
+
+" Move to definition
+nnoremap <C-]> :LspDefinition<CR>
+
