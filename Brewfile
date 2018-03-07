@@ -113,18 +113,13 @@ cask graphiql
 cask intellij-idea-ce
 cask iterm2
 cask jasper
-cask java
 cask kap
 cask karabiner-elements
-cask kaleidoscope
-cask keybase
 cask kindle
 cask licecap
-cask oni
 cask paste
 cask postman
 cask sequel-pro
-cask simplenote
 cask sketch
 cask skitch
 cask skype
@@ -149,6 +144,4 @@ appstore 540348655 Monosnap (3.4.2)
 appstore 409203825 Numbers (4.3)
 appstore 409201541 Pages (6.3)
 appstore 568494494 Pocket (1.6.2)
-appstore 1066718511 Speed Test (3.01)
 appstore 425424353 The Unarchiver (3.11.3)
-appstore 585829637 Todoist (7.0.3)
