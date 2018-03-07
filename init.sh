@@ -26,7 +26,4 @@ killall Finder
 echo "+++ add git util to PATH"
 ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
 
-echo "+++ install neovim: need for vim8 & deoplete"
-pip3 install neovim
-
 echo '+++ after setup rbenv, exec `gem install tmuxinator`'
