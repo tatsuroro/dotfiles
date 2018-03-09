@@ -128,14 +128,12 @@ cask sourcetree
 cask spectacle
 cask spotify
 cask steermouse
-cask totalspaces
 cask visual-studio-code
 cask vlc
 cask zoomus
 
 # App Store applications
 appstore 443987910 1Password (6.8.2)
-appstore 995124504 ASUS Device Discovery (1.1.9)
 appstore 1082170746 Aware (1.0.3)
 appstore 847496013 Deckset (1.8.3)
 appstore 775737590 iA Writer (4.0.4)
