@@ -94,6 +94,7 @@ tap caskroom/versions
 
 cask alfred
 cask android-studio
+cask astro
 cask atom
 cask aware
 cask bartender
