@@ -1,0 +1,1 @@
+/Users/tatsuroro/.config/fisherman/z/functions/zclean.awk
