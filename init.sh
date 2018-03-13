@@ -23,6 +23,10 @@ echo "+++ update osx defaults"
 defaults write com.apple.finder AppleShowAllFiles TRUE
 killall Finder
 
+echo "+++ update vscode defaults"
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+
 echo "+++ add git util to PATH"
 ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
 
