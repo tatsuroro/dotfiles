@@ -1,0 +1,19 @@
+## !! Be careful with yml indent rules
+
+# layout: 7859,143x41,0,0{71x41,0,0,2,71x41,72,0[71x20,72,0,5,71x20,72,21,6]}
+
+name: corpsite
+root: ~/src/github.com/kaizenplatform/about.kaizenplatform.com
+windows:
+  - git: gst
+  - vim: v
+  - process:
+      layout: even-horizontal
+      panes:
+        - serve:
+          - yarn develop
+        - test:
+          -
+  - appendix:
+      panes:
+        - clear
