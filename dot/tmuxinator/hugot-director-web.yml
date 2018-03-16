@@ -8,15 +8,12 @@ windows:
   - git: gst
   - vim: v
   - process:
-      layout: tiled
+      layout: even-horizontal
       panes:
-        - clear
         - serve:
-          - npm run serve -- --project hugot-latest
+          - npm run serve
         - test:
           - npm test -- --watch
-        - build:
-          - npm run build -- --watch
   - appendix:
       panes:
         - clear
