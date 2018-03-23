@@ -111,6 +111,7 @@ cask firefox
 cask google-chrome
 cask google-japanese-ime
 cask graphiql
+cask insomnia
 cask intellij-idea-ce
 cask iterm2
 cask jasper
