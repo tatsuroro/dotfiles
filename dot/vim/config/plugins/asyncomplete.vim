@@ -29,6 +29,7 @@ augroup Asyncomplete
     \ 'blacklist': ['go'],
     \ 'completor': function('asyncomplete#sources#buffer#completor'),
     \ }))
+
 " file
   autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
     \ 'name': 'file',
@@ -36,6 +37,14 @@ augroup Asyncomplete
     \ 'priority': 10,
     \ 'completor': function('asyncomplete#sources#file#completor')
     \ }))
+
+" omni
+  " autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+  "   \ 'name': 'omni',
+  "   \ 'whitelist': ['*'],
+  "   \ 'blacklist': ['html'],
+  "   \ 'completor': function('asyncomplete#sources#omni#completor')
+  "   \ }))
 
 " nosnippet
   " autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
@@ -45,11 +54,11 @@ augroup Asyncomplete
   "   \ }))
 
 " neco-syntax
-  autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#necosyntax#get_source_options({
-    \ 'name': 'necosyntax',
-    \ 'whitelist': ['*'],
-    \ 'completor': function('asyncomplete#sources#necosyntax#completor'),
-    \ }))
+  " autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#necosyntax#get_source_options({
+  "   \ 'name': 'necosyntax',
+  "   \ 'whitelist': ['*'],
+  "   \ 'completor': function('asyncomplete#sources#necosyntax#completor'),
+  "   \ }))
 
 " neco-vim
   autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#necovim#get_source_options({
