@@ -3,6 +3,7 @@ function! s:customize_vaffle_mappings() abort
   nmap K <Plug>(vaffle-mkdir)
   nmap N <Plug>(vaffle-new-file)
   nmap <C-l> <Plug>(vaffle-quit)
+  nmap <C-c> <Plug>(vaffle-quit)
 endfunction
 
 augroup vimrc_vaffle
