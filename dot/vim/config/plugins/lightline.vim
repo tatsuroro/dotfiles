@@ -3,7 +3,6 @@ let g:lightline = {
 \   'left': [
 \     ['mode', 'paste'],
 \     ['readonly', 'filename', 'modified'],
-\     ['ale'],
 \   ]
 \ },
 \ 'component_function': {
@@ -11,7 +10,7 @@ let g:lightline = {
 \ }
 \ }
 
-function! ALEStatus()
-  return ALEGetStatusLine()
-endfunction
+" function! ALEStatus()
+"  return ALEGetStatusLine()
+"endfunction
 
