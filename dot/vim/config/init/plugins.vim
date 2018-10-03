@@ -83,6 +83,7 @@ Plug 'kana/vim-operator-user'
 
 """ code lint / styling
 Plug 'w0rp/ale'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " """ snippet
 " Plug 'Shougo/neosnippet'
@@ -118,31 +119,22 @@ Plug 'prabirshrestha/asyncomplete-necosyntax.vim'
 Plug 'Shougo/neco-vim'
 Plug 'prabirshrestha/asyncomplete-necovim.vim'
 
-""" syntax
-Plug 'Quramy/vison'
-Plug 'dag/vim-fish'
-Plug 'cespare/vim-toml'
-Plug 'rcmdnk/vim-markdown'
+" Ruby code completion
+Plug 'osyo-manga/vim-monster'
+
+""" syntax (language packs)
+Plug 'sheerun/vim-polyglot'
 Plug 'joker1007/vim-markdown-quote-syntax'
 Plug 'mechatroner/rainbow_csv', { 'for': ['csv', 'tsv'] }
 
 " frontend
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'tsx'] }
-Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'elzr/vim-json'
-Plug 'digitaltoad/vim-pug'
-Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'cakebaker/scss-syntax.vim'
 
 " backend / lang
 Plug 'moll/vim-node'
-Plug 'osyo-manga/vim-monster'
 Plug 'tpope/vim-rails'
-Plug 'dart-lang/dart-vim-plugin'
 
 call plug#end()
 
