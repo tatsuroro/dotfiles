@@ -82,8 +82,10 @@ Plug 'kana/vim-operator-user'
 Plug 'w0rp/ale'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-""" lang support
-" Plug 'Quramy/tsuquyomi', { 'for': ['typescript', 'tsx'] }
+""" typescript support
+Plug 'Quramy/tsuquyomi', { 'for': ['typescript', 'tsx'] }
+Plug 'leafgarland/typescript-vim'
+
 
 """ Language Server Protocol Client
 Plug 'prabirshrestha/async.vim'

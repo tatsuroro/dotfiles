@@ -2,15 +2,10 @@ let g:lightline = {
 \ 'active': {
 \   'left': [
 \     ['mode', 'paste'],
-\     ['readonly', 'filename', 'modified'],
+\     ['readonly', 'filename', 'modified', 'ale'],
 \   ]
 \ },
 \ 'component_function': {
-\   'ale': 'ALEStatus'
+\   'ale': 'ALEGetStatusLine'
 \ }
 \ }
-
-function! ALEStatus()
- return ALEGetStatusLine()
-endfunction
-

@@ -15,5 +15,5 @@ let g:ale_fix_on_save = 1
 let g:ale_statusline_format = ['E%d', 'W%d', '']
 let g:ale_echo_msg_format = '[%linter%] %s'
 
-nmap <silent> <C-w>j <Plug>(ale_next_wrap)
-nmap <silent> <C-w>k <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)

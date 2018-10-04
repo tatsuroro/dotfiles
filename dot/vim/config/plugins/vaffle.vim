@@ -2,8 +2,6 @@ function! s:customize_vaffle_mappings() abort
   " Customize key mappings here
   nmap K <Plug>(vaffle-mkdir)
   nmap N <Plug>(vaffle-new-file)
-  nmap <C-l> <Plug>(vaffle-quit)
-  nmap <C-c> <Plug>(vaffle-quit)
 endfunction
 
 augroup vimrc_vaffle
@@ -11,5 +9,5 @@ augroup vimrc_vaffle
   autocmd FileType vaffle call s:customize_vaffle_mappings()
 augroup END
 
-nnoremap <silent><C-k> :execute 'Vaffle ' . ((strlen(bufname('')) == 0) ? '.' : '%:h')<CR>
+nnoremap <silent><C-o> :execute 'Vaffle ' . ((strlen(bufname('')) == 0) ? '.' : '%:h')<CR>
 
