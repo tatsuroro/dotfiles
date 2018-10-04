@@ -36,7 +36,7 @@ nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearc
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " cancel search highlight and refresh screen
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
 
 " Esc on insert mode
 imap <silent>jj <Esc><Esc>

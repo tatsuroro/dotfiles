@@ -10,7 +10,7 @@ let g:lightline = {
 \ }
 \ }
 
-" function! ALEStatus()
-"  return ALEGetStatusLine()
-"endfunction
+function! ALEStatus()
+ return ALEGetStatusLine()
+endfunction
 

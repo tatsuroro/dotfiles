@@ -18,9 +18,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'nixprime/cpsm', { 'dir': '~/.vim/plugged/cpsm/', 'do': 'env PY3=ON ./install.sh' }
 Plug 'Shougo/context_filetype.vim'
 
-" Plug 'roxma/nvim-yarp'
-" Plug 'roxma/vim-hug-neovim-rpc'
-
 " editor UI
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
@@ -85,20 +82,6 @@ Plug 'kana/vim-operator-user'
 Plug 'w0rp/ale'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-" """ snippet
-" Plug 'Shougo/neosnippet'
-" Plug 'Shougo/neosnippet-snippets'
-
-""" complement
-" Plug 'Shougo/deoplete.nvim'
-" Plug 'zchee/deoplete-go', { 'do': 'make' }
-" Plug 'zchee/deoplete-zsh'
-" Plug 'fishbullet/deoplete-ruby'
-" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm i -g tern' }
-" Plug 'wellle/tmux-complete.vim'
-" Plug 'ujihisa/neco-look'
-"
-
 """ lang support
 " Plug 'Quramy/tsuquyomi', { 'for': ['typescript', 'tsx'] }
 
@@ -112,7 +95,6 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'yami-beta/asyncomplete-omni.vim'
-" Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
 Plug 'wellle/tmux-complete.vim'
 Plug 'Shougo/neco-syntax'
 Plug 'prabirshrestha/asyncomplete-necosyntax.vim'
@@ -123,7 +105,7 @@ Plug 'prabirshrestha/asyncomplete-necovim.vim'
 Plug 'osyo-manga/vim-monster'
 
 """ syntax (language packs)
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'joker1007/vim-markdown-quote-syntax'
 Plug 'mechatroner/rainbow_csv', { 'for': ['csv', 'tsv'] }
 

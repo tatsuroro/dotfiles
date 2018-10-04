@@ -16,7 +16,6 @@ endif
 
 " edit temp file
 command! -nargs=1 -complete=filetype Tmp edit ~/.vim_tmp/tmp.<args>
-command! -nargs=1 -complete=filetype Temp edit ~/.vim_tmp/tmp.<args>>>"
 
 " vp doesn't replace paste buffer
 function! RestoreRegister()
