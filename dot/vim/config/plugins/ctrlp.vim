@@ -8,8 +8,6 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_files = 100000
 let g:ctrlp_max_depth = 40
 "
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
 let g:ctrlp_root_markers = ['.git', 'package.json', 'Gemfile', 'build.xml']
 
   let g:ctrlp_prompt_mappings = {
@@ -25,8 +23,31 @@ let g:ctrlp_root_markers = ['.git', 'package.json', 'Gemfile', 'build.xml']
     \ 'ToggleByFname()':      ['<c-t>'],
   \ }
 
+
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+function! s:CallCtrlPBasedOnGitStatus()
+  if exists('b:ctrlp_user_command')
+    unlet b:ctrlp_user_command
+  endif
+
+  let s:git_status = system('git rev-parse --is-inside-git-dir')
+
+  if v:shell_error == 0
+    let b:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude=node_modules']
+    execute 'CtrlP'
+  elseif v:shell_error == 128
+      execute 'CtrlPCurFile'
+  else
+    execute 'CtrlP'
+  endif
+endfunction
+
+
 """ keymap
-nnoremap <silent><C-p> :CtrlPRoot<CR>
+nnoremap <silent><C-p> :call <SID>CallCtrlPBasedOnGitStatus()<CR>
+
+
 nnoremap <silent><C-m> :CtrlPMRU<CR>
 nnoremap <Leader>b :<C-u>CtrlPBuffer<CR>
 nnoremap <Leader>l :<C-u>CtrlPClearAllCaches<CR>

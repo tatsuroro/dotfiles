@@ -1,6 +1,6 @@
 let g:memolist_memo_suffix = "txt"
 
-let g:memolist_path = "$HOME/Dropbox/memo"
+let g:memolist_path = "$HOME/Google\ Drive/docs/memo"
 let g:memolist_template_dir_path = "~/.vim/template/memolist"
 
 let g:memolist_prompt_categories = 1
