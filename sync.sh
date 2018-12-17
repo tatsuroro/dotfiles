@@ -1,5 +1,5 @@
 #!/bin/bash
-for dirname in .config/karabiner/assets/complex_modifications .git_template/hooks src bin pkg
+for dirname in .config/karabiner/assets/complex_modifications .git_template/hooks .local/share src bin pkg
 do
   echo "mkdir -p \"$HOME/${dirname}\""
   mkdir -p "$HOME/${dirname}"
@@ -22,7 +22,6 @@ dotfiles=(
   tmuxinator
   config/fish
   config/karabiner/assets/complex_modifications/personal_settings.json
-  config/lgtm.sh/sources
 )
 
 for file in ${dotfiles[@]}
@@ -36,9 +35,8 @@ echo "cp -f \"${dir}/dot/gitconfig\" \"$HOME/.gitconfig\""
 cp -f "${dir}/dot/gitconfig" "$HOME/.gitconfig"
 
 echo "+++ copy ssh key & configs"
-mkdir "$HOME/.ssh"
-echo "cp \"${devDir}/ssh/*\" \"$HOME/.ssh/\""
-cp "${devDir}/ssh/*" "$HOME/.ssh/"
+echo "cp -r \"${devDir}/ssh\" \"$HOME/.ssh\""
+cp -r "${devDir}/ssh" "$HOME/.ssh"
 
 echo "+++ copy dev fonts"
 echo "cp -f \"${devDir}/fonts/scp-powerline/*.otf\" \"$HOME/Library/Fonts/\""
