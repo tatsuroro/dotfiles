@@ -1,9 +1,7 @@
 oh-my-fish/plugin-balias
 edc/bass
 0rax/fish-bd
-fisherman/docker-completion
 fisherman/getopts
-fisherman/nodenv
 oh-my-fish/plugin-peco
 tsu-nera/fish-peco_recentd
 yoshiori/fish-peco_select_ghq_repository
