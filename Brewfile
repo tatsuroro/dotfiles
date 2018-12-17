@@ -10,7 +10,6 @@ brew cmake
 brew cocoapods
 brew cscope
 brew direnv
-brew elixir
 brew elm
 brew erlang
 brew exa
@@ -28,7 +27,6 @@ brew hugo
 brew icu4c
 brew ideviceinstaller
 brew imagemagick
-brew ios-deploy
 brew jemalloc
 brew jpeg
 brew jq
@@ -53,7 +51,6 @@ brew macvim
 brew msgpack
 brew node-build
 brew nodenv
-brew oniguruma
 brew openssl
 brew pcre
 brew peco
@@ -81,7 +78,6 @@ brew watch
 brew wget
 brew wxmac
 brew xz
-brew yarn
 
 tap nodenv/nodenv
 brew nodenv-npm-migrate
@@ -93,18 +89,13 @@ brew dart
 tap caskroom/versions
 
 cask alfred
-cask android-studio
-cask astro
 cask atom
 cask aware
 cask bartender
 cask bettertouchtool
 cask bitbar
-cask brave
 cask istat-menus
-cask charles
 cask dash
-cask discord
 cask docker
 cask fantastical
 cask firefox
@@ -112,36 +103,26 @@ cask google-chrome
 cask google-japanese-ime
 cask graphiql
 cask insomnia
-cask intellij-idea-ce
-cask iterm2
 cask jasper
 cask kap
 cask karabiner-elements
 cask kindle
 cask licecap
-cask paste
 cask postman
 cask sequel-pro
 cask sketch
 cask skitch
 cask skype
 cask slack
-cask sourcetree
 cask spectacle
 cask spotify
 cask steermouse
 cask visual-studio-code
-cask vlc
 cask zoomus
 
 # App Store applications
 appstore 443987910 1Password (6.8.2)
-appstore 1082170746 Aware (1.0.3)
 appstore 847496013 Deckset (1.8.3)
 appstore 775737590 iA Writer (4.0.4)
-appstore 409183694 Keynote (7.3)
 appstore 540348655 Monosnap (3.4.2)
-appstore 409203825 Numbers (4.3)
-appstore 409201541 Pages (6.3)
-appstore 568494494 Pocket (1.6.2)
 appstore 425424353 The Unarchiver (3.11.3)
