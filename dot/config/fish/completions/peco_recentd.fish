@@ -1,1 +1,1 @@
-/Users/tatsuroro/.config/fisherman/peco_recentd/completions/peco_recentd.fish
+complete -c peco_recentd -d "move to recent directory with peco."

@@ -1,1 +1,5 @@
-/Users/tatsuroro/.config/fisherman/peco_recentd/functions/peco_recentd.fish
+function peco_recentd
+        z -l | peco | awk '{ print $2 }' | read recentd
+        cd $recentd
+        commandline -f repaint
+end
