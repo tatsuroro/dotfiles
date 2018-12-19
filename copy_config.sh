@@ -1,4 +1,5 @@
 #!/bin/bash
+
 for dirname in .config/karabiner/assets/complex_modifications .git_template/hooks .local/share src bin pkg
 do
   echo "mkdir -p \"$HOME/${dirname}\""
