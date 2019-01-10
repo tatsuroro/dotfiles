@@ -87,6 +87,9 @@ tap dart-lang/dart
 brew dart
 
 tap caskroom/versions
+tap caskroom/fonts
+
+cask font-fira-code
 
 cask alfred
 cask atom
