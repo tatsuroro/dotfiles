@@ -73,7 +73,7 @@ if has('gui_running')
   set antialias
   set guifont=Source\ Code\ Pro\ for\ Powerline:h14
 
-  autocmd GUIEnter * cd ~/Google\ Drive/docs/memo
+  autocmd GUIEnter * cd ~/src/github.com/tatsuroro/docs
 endif
 
 hi String guifg=white
