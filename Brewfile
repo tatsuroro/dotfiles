@@ -97,7 +97,6 @@ cask aware
 cask bartender
 cask bettertouchtool
 cask bitbar
-cask istat-menus
 cask dash
 cask docker
 cask fantastical
@@ -106,6 +105,8 @@ cask google-chrome
 cask google-japanese-ime
 cask graphiql
 cask insomnia
+cask istat-menus
+cask iterm2
 cask jasper
 cask kap
 cask karabiner-elements
