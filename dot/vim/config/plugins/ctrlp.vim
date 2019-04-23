@@ -10,6 +10,8 @@ let g:ctrlp_max_depth = 40
 "
 let g:ctrlp_root_markers = ['.git', 'package.json', 'Gemfile', 'build.xml']
 
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
   let g:ctrlp_prompt_mappings = {
     \ 'PrtDelete()':          ['<c-d>', '<del>'],
     \ 'PrtClear()':           ['<c-k>'],
@@ -24,7 +26,8 @@ let g:ctrlp_root_markers = ['.git', 'package.json', 'Gemfile', 'build.xml']
   \ }
 
 
-" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
 function! s:CallCtrlPBasedOnGitStatus()
   if exists('b:ctrlp_user_command')
@@ -34,7 +37,7 @@ function! s:CallCtrlPBasedOnGitStatus()
   let s:git_status = system('git rev-parse --is-inside-git-dir')
 
   if v:shell_error == 0
-    let b:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude=node_modules']
+    let b:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
     execute 'CtrlP'
   elseif v:shell_error == 128
       execute 'CtrlPCurFile'
