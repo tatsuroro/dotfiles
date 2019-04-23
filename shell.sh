@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "+++ add git util to PATH"
-ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
+ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 
 echo "+++ Activate fish shell"
 
