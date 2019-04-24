@@ -1,0 +1,61 @@
+#!/bin/sh
+
+### Account config (Need to modify as your own)
+
+GITHUB_DOMAIN="github.com"
+GITHUB_NAME="tatsurro"
+GITHUB_EMAIL="me@tatsuroro.com"
+
+GHE_DOMAIN="your-company-github.com"
+GHE_DOMAIN_2="your-company-2-github.com"
+GHE_NAME="tatsuro.nakamura"
+GHE_EMAIL="tatsuro.nakamura@your-company.com"
+
+###
+
+raw_url="$(git remote get-url origin)"
+if echo "$raw_url" | grep https; then
+  # for https
+  remote_domain=$(echo $raw_url | sed -E 's/^.*(https):\/\/([^/]+).*/\2/g')
+else
+  # for ssh
+  remote_domain=$(echo $raw_url | sed -E 's/^.*(ssh):\/\/([^/]+).*/\2/g')
+fi
+
+case "$remote_domain" in
+  "$GITHUB_DOMAIN" )
+    NAME=$GITHUB_NAME
+    EMAIL=$GITHUB_EMAIL
+    ;;
+  "$GHE_DOMAIN" )
+    NAME=$GHE_NAME
+    EMAIL=$GHE_EMAIL
+    ;;
+  "$GHE_DOMAIN_2" )
+    NAME=$GHE_NAME
+    EMAIL=$GHE_EMAIL
+    ;;
+  * )
+    echo "unknown remote domain $remote_domain"
+    exit 0
+    ;;
+esac
+
+FAIL=false
+
+if [ "$(git config --local --get user.name)" != $NAME ]; then
+  git config --local user.name $NAME
+  echo "changed user.name to $NAME"
+  FAIL=true
+fi
+
+if [ "$(git config --local --get user.email)" != $EMAIL ]; then
+  git config --local user.email $EMAIL
+  echo "changed user.email to $EMAIL"
+  FAIL=true
+fi
+
+if $FAIL;then
+  echo "try again!"
+  exit 1
+fi

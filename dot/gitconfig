@@ -1,11 +1,12 @@
 [user]
-  name = Tatsuro Nakamura
+  name = tatsuroro
   email = me@tatsuroro.com
 
 [core]
   autocrlf = input
   excludesfiles = ~/.gitignore_global
   ignorecase = false
+  hooksPath = ~/.git/hooks/
 
 [color]
   ui = true
