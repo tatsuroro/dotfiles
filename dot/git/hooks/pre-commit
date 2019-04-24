@@ -13,7 +13,7 @@ GHE_EMAIL="tatsuro.nakamura@your-company.com"
 
 ###
 
-raw_url="$(git remote get-url origin)"
+raw_url="$(git config remote.origin.url)"
 if echo "$raw_url" | grep https; then
   # for https
   remote_domain=$(echo $raw_url | sed -E 's/^.*(https):\/\/([^/]+).*/\2/g')
