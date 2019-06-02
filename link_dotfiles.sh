@@ -12,7 +12,6 @@ dotfiles=(
   tmux.conf
   tmux-powerlinerc
   tmux.d
-  tmuxinator
   config/fish
   config/karabiner/assets/complex_modifications/personal_settings.json
 )
