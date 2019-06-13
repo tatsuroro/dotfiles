@@ -1,7 +1,0 @@
-name: kza
-root: ~/src/github.com/kaizenplatform/kaizen-ad-frontend/
-windows:
-  - nvim:
-    - nvim
-  - git: gst
-  - sub: ls
