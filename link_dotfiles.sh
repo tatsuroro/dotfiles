@@ -3,6 +3,7 @@
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 dotfiles=(
+  gitignore_global
   editorconfig
   vimrc
   vim
@@ -13,6 +14,7 @@ dotfiles=(
   tmux-powerlinerc
   tmux.d
   tmuxinator
+  config/direnv/direnvrc
   config/fish
   config/karabiner/assets/complex_modifications/personal_settings.json
 )

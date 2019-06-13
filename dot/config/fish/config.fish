@@ -58,3 +58,6 @@ end
 
 # alias & functions
 . ~/.config/fish/aliases.fish
+
+# direnv
+direnv hook fish | source

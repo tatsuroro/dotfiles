@@ -4,7 +4,7 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cloud="Google\ Drive"
 devDir="$HOME/${cloud}/dev"
 
-for dirname in .config/karabiner/assets/complex_modifications .git_template/hooks .git/hooks .local/share src bin pkg
+for dirname in .config/karabiner/assets/complex_modifications .config/direnv .git_template/hooks .git/hooks .local/share src bin pkg
 do
   echo "mkdir -p \"$HOME/${dirname}\""
   mkdir -p "$HOME/${dirname}"
