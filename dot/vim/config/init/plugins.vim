@@ -39,7 +39,9 @@ Plug 'ctrlpvim/ctrlp.vim'
   Plug 'lambdalisue/vim-gista-ctrlp'
 
 """ filer
-Plug 'cocopon/vaffle.vim'
+" Plug 'cocopon/vaffle.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 """ version control
 Plug 'lambdalisue/gina.vim'
