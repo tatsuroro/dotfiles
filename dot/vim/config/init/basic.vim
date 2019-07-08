@@ -71,7 +71,7 @@ if has('gui_running')
   set transparency=10
   set fuoptions=maxvert,maxhorz
   set antialias
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h15
 
   autocmd GUIEnter * cd ~/src/github.com/tatsuroro/docs
 endif
