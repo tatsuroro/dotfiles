@@ -20,9 +20,17 @@ inoremap <silent><expr> <TAB>
   \ asyncomplete#force_refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" buffer
 augroup Asyncomplete
   autocmd!
+
+  "tscompletejob
+  autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#tscompletejob#get_source_options({
+    \ 'name': 'tscompletejob',
+    \ 'whitelist': ['typescript'],
+    \ 'completor': function('asyncomplete#sources#tscompletejob#completor'),
+    \ }))
+
+  " buffer
   autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
     \ 'name': 'buffer',
     \ 'whitelist': ['*'],
@@ -30,7 +38,7 @@ augroup Asyncomplete
     \ 'completor': function('asyncomplete#sources#buffer#completor'),
     \ }))
 
-" file
+  " file
   autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
     \ 'name': 'file',
     \ 'whitelist': ['*'],
@@ -38,12 +46,20 @@ augroup Asyncomplete
     \ 'completor': function('asyncomplete#sources#file#completor')
     \ }))
 
-" neco-vim
+  " neco-vim
   autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#necovim#get_source_options({
     \ 'name': 'necovim',
     \ 'whitelist': ['vim'],
     \ 'completor': function('asyncomplete#sources#necovim#completor'),
     \ }))
+
+  " omni
+  " autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+  "  \ 'name': 'omni',
+  "  \ 'whitelist': ['*'],
+  "  \ 'blacklist': ['c', 'cpp', 'html'],
+  "  \ 'completor': function('asyncomplete#sources#omni#completor')
+  "  \ }))
 augroup END
 
 " tmux-complete
@@ -59,3 +75,4 @@ let g:tmuxcomplete#asyncomplete_source_options = {
   \   'truncate':        0
   \   }
   \ }
+

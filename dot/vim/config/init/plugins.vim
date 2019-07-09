@@ -87,7 +87,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 """ typescript support
 Plug 'Quramy/tsuquyomi', { 'for': ['typescript', 'tsx'] }
 Plug 'leafgarland/typescript-vim'
-
+Plug 'runoshun/tscompletejob'
 
 """ Language Server Protocol Client
 Plug 'prabirshrestha/async.vim'
@@ -104,6 +104,7 @@ Plug 'Shougo/neco-syntax'
 Plug 'prabirshrestha/asyncomplete-necosyntax.vim'
 Plug 'Shougo/neco-vim'
 Plug 'prabirshrestha/asyncomplete-necovim.vim'
+Plug 'prabirshrestha/asyncomplete-tscompletejob.vim'
 
 " Ruby code completion
 Plug 'osyo-manga/vim-monster'
@@ -115,8 +116,10 @@ Plug 'mechatroner/rainbow_csv', { 'for': ['csv', 'tsv'] }
 
 " frontend
 Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'Quramy/vim-js-pretty-template'
 Plug 'mattn/emmet-vim'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " backend / lang
 Plug 'moll/vim-node'
