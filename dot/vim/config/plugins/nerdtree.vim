@@ -2,10 +2,14 @@
 if has('gui_running')
   " noop
 else
-  autocmd VimEnter * NERDTree
+  augroup NERD
+      au!
+      autocmd VimEnter * NERDTree
+      autocmd VimEnter * wincmd p
+  augroup END
 
   " Close vim when opend buffer is only nerdtree
-  " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 endif
 
 " Plugin config
