@@ -14,14 +14,15 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
   let g:ctrlp_prompt_mappings = {
     \ 'PrtDelete()':          ['<c-d>', '<del>'],
-    \ 'PrtClear()':           ['<c-k>'],
-    \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
-    \ 'PrtSelectMove("k")':   ['<c-p>', '<up>'],
-    \ 'PrtHistory(-1)':       ['<c-j>'],
-    \ 'PrtHistory(1)':        ['<c-l>'],
+    \ 'PrtClear()':           ['<'],
+    \ 'PrtSelectMove("j")':   ['<c-j>', '<c-n>', '<down>'],
+    \ 'PrtSelectMove("k")':   ['<c-k>', '<c-p>', '<up>'],
+    \ 'PrtHistory(-1)':       ['<c-]>'],
+    \ 'PrtHistory(1)':        ['<c-[>'],
     \ 'PrtCurLeft()':         ['<c-b>', '<left>', '<c-^>'],
     \ 'PrtCurRight()':        ['<c-f>', '<right>'],
     \ 'PrtExit()'   :         ['<ESC>', '<c-g>', '<c-c>', '<c-q>'],
+    \ 'AcceptSelection("e")': ['<cr>', '<c-l>'],
     \ 'ToggleByFname()':      ['<c-t>'],
   \ }
 
@@ -52,7 +53,7 @@ nnoremap <silent><C-p> :call <SID>CallCtrlPBasedOnGitStatus()<CR>
 
 
 nnoremap <silent><C-m> :CtrlPMRU<CR>
-nnoremap <Leader>b :<C-u>CtrlPBuffer<CR>
+nnoremap <silent><C-'> :<C-u>CtrlPBuffer<CR>
 nnoremap <Leader>l :<C-u>CtrlPClearAllCaches<CR>
 " ctrlp-history
 nnoremap <silent><C-e> :<C-u>CtrlPCmdHistory<CR>
