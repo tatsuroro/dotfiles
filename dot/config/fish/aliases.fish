@@ -10,6 +10,11 @@ balias ls exa
 balias ll "exa -GaF"
 balias la "ls -la"
 
+# utils
+balias vims "vim (git diff --name-only)"
+balias vimt "vim -p (git diff --name-only)"
+balias wifiConnect "networksetup -setairportpower en0 off && networksetup -setairportpower en0 on"
+
 # enable cd in the terminal that has executed ghq-init
 balias ghq-init "source ~/sh/ghq-init"
 
