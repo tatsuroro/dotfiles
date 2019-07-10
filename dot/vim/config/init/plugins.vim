@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
 """ enhancement
 Plug 'nixprime/cpsm', { 'dir': '~/.vim/plugged/cpsm/', 'do': 'env PY3=ON ./install.sh' }
 Plug 'Shougo/context_filetype.vim'
+Plug 'tyru/open-browser.vim'
 
 " editor UI
 Plug 'itchyny/lightline.vim'

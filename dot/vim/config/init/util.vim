@@ -42,3 +42,16 @@ endfunction
 
 " sudo save
 cabbr w!! w !sudo tee > /dev/null %
+
+" Google the word under cursor
+function! s:search_by_google()
+    let line = line(".")
+    let col  = col(".")
+    let searchWord = expand("<cword>")
+    if searchWord  != ''
+        execute 'read !open https://www.google.co.jp/search\?q\=' . searchWord
+        execute 'call cursor(' . line . ',' . col . ')'
+    endif
+endfunction
+command! SearchByGoogle call s:search_by_google()
+nnoremap <silent> <Leader>g :SearchByGoogle<CR>
