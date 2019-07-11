@@ -10,10 +10,6 @@ if not functions -q fisher
     fish -c fisher
 end
 
-function peco
-  command peco --layout=bottom-up $argv
-end
-
 function cd
   if test (count $argv) -eq 0
     return 0
@@ -55,6 +51,11 @@ function cd
 
   return $status
 end
+
+# fisher/fzf
+set -U FZF_LEGACY_KEYBINDINGS 0
+set -x FZF_DEFAULT_COMMAND 'fd'
+set -x FZF_FIND_FILE_COMMAND $FZF_DEFAULT_COMMAND
 
 # alias & functions
 . ~/.config/fish/aliases.fish
