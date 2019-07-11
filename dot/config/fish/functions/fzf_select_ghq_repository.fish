@@ -1,5 +1,7 @@
 function fzf_select_ghq_repository
-  ghq list --full-path | fzf | read select
-  [ -n $select ] && cd $select
+  set -l selected (ghq list | fzf)
+
+  [ -n "$selected" ] && eval "cd (ghq root)/$selected"
+
   commandline -f repaint
 end
