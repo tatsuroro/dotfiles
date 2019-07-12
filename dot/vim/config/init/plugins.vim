@@ -44,6 +44,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'cocopon/vaffle.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
 
 """ version control
 Plug 'lambdalisue/gina.vim'

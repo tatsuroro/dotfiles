@@ -122,6 +122,7 @@ cask "spotify"
 cask "steermouse"
 cask "visual-studio-code"
 cask "caskroom/fonts/font-fira-code"
+cask "caskroom/fonts/font-fira-code-nerd-font"
 cask "caskroom/versions/adoptopenjdk8"
 mas "com.apple.iWork.Keynote", id: 409183694
 mas "com.todoist.mac.Todoist", id: 585829637
