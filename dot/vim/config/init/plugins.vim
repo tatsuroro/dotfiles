@@ -21,8 +21,6 @@ Plug 'tyru/open-browser.vim'
 
 " editor UI
 Plug 'itchyny/lightline.vim'
-Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
 
 " colorscheme
 Plug 'w0ng/vim-hybrid'
@@ -41,18 +39,16 @@ Plug 'ctrlpvim/ctrlp.vim'
   Plug 'lambdalisue/vim-gista-ctrlp'
 
 """ filer
-" Plug 'cocopon/vaffle.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 
 """ version control
-Plug 'lambdalisue/gina.vim'
+Plug 'airblade/vim-gitgutter'
 
 """ editing utils
 Plug 'chrismccord/bclose.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'fuenor/qfixgrep'
 Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
@@ -65,7 +61,6 @@ Plug 'thinca/vim-template'
 Plug 'haya14busa/vim-asterisk'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rizzatti/dash.vim'
-Plug 'glidenote/memolist.vim'
 Plug 'kannokanno/previm'
 
 """ text obj / operator

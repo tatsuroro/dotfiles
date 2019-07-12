@@ -6,7 +6,7 @@ let g:memolist_template_dir_path = "~/.vim/template/memolist"
 let g:memolist_prompt_categories = 1
 let g:memolist_prompt_tags = 1
 " let g:memolist_qfixgrep = 1
-let g:memolist_ex_cmd = 'CtrlP'
+" let g:memolist_ex_cmd = 'fzf'
 
 let g:memolist_delimiter_yaml_start = "---"
 let g:memolist_delimiter_yaml_end  = "---"
