@@ -27,6 +27,7 @@ Plug 'airblade/vim-gitgutter'
 " colorscheme
 Plug 'w0ng/vim-hybrid'
 Plug 'cocopon/iceberg.vim'
+Plug 'jacoborus/tender.vim'
 
 """ launcher
 Plug 'ctrlpvim/ctrlp.vim'

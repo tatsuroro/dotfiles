@@ -1,3 +1,5 @@
+colorscheme tender
+" colorscheme iceberg
+
 " colorscheme hybrid
-colorscheme iceberg
-let g:hybrid_use_iTerm_colors = 0
+" let g:hybrid_use_iTerm_colors = 0
