@@ -75,7 +75,7 @@ vnoremap <C-p> "zx<Up>"zP`[V`]
 vnoremap <C-n> "zx"zp`[V`]
 
 """ Cursor Move Setting
-" disable unneed move
+" disable no needs movement
 nnoremap <C-j> <Nop>
 nnoremap <silent><CR> <Nop>
 
