@@ -7,4 +7,4 @@ command! -nargs=0 FGhq :call fzf#run({
 \ 'sink': 'cd'
 \ })
 
-nnoremap <silent><C-s> :FGhq<CR>
+nnoremap <silent><C-s> :FGhq<CR>:NERDTreeCWD<CR>
