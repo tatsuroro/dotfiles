@@ -26,6 +26,10 @@ Plug 'w0ng/vim-hybrid'
 Plug 'cocopon/iceberg.vim'
 Plug 'jacoborus/tender.vim'
 
+""" fzf
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
 """ filer
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'

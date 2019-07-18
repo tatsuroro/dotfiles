@@ -24,10 +24,7 @@ nmap <leader><C-y> <Plug>(coc-type-definition)
 nmap <silent><C-i> <Plug>(coc-implementation)
 nmap <silent><C-[> <Plug>(coc-references)
 
-nnoremap <silent><C-s> :CocCommand<CR>
-nnoremap <silent><C-p> :CocList files<CR>
-nnoremap <silent><C-m> :CocList mru<CR>
-nnoremap <silent><C-'> :CocList buffers<CR>
+nnoremap <silent><C-,> :CocCommand<CR>
 nnoremap <silent><C-e> :CocList cmdhistory<CR>
 
 " Use K to show documentation in preview window
