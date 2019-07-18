@@ -1,5 +1,5 @@
 # env
-. ~/.config/fish/env.fish
+source ~/.config/fish/env.fish
 
 # !! hoge-env init script has been replaced with fisherman init plugins
 
@@ -58,7 +58,7 @@ set -x FZF_DEFAULT_COMMAND 'fd'
 set -x FZF_FIND_FILE_COMMAND $FZF_DEFAULT_COMMAND
 
 # alias & functions
-. ~/.config/fish/aliases.fish
+source ~/.config/fish/aliases.fish
 
 # direnv
 direnv hook fish | source
