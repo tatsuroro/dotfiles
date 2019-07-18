@@ -29,6 +29,7 @@ Plug 'jacoborus/tender.vim'
 """ filer
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'unkiwii/vim-nerdtree-sync'
 Plug 'ryanoasis/vim-devicons'
 
 """ version control

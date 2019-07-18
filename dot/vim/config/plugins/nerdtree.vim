@@ -18,6 +18,9 @@ let g:NERDTreeShowHidden = 1
 " let g:NERDTreeDirArrowExpandable = '>'
 " let g:NERDTreeDirArrowCollapsible = '▾'
 
+" NERDTREE sync
+let g:nerdtree_sync_cursorline = 1
+
 " Keymap
 let g:NERDTreeMapActivateNode = 'l'
 let g:NERDTreeMapCloseDir = 'h'
