@@ -29,6 +29,8 @@ balias gbd "git branch -d"
 balias gbl "git blame -b -w"
 balias gbnm "git branch --no-merged"
 
+balias gbr "fzf_git_branch_checkout"
+
 balias gc "git commit -v"
 balias gc! "git commit -v --amend"
 balias gcn! "git commit -v --no-edit --amend"
