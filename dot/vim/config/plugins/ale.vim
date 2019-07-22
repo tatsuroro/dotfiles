@@ -5,7 +5,17 @@
 "  \ 'tsx': ['prettier'],
 "  \ 'python': ['autopep8', 'isort'],
 "  \ }
-"
+
+let g:ale_linters = {
+\ 'css': ['stylelint'],
+\ 'javascript': ['prettier'],
+\ 'jsx': ['prettier'],
+\ 'typescript': ['prettier'],
+\ 'tsx': ['prettier'],
+\ }
+
+let g:ale_lnter_aliases = { 'tsx': 'css' }
+
 let g:ale_javascript_prettier_use_local_config = 1
 " let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
 " let g:ale_javascript_prettier_eslint_options = '--single-quote --trailing-comma es5'
