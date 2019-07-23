@@ -68,10 +68,10 @@ command! -nargs=0 Format :call CocAction('format')
 nnoremap <leader>p :Format<cr>
 
 augroup CocBuffer
-  autocmd!
+  " autocmd!
 
   " format on save
-  autocmd BufWritePre * :call CocAction('format')
+  " autocmd BufWritePre * :call CocAction('format')
 augroup end
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
