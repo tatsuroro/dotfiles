@@ -25,5 +25,8 @@ do
 done
 
 # for nvim
+echo "ln -nfs \"${dir}/dot/vim\" \"$HOME/.config/nvim\""
 ln -nfs "${dir}/dot/vim" "$HOME/.config/nvim"
+
+echo "ln -nfs \"${dir}/dot/vimrc\" \"$HOME/.config/nvim/init.vim\""
 ln -nfs "${dir}/dot/vimrc" "$HOME/.config/nvim/init.vim"
