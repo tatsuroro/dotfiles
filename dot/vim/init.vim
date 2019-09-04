@@ -1,0 +1,1 @@
+/Users/tatsuroro/src/github.com/tatsuroro/dotfiles/dot/vimrc
