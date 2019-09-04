@@ -23,3 +23,7 @@ do
   echo "ln -nfs \"${dir}/dot/${file}\" \"$HOME/.${file}\""
   ln -nfs "${dir}/dot/${file}" "$HOME/.${file}"
 done
+
+# for nvim
+ln -nfs "${dir}/dot/vim" "$HOME/.config/nvim"
+ln -nfs "${dir}/dot/vimrc" "$HOME/.config/nvim/init.vim"
