@@ -26,19 +26,6 @@ Plug 'w0ng/vim-hybrid'
 Plug 'cocopon/iceberg.vim'
 Plug 'jacoborus/tender.vim'
 
-""" launcher
-Plug 'nixprime/cpsm', { 'dir': '~/.vim/plugged/cpsm/', 'do': 'env PY3=ON ./install.sh' }
-
-Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'mattn/ctrlp-filer'
-  Plug 'mattn/ctrlp-register'
-  Plug 'mattn/ctrlp-ghq'
-  Plug 'ompugao/ctrlp-history'
-  Plug 'endel/ctrlp-filetype.vim'
-  Plug 'lokikl/vim-ctrlp-ag'
-  Plug 'lambdalisue/vim-gista'
-  Plug 'lambdalisue/vim-gista-ctrlp'
-
 """ filer
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -82,18 +69,11 @@ Plug 'kana/vim-operator-user'
 
 """ code lint / styling
 Plug 'w0rp/ale'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'maximbaz/lightline-ale'
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-""" Language Server Protocol Client
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
-
-""" complementation
+""" conquer of completation
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-""" typescript support
-" Plug 'Quramy/tsuquyomi', { 'for': ['typescript', 'tsx'] }
-" Plug 'runoshun/tscompletejob'
 
 " Ruby code completion
 Plug 'osyo-manga/vim-monster'

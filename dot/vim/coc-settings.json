@@ -1,0 +1,6 @@
+{
+  "list.insertMappings": {
+    "<C-c>": "do:exit",
+    "<C-l>": "do:exit"
+  }
+}
