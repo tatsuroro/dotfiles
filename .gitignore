@@ -6,3 +6,5 @@
 */.zcompdump*
 fishd.*
 dot/vim/plugged
+dot/vim/sessions
+dot/vim/config/plugins/rhubarb.vim

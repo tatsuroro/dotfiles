@@ -15,7 +15,6 @@ endif
 call plug#begin('~/.vim/plugged')
 
 """ enhancement
-Plug 'nixprime/cpsm', { 'dir': '~/.vim/plugged/cpsm/', 'do': 'env PY3=ON ./install.sh' }
 Plug 'Shougo/context_filetype.vim'
 Plug 'tyru/open-browser.vim'
 
@@ -28,6 +27,8 @@ Plug 'cocopon/iceberg.vim'
 Plug 'jacoborus/tender.vim'
 
 """ launcher
+Plug 'nixprime/cpsm', { 'dir': '~/.vim/plugged/cpsm/', 'do': 'env PY3=ON ./install.sh' }
+
 Plug 'ctrlpvim/ctrlp.vim'
   Plug 'mattn/ctrlp-filer'
   Plug 'mattn/ctrlp-register'
@@ -44,20 +45,21 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 
 """ version control
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 
 """ editing utils
 Plug 'chrismccord/bclose.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'thinca/vim-quickrun'
+" Plug 'thinca/vim-quickrun'
+" Plug 'thinca/vim-template'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 Plug 'tyru/caw.vim'
 Plug 'osyo-manga/vim-over'
 Plug 'rhysd/clever-f.vim'
-Plug 't9md/vim-quickhl'
-Plug 'thinca/vim-template'
 Plug 'haya14busa/vim-asterisk'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rizzatti/dash.vim'
@@ -82,43 +84,32 @@ Plug 'kana/vim-operator-user'
 Plug 'w0rp/ale'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-""" typescript support
-Plug 'Quramy/tsuquyomi', { 'for': ['typescript', 'tsx'] }
-Plug 'leafgarland/typescript-vim'
-Plug 'runoshun/tscompletejob'
-
 """ Language Server Protocol Client
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
 
 """ complementation
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-buffer.vim'
-Plug 'prabirshrestha/asyncomplete-file.vim'
-Plug 'yami-beta/asyncomplete-omni.vim'
-Plug 'wellle/tmux-complete.vim'
-Plug 'Shougo/neco-syntax'
-Plug 'prabirshrestha/asyncomplete-necosyntax.vim'
-Plug 'Shougo/neco-vim'
-Plug 'prabirshrestha/asyncomplete-necovim.vim'
-Plug 'prabirshrestha/asyncomplete-tscompletejob.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+""" typescript support
+" Plug 'Quramy/tsuquyomi', { 'for': ['typescript', 'tsx'] }
+" Plug 'runoshun/tscompletejob'
 
 " Ruby code completion
 Plug 'osyo-manga/vim-monster'
 
 """ syntax (language packs)
-" Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 Plug 'joker1007/vim-markdown-quote-syntax'
 Plug 'mechatroner/rainbow_csv', { 'for': ['csv', 'tsv'] }
-
 " frontend
+Plug 'docunext/closetag.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'Quramy/vim-js-pretty-template'
 Plug 'mattn/emmet-vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-
 " backend / lang
 Plug 'moll/vim-node'
 Plug 'tpope/vim-rails'
