@@ -25,7 +25,6 @@ nmap <silent><C-i> <Plug>(coc-implementation)
 nmap <silent><C-[> <Plug>(coc-references)
 
 nnoremap <silent><C-,> :CocCommand<CR>
-nnoremap <silent><C-e> :CocList cmdhistory<CR>
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>

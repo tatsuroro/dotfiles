@@ -14,6 +14,7 @@ endif
 
 " Plugin config
 let g:NERDTreeShowHidden = 1
+let g:NERDTreeChDirMode = 2
 
 " let g:NERDTreeDirArrowExpandable = '>'
 " let g:NERDTreeDirArrowCollapsible = '▾'
