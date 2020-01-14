@@ -1,5 +1,6 @@
 # env
 source ~/.config/fish/env.fish
+source ~/.config/fish/env_local.fish
 
 # !! hoge-env init script has been replaced with fisherman init plugins
 

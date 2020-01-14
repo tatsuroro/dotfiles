@@ -9,3 +9,5 @@ dot/vim/plugged
 dot/vim/sessions
 dot/vim/config/plugins/rhubarb.vim
 dot/vim/init.vim
+dot/config/fish/env_local.fish
+
