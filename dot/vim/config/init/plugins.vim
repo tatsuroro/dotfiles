@@ -25,6 +25,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'cocopon/iceberg.vim'
 Plug 'jacoborus/tender.vim'
+Plug 'morhetz/gruvbox'
 
 """ fzf
 Plug '/usr/local/opt/fzf'
@@ -56,6 +57,7 @@ Plug 'haya14busa/vim-asterisk'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rizzatti/dash.vim'
 Plug 'kannokanno/previm'
+Plug 'andymass/vim-matchup'
 
 """ text obj / operator
 Plug 'kana/vim-textobj-user'
@@ -75,7 +77,7 @@ Plug 'kana/vim-operator-user'
 """ code lint / styling
 Plug 'w0rp/ale'
 Plug 'maximbaz/lightline-ale'
-" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 """ conquer of completation
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

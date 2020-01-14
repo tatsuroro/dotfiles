@@ -1,3 +1,14 @@
+function! IsNERDTreeOpen()
+  return exists("t:NERDTreeBufName") && (bufwinner(t:NERDTreeBufName) != -1)
+endfunction
+
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
 " init: Show nerdtree on init if cli
 if has('gui_running')
   " noop
@@ -6,6 +17,7 @@ else
       au!
       autocmd VimEnter * NERDTree
       autocmd VimEnter * wincmd p
+      autocmd BufEnter * call SyncTree()
   augroup END
 
   " Close vim when opend buffer is only nerdtree
@@ -15,6 +27,7 @@ endif
 " Plugin config
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeChDirMode = 2
+let g:NERDTreeGitStatusWithFlags = 1
 
 " let g:NERDTreeDirArrowExpandable = '>'
 " let g:NERDTreeDirArrowCollapsible = '▾'

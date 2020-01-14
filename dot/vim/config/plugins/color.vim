@@ -1,4 +1,5 @@
-colorscheme tender
+colorscheme gruvbox
+" colorscheme tender
 " colorscheme iceberg
 
 " colorscheme hybrid

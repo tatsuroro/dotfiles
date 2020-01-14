@@ -2,7 +2,7 @@ scriptencoding utf-8
 
 " highlight zenkaku-space
 function! ZenkakuSpace()
-  highlight ZenkakuSpace cterm=reverse ctermfg=lightblue gui=reverse guifg=DarkMagenta
+  highlight ZenkakuSpace cterm=reverse ctermfg=lightblue gui=reverse guifg=DarkGrey
 endfunction
 
 if has('syntax')
