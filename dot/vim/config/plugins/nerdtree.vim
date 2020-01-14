@@ -1,5 +1,5 @@
 function! IsNERDTreeOpen()
-  return exists("t:NERDTreeBufName") && (bufwinner(t:NERDTreeBufName) != -1)
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
 
 function! SyncTree()
