@@ -1,6 +1,6 @@
 balias sudo "sudo "
-balias v vim
-balias vi vim
+balias v nvim
+balias vi nvim
 balias nv nvim
 balias sed gsed
 balias tm tmux
