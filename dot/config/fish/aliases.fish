@@ -10,6 +10,8 @@ balias ls exa
 balias ll "exa -GaF"
 balias la "ls -la"
 
+balias cat bat
+
 # utils
 balias vims "vim (git diff --name-only)"
 balias vimt "vim -p (git diff --name-only)"
