@@ -13,8 +13,8 @@ balias la "ls -la"
 balias cat bat
 
 # utils
-balias vims "vim (git diff --name-only)"
-balias vimt "vim -p (git diff --name-only)"
+balias vims "nvim (git diff --name-only)"
+balias vimt "nvim -p (git diff --name-only)"
 balias wifiConnect "networksetup -setairportpower en0 off && networksetup -setairportpower en0 on"
 
 # enable cd in the terminal that has executed ghq-init

@@ -63,3 +63,6 @@ source ~/.config/fish/aliases.fish
 
 # direnv
 direnv hook fish | source
+
+# starship
+starship init fish | source

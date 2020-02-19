@@ -15,6 +15,7 @@ dotfiles=(
   tmux.d
   config/direnv/direnvrc
   config/fish
+  config/starship.toml
   config/karabiner/assets/complex_modifications/personal_settings.json
 )
 

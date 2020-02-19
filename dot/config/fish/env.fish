@@ -1,5 +1,5 @@
 set -gx LANG ja_JP.UTF-8
-set -gx EDITOR vim
+set -gx EDITOR nvim
 set -gx SHELL /usr/local/bin/fish
 
 # for neovim
