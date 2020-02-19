@@ -65,4 +65,4 @@ source ~/.config/fish/aliases.fish
 direnv hook fish | source
 
 # starship
-starship init fish | source
+# starship init fish | source
