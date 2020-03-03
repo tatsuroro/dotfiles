@@ -1,8 +1,8 @@
 let g:ale_fixers = {
  \ 'javascript': ['prettier'],
  \ 'jsx': ['prettier'],
- \ 'typescript': ['prettier'],
- \ 'tsx': ['prettier'],
+ \ 'typescript': ['eslint', 'prettier'],
+ \ 'tsx': ['eslint', 'prettier'],
  \ 'python': ['autopep8', 'isort'],
  \ }
 

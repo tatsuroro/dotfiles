@@ -1,15 +1,5 @@
 {
   "suggest.noselect": false,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "javascript.tsx",
-    "typescript.tsx",
-    "typescriptreact",
-    "javascriptreact",
-    "json",
-    "graphql"
-  ],
   "list.insertMappings": {
     "<C-c>": "do:exit",
     "<C-l>": "do:exit"

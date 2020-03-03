@@ -43,7 +43,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup CocFileType
   autocmd!
   " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
@@ -63,9 +63,9 @@ xmap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
 
 " Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
+" command! -nargs=0 Format :call CocAction('format')
 
-nnoremap <leader>p :Format<cr>
+" nnoremap <leader>p :Format<cr>
 
 augroup CocBuffer
   " autocmd!
