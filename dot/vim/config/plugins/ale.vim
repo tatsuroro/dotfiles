@@ -3,6 +3,7 @@ let g:ale_fixers = {
  \ 'jsx': ['prettier'],
  \ 'typescript': ['eslint', 'prettier'],
  \ 'tsx': ['eslint', 'prettier'],
+ \ 'html': ['prettier'],
  \ 'python': ['autopep8', 'isort'],
  \ }
 
