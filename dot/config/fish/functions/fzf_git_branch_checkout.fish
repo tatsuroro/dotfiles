@@ -1,5 +1,5 @@
 function fzf_git_branch_checkout
-  set -l selected (git branch -a | fzf)
+  set -l selected (git branch | fzf)
 
   [ -n "$selected" ] && eval "git checkout $selected"
 
