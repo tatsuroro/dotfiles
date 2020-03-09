@@ -17,7 +17,7 @@ else
       au!
       autocmd VimEnter * NERDTree
       autocmd VimEnter * wincmd p
-      autocmd BufEnter * call SyncTree()
+      " autocmd BufEnter * call SyncTree()
   augroup END
 
   " Close vim when opend buffer is only nerdtree
