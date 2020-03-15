@@ -1,4 +1,4 @@
-nnoremap <silent><C-p> :GFiles<CR>
+nnoremap <silent><C-p> :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <silent><C-m> :History<CR>
 nnoremap <silent><C-e> :History:<CR>
