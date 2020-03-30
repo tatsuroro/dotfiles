@@ -123,8 +123,8 @@ cask "spotify"
 cask "steermouse"
 cask "virtualbox"
 cask "visual-studio-code"
+cask "zeplin"
 cask "zoomus"
-mas "1Password", id: 443987910
 mas "1Password 7", id: 1333542190
 mas "GarageBand", id: 682658836
 mas "Gifski", id: 1351639930
