@@ -91,6 +91,7 @@ brew "ouchxp/nodenv/nodenv-nvmrc"
 brew "rcmdnk/file/brew-file"
 cask "alfred"
 cask "android-studio"
+cask "atom"
 cask "bartender"
 cask "bettertouchtool"
 cask "bitbar"
@@ -119,11 +120,13 @@ cask "skitch"
 cask "skype"
 cask "spotify"
 cask "steermouse"
+cask "typora"
 cask "virtualbox"
 cask "visual-studio-code"
 cask "zeplin"
 cask "zoomus"
 mas "1Password 7", id: 1333542190
+mas "Bear", id: 1091189122
 mas "GarageBand", id: 682658836
 mas "Gifski", id: 1351639930
 mas "iA Writer", id: 775737590
