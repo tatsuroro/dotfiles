@@ -68,6 +68,8 @@ balias grbc "git rebase --continue"
 balias grbi "git rebase -i"
 balias grbm "git rebase master"
 
+balias grs "git restore"
+
 balias gsta "git stash save"
 balias gstaa "git stash apply"
 balias gstc "git stash clear"
@@ -75,6 +77,8 @@ balias gstd "git stash drop"
 balias gstl "git stash list"
 balias gstp "git stash pop"
 balias gsts "git stash show --text"
+
+balias gsw "git switch"
 
 balias gfx "git fixup"
 balias gbra "git branch-list"
