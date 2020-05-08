@@ -6,7 +6,7 @@ set -gx SHELL /usr/local/bin/fish
 set -gx XDG_CONFIG_HOME $HOME/.config
 
 ### PATH
-set -gx PATH ./bin $HOME/src/github.com/tatsuroro/sh $PATH
+set -gx PATH ./bin $HOME/sh $PATH
 # GoRoot
 set -gx GOPATH $HOME
 set -gx PATH $PATH $GOPATH/bin /usr/local/opt/go/libexec/bin
