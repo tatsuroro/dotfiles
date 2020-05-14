@@ -1,2 +1,4 @@
-runtime! config/init/*.vim
-runtime! config/plugins/*.vim
+if !exists('g:vscode')
+  runtime! config/init/*.vim
+  runtime! config/plugins/*.vim
+endif
