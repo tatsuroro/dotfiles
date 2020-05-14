@@ -12,7 +12,6 @@ set notimeout ttimeout timeoutlen=100
 set history=100
 set nobackup
 set noswapfile
-set clipboard+=unnamed
 set confirm
 set autoread
 
