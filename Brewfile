@@ -1,6 +1,7 @@
 tap "dart-lang/dart"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "nodenv/nodenv"
 tap "ouchxp/nodenv"
@@ -24,7 +25,7 @@ brew "fd"
 brew "fish"
 brew "libpng"
 brew "fzf"
-brew "gettext"
+brew "gettext", link: false
 brew "ghq"
 brew "gibo"
 brew "gist"
@@ -114,7 +115,7 @@ cask "kap"
 cask "karabiner-elements"
 cask "notion"
 cask "rectangle"
-cask "sequel-pro"
+cask "sequel-pro-nightly"
 cask "sketch"
 cask "skitch"
 cask "skype"
@@ -127,6 +128,7 @@ cask "zeplin"
 cask "zoomus"
 mas "1Password 7", id: 1333542190
 mas "Bear", id: 1091189122
+mas "CommentScreen", id: 1450950860
 mas "GarageBand", id: 682658836
 mas "Gifski", id: 1351639930
 mas "iA Writer", id: 775737590
