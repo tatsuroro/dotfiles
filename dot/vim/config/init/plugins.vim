@@ -84,6 +84,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Ruby code completion
 Plug 'osyo-manga/vim-monster'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-rails'
 
 """ syntax (language packs)
 Plug 'sheerun/vim-polyglot'

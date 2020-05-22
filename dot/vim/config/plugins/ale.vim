@@ -4,6 +4,7 @@ let g:ale_fixers = {
  \ 'typescript': ['eslint', 'prettier'],
  \ 'tsx': ['eslint', 'prettier'],
  \ 'html': ['prettier'],
+ \ 'ruby': ['rubocop'],
  \ 'python': ['autopep8', 'isort'],
  \ }
 
