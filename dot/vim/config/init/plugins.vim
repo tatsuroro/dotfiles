@@ -102,6 +102,7 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " backend / lang
 Plug 'moll/vim-node'
 Plug 'tpope/vim-rails'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
