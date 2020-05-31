@@ -5,10 +5,12 @@ set -gx SHELL /usr/local/bin/fish
 # for neovim
 set -gx XDG_CONFIG_HOME $HOME/.config
 
-### PATH
+# PATH
 set -gx PATH ./bin $HOME/sh $PATH
-# GoRoot
+## GoRoot
 set -gx GOPATH $HOME
 set -gx PATH $PATH $GOPATH/bin /usr/local/opt/go/libexec/bin
-#flutter
-set -gx PATH $HOME/src/github.com/flutter/flutter/bin $PATH
+## flutter
+set -gx PATH $PATH $HOME/src/github.com/flutter/flutter/bin
+## deno
+set -gx PATH $PATH $HOME/.deno/bin
