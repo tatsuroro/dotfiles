@@ -1,5 +1,7 @@
 set clipboard+=unnamed
 
+runtime! config/init/keymap.vim
+
 if !exists('g:vscode')
   runtime! config/init/*.vim
   runtime! config/plugins/*.vim
