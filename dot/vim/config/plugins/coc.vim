@@ -5,14 +5,14 @@ function! s:check_back_space() abort
 endfunction
 
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
+      \ pumvisible() ? "<C-n>" :
+      \ <SID>check_back_space() ? "<Tab>" :
       \ coc#refresh()
 
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+" inoremap <expr> <cr> pumvisible() ? "<C-y>" : "<cr>"
 
 " use <c-space>for trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
