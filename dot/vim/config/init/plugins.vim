@@ -79,9 +79,6 @@ Plug 'w0rp/ale'
 Plug 'maximbaz/lightline-ale'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-""" conquer of completation
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " Ruby code completion
 Plug 'osyo-manga/vim-monster'
 Plug 'tpope/vim-endwise'
