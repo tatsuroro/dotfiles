@@ -14,3 +14,6 @@ set -gx PATH $PATH $GOPATH/bin /usr/local/opt/go/libexec/bin
 set -gx PATH $PATH $HOME/src/github.com/flutter/flutter/bin
 ## deno
 set -gx PATH $PATH $HOME/.deno/bin
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/tatsuroro/google-cloud-sdk/path.fish.inc' ]; . '/Users/tatsuroro/google-cloud-sdk/path.fish.inc'; end
