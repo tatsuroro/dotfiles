@@ -78,6 +78,7 @@ balias gstl "git stash list"
 balias gstp "git stash pop"
 balias gsts "git stash show --text"
 
+balias gsm "git switch master"
 balias gsw "git switch"
 
 balias gfx "git fixup"
