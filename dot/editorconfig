@@ -1,10 +1,13 @@
 root = true
 
-[*.{js,ts,jsx,tsx,json,html,css}]
+[*]
+charset = utf-8
+
+[*.{js,jsx,ts,tsx,json,html,css}]
+indent_style = space
 indent_size = 2
 indent_style = space
 end_of_line = lf
-charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
