@@ -20,6 +20,7 @@ Plug 'tyru/open-browser.vim'
 
 " editor UI
 Plug 'itchyny/lightline.vim'
+Plug 'RRethy/vim-illuminate'
 
 " colorscheme
 Plug 'w0ng/vim-hybrid'
@@ -27,32 +28,42 @@ Plug 'cocopon/iceberg.vim'
 Plug 'jacoborus/tender.vim'
 Plug 'morhetz/gruvbox'
 
+""" fuzzy Finder
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+
 """ filer
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'unkiwii/vim-nerdtree-sync'
 " Plug 'ryanoasis/vim-devicons'
 
+""" search
+Plug 'rhysd/clever-f.vim'
+Plug 'haya14busa/vim-asterisk'
+Plug 'markonm/traces.vim'
+Plug 'brooth/far.vim'
+
 """ version control
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'APZelos/blamer.nvim'
+
+""" navigation / code completion
+Plug 'pechorin/any-jump.vim'
 
 """ editing utils
 Plug 'chrismccord/bclose.vim'
 Plug 'editorconfig/editorconfig-vim'
 " Plug 'thinca/vim-quickrun'
-" Plug 'thinca/vim-template'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 Plug 'tyru/caw.vim'
-Plug 'osyo-manga/vim-over'
-Plug 'rhysd/clever-f.vim'
-Plug 'haya14busa/vim-asterisk'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rizzatti/dash.vim'
 Plug 'kannokanno/previm'
 Plug 'andymass/vim-matchup'
+Plug 'mattn/vim-sonictemplate'
 
 """ text obj / operator
 Plug 'kana/vim-textobj-user'
