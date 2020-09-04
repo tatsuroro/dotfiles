@@ -1,9 +1,0 @@
-{
-  "suggest.noselect": false,
-  "suggest.enablePreselect": true,
-  "solargraph.commandPath": "/usr/local/var/rbenv/shims/solargraph",
-  "list.insertMappings": {
-    "<C-c>": "do:exit",
-    "<C-l>": "do:exit"
-  }
-}

@@ -27,10 +27,6 @@ Plug 'cocopon/iceberg.vim'
 Plug 'jacoborus/tender.vim'
 Plug 'morhetz/gruvbox'
 
-""" fzf
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-
 """ filer
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -39,7 +35,6 @@ Plug 'unkiwii/vim-nerdtree-sync'
 
 """ version control
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 
 """ editing utils
@@ -87,7 +82,6 @@ Plug 'tpope/vim-rails'
 """ syntax (language packs)
 Plug 'sheerun/vim-polyglot'
 Plug 'joker1007/vim-markdown-quote-syntax'
-Plug 'mechatroner/rainbow_csv', { 'for': ['csv', 'tsv'] }
 " frontend
 Plug 'docunext/closetag.vim'
 Plug 'leafgarland/typescript-vim'
