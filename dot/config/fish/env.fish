@@ -2,6 +2,10 @@ set -gx LANG ja_JP.UTF-8
 set -gx EDITOR nvim
 set -gx SHELL /usr/local/bin/fish
 
+# for docui
+set -gx LC_CTYPE=en_US.UTF-8
+set -gx TERM=xterm-256color
+
 # for neovim
 set -gx XDG_CONFIG_HOME $HOME/.config
 
