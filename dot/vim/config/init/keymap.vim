@@ -33,7 +33,7 @@ xnoremap <expr> p 'pgv"'.v:register.'y`>'
 nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 
 " esc * 2 -> cancel search highlight
-nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
+nnoremap <Esc> <Esc><Esc>:nohlsearch<CR>
 
 " cancel search highlight and refresh screen
 nnoremap <silent> <C-l> :nohlsearch<CR>
