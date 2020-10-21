@@ -2,7 +2,7 @@ let g:lightline = {
 \   'active': {
 \     'left': [
 \       ['mode', 'paste'],
-\       ['cocstatus', 'readonly', 'filename', 'modified'],
+\       ['readonly', 'filename', 'modified'],
 \     ],
 \     'right': [
 \       [ 'percent' ],
@@ -10,10 +10,7 @@ let g:lightline = {
 \       [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
 \     ],
 \   },
-\   'component_function': {
-\     'cocstatus': 'coc#status'
-\   },
-\   'colorscheme': 'tender'
+\   'colorscheme': 'tokyonight'
 \ }
 
 let g:lightline.component_expand = {

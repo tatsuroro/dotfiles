@@ -21,6 +21,7 @@ Plug 'tyru/open-browser.vim'
 " editor UI
 Plug 'itchyny/lightline.vim'
 Plug 'RRethy/vim-illuminate'
+Plug 'ghifarit53/tokyonight-vim'
 
 " colorscheme
 Plug 'w0ng/vim-hybrid'
