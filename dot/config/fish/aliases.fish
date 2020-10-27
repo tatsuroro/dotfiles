@@ -85,3 +85,5 @@ balias gsw "git switch"
 
 balias gfx "git fixup"
 balias gbra "git branch-list"
+balias gcl "git-clean-up-branches"
+
