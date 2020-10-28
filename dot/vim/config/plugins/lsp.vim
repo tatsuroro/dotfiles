@@ -7,13 +7,6 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <C-]> :LspDefinition<CR>
   nmap <Leader>h :LspHover<CR>
   nnoremap <Leader>hh <c-w><c-z>
-
-  " for completion
-  inoremap <expr> <C-n> pumvisible() ? "\<Down>" : "\<C-n>"
-  inoremap <expr> <C-p> pumvisible() ? "\<Up>" : "\<C-p>"
-  inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
-  inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
-  inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
 endfunction
 
 augroup lsp_install

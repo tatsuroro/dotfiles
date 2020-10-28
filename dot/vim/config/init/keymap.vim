@@ -75,10 +75,6 @@ vnoremap <C-p> "zx<Up>"zP`[V`]
 vnoremap <C-n> "zx"zp`[V`]
 
 """ Cursor Move Setting
-" disable no needs movement
-nnoremap <C-j> <Nop>
-nnoremap <silent><CR> <Nop>
-
 " cursor controls in insert mode
 inoremap <C-e> <END>
 inoremap <C-a> <HOME>

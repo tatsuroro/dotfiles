@@ -2,9 +2,16 @@ if !isdirectory(expand("~/.vim/plugged/asyncomplete.vim"))
   finish
 endif
 
+inoremap <expr> <C-n>   pumvisible() ? "\<Down>": "\<C-n>"
+inoremap <expr> <C-p>   pumvisible() ? "\<Up>"  : "\<C-p>"
+inoremap <expr> <C-j>   pumvisible() ? "\<Down>": "\<C-j>"
+inoremap <expr> <C-k>   pumvisible() ? "\<Up>"  : "\<C-k>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<Up>" : "\<S-Tab>"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-y>" : "\<Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+
 let g:asyncomplete_auto_popup = 1
 let g:asyncomplete_auto_completeopt = 0
-let g:asyncomplete_popup_delay = 0
 
 let g:asyncomplete_log_file = '/tmp/vim.log'
 
