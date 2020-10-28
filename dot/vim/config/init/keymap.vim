@@ -121,7 +121,7 @@ nmap <Tab> gt
 nmap <S-Tab> gT
 
 " change buf size
-nnoremap <S-Left>  <C-w>>CR>
-nnoremap <S-Right> <C-w><<CR>
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w>><CR>
 nnoremap <S-Up>    <C-w>-<CR>
 nnoremap <S-Down>  <C-w>+<CR>
