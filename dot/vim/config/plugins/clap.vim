@@ -1,3 +1,5 @@
+let g:clap_layout = { 'width': '70%', 'height': '70%', 'row': '20%', 'col': '15%'}
+
 nnoremap <leader>b :Clap buffers<CR>
 nnoremap <silent><C-m> :Clap history<CR>
 nnoremap <silent><C-e> :Clap command_history<CR>
