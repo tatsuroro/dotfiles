@@ -45,9 +45,7 @@ Plug 'markonm/traces.vim'
 Plug 'brooth/far.vim'
 
 """ version control
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'APZelos/blamer.nvim'
 
 """ navigation / code completion
 Plug 'pechorin/any-jump.vim'
