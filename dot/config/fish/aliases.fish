@@ -12,8 +12,6 @@ balias la "ls -la"
 
 balias cat bat
 
-balias fd fdfind
-
 # utils
 balias vims "nvim (git diff --name-only)"
 balias vimt "nvim -p (git diff --name-only)"
