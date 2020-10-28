@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
 """ enhancement
 Plug 'Shougo/context_filetype.vim'
 Plug 'tyru/open-browser.vim'
+Plug 'voldikss/vim-floaterm'
 
 " editor UI
 Plug 'itchyny/lightline.vim'

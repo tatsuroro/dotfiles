@@ -1,4 +1,3 @@
-nnoremap <silent><C-p> :Clap gfiles<CR>
 nnoremap <leader>b :Clap buffers<CR>
 nnoremap <silent><C-m> :Clap history<CR>
 nnoremap <silent><C-e> :Clap command_history<CR>
