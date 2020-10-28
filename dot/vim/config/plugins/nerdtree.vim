@@ -39,6 +39,6 @@ let g:nerdtree_sync_cursorline = 1
 let g:NERDTreeMapActivateNode = 'l'
 let g:NERDTreeMapCloseDir = 'h'
 
-nnoremap <silent><C-n> :NERDTreeToggle<CR>
-nnoremap <silent><C-o> :NERDTreeFocus<CR>
+" nnoremap <silent><C-n> :NERDTreeToggle<CR>
+" nnoremap <silent><C-o> :NERDTreeFocus<CR>
 
