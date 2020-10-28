@@ -15,7 +15,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 """ enhancement
-Plug 'Shougo/context_filetype.vim'
+" Plug 'Shougo/context_filetype.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'voldikss/vim-floaterm'
 
@@ -97,21 +97,17 @@ Plug 'w0rp/ale'
 Plug 'maximbaz/lightline-ale'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-" Ruby code completion
-Plug 'osyo-manga/vim-monster'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-rails'
-
 """ syntax
 Plug 'joker1007/vim-markdown-quote-syntax'
 " frontend
 Plug 'docunext/closetag.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'Quramy/vim-js-pretty-template'
-Plug 'mattn/emmet-vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+" Ruby
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-rails'
 " backend / lang
 Plug 'moll/vim-node'
 Plug 'tpope/vim-rails'
