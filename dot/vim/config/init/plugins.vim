@@ -39,6 +39,18 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'unkiwii/vim-nerdtree-sync'
 " Plug 'ryanoasis/vim-devicons'
 
+""" lsp & completion
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'mattn/vim-lsp-icons'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'akaimo/asyncomplete-around.vim'
+
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+
 """ search
 Plug 'rhysd/clever-f.vim'
 Plug 'haya14busa/vim-asterisk'
@@ -90,8 +102,7 @@ Plug 'osyo-manga/vim-monster'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 
-""" syntax (language packs)
-Plug 'sheerun/vim-polyglot'
+""" syntax
 Plug 'joker1007/vim-markdown-quote-syntax'
 " frontend
 Plug 'docunext/closetag.vim'

@@ -62,7 +62,7 @@ set cursorline
 
 set pastetoggle=<C-q>
 
-set completeopt=menuone
+set completeopt=menuone,noinsert,noselect,preview
 
 " terminal
 set shell=fish
