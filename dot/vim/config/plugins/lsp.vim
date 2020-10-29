@@ -3,8 +3,8 @@ function! s:on_lsp_buffer_enabled() abort
   setlocal signcolumn=yes
 
   nmap <buffer> gd <plug>(lsp-definition)
+  nnoremap <C-]> <plug>(lsp-definition)
   nmap <buffer> <f2> <plug>(lsp-rename)
-  nmap <C-]> :LspDefinition<CR>
   nmap <Leader>h :LspHover<CR>
   nnoremap <Leader>hh <c-w><c-z>
 endfunction
