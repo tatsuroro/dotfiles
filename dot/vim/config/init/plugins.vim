@@ -33,11 +33,6 @@ Plug 'ghifarit53/tokyonight-vim'
 """ fuzzy Finder
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 
-""" filer
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'unkiwii/vim-nerdtree-sync'
-
 """ lsp
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
