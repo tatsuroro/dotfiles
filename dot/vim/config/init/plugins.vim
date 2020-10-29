@@ -22,13 +22,13 @@ Plug 'voldikss/vim-floaterm'
 " editor UI
 Plug 'itchyny/lightline.vim'
 Plug 'RRethy/vim-illuminate'
-Plug 'ghifarit53/tokyonight-vim'
 
 " colorscheme
 Plug 'w0ng/vim-hybrid'
 Plug 'cocopon/iceberg.vim'
 Plug 'jacoborus/tender.vim'
 Plug 'morhetz/gruvbox'
+Plug 'ghifarit53/tokyonight-vim'
 
 """ fuzzy Finder
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
@@ -37,19 +37,19 @@ Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'unkiwii/vim-nerdtree-sync'
-" Plug 'ryanoasis/vim-devicons'
 
-""" lsp & completion
+""" lsp
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'mattn/vim-lsp-icons'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+
+""" completion
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'akaimo/asyncomplete-around.vim'
-
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
 
 """ search
 Plug 'rhysd/clever-f.vim'
@@ -60,13 +60,12 @@ Plug 'brooth/far.vim'
 """ version control
 Plug 'airblade/vim-gitgutter'
 
-""" navigation / code completion
+""" code navigation
 Plug 'pechorin/any-jump.vim'
 
 """ editing utils
 Plug 'chrismccord/bclose.vim'
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'thinca/vim-quickrun'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
@@ -74,7 +73,6 @@ Plug 'tyru/caw.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rizzatti/dash.vim'
 Plug 'kannokanno/previm'
-Plug 'andymass/vim-matchup'
 Plug 'mattn/vim-sonictemplate'
 
 """ text obj / operator
@@ -105,12 +103,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-" Ruby
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-rails'
 " backend / lang
-Plug 'moll/vim-node'
-Plug 'tpope/vim-rails'
 Plug 'rust-lang/rust.vim'
 
 call plug#end()
