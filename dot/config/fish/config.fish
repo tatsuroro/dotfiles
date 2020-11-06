@@ -11,6 +11,14 @@ if not functions -q fisher
     fish -c fisher
 end
 
+# fff
+# Fish don't support recursive calls so use f function
+function f
+    fff $argv
+    set -q XDG_CACHE_HOME; or set XDG_CACHE_HOME $HOME/.cache
+    cd (cat $XDG_CACHE_HOME/fff/.fff_d)
+end
+
 # fisher/fzf
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -x FZF_DEFAULT_COMMAND 'fd'
