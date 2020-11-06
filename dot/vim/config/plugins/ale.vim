@@ -2,7 +2,7 @@ if !isdirectory(expand("~/.vim/plugged/ale"))
   finish
 endif
 
-let g:ale_fix_on_save = 0
+let g:ale_fix_on_save = 1
 let g:ale_lnter_aliases = { 'tsx': 'css' }
 
 let g:ale_javascript_prettier_use_local_config = 1

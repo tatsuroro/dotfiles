@@ -64,7 +64,7 @@ set cursorline
 
 set pastetoggle=<C-q>
 
-set completeopt=menuone,noinsert,noselect,preview
+set completeopt=menuone,noinsert,preview
 
 " terminal
 set shell=fish
@@ -72,7 +72,7 @@ tnoremap <silent> <ESC><ESC> <C-\><C-n>
 
 """ MacVim Settings
 if has('gui_running')
-  set showtabline=2	" show
+  set showtabline=2 " show
   set transparency=10
   set fuoptions=maxvert,maxhorz
   set antialias
