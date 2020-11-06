@@ -15,7 +15,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 """ enhancement
-" Plug 'Shougo/context_filetype.vim'
+Plug 'Shougo/context_filetype.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'voldikss/vim-floaterm'
 
@@ -29,6 +29,10 @@ Plug 'cocopon/iceberg.vim'
 Plug 'jacoborus/tender.vim'
 Plug 'morhetz/gruvbox'
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'lu-ren/SerialExperimentsLain'
+Plug 'rakr/vim-one'
+Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'larsbs/vimterial_dark'
 
 """ fuzzy Finder
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
