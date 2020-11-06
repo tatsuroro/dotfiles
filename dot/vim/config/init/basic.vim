@@ -8,6 +8,8 @@ endif
 
 filetype plugin indent on
 
+set clipboard=unnamed
+
 set notimeout ttimeout timeoutlen=100
 set history=100
 set nobackup
@@ -74,9 +76,9 @@ if has('gui_running')
   set transparency=10
   set fuoptions=maxvert,maxhorz
   set antialias
-  set guifont=FuraCode\ Nerd\ Font:h15
+  set guifont=JetBrains\ Mono:h16
 
-  autocmd GUIEnter * cd ~/src/github.com/tatsuroro/docs
+  autocmd GUIEnter * cd ~/sandbox
 endif
 
 hi String guifg=white
