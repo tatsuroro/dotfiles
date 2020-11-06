@@ -9,3 +9,8 @@ nnoremap <leader>y :Clap yanks<CR>
 
 nnoremap <leader>ff :Clap grep<CR>
 nnoremap <leader>fd :Clap grep ++query=<cword><CR>
+
+""" for MacVim
+if has('gui_running')
+  nnoremap <silent><C-p> :Clap files<CR>
+endif
