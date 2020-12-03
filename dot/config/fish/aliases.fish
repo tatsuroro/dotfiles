@@ -85,3 +85,6 @@ balias gfx "git fixup"
 balias gbra "git branch-list"
 balias gcl "git-clean-up-branches"
 
+balias ghv "gh repo view --web"
+balias ghp "gh pr create --web"
+
