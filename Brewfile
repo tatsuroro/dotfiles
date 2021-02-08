@@ -93,22 +93,17 @@ brew "ouchxp/nodenv/nodenv-nvmrc"
 brew "rcmdnk/file/brew-file"
 cask "alfred"
 cask "android-studio"
-cask "atom"
 cask "bartender"
-cask "bettertouchtool"
-cask "bitbar"
 cask "brave-browser"
 cask "dash"
 cask "deckset"
 cask "docker"
-cask "fantastical"
 cask "figma"
 cask "firefox"
 cask "google-chrome"
 cask "google-japanese-ime"
 cask "graphiql"
 cask "insomnia"
-cask "intellij-idea-ce"
 cask "istat-menus"
 cask "iterm2"
 cask "jasper"
@@ -127,15 +122,9 @@ cask "visual-studio-code"
 cask "zeplin"
 cask "zoomus"
 mas "1Password 7", id: 1333542190
-mas "Bear", id: 1091189122
-mas "CommentScreen", id: 1450950860
-mas "GarageBand", id: 682658836
 mas "Gifski", id: 1351639930
-mas "iA Writer", id: 775737590
-mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194
-mas "LINE", id: 539883307
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Take a Break", id: 1457158844
