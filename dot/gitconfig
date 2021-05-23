@@ -6,7 +6,6 @@
   autocrlf = input
   excludesfiles = ~/.gitignore_global
   ignorecase = false
-  hooksPath = ~/.git/hooks/
 
 [color]
   ui = true
