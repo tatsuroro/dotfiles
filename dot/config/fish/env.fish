@@ -11,6 +11,10 @@ set -gx VOLTA_HOME $HOME/.volta
 # PATH
 set -gx PATH ./bin $HOME/sh $HOME/Dropbox/dev/tmux $VOLTA_HOME/bin $PATH
 
+# Java
+set -gx JAVA_HOME (/usr/libexec/java_home -v '17')
+set -gx PATH $PATH $JAVA_HOME/bin
+
 ## GoRoot
 set -gx GOPATH $HOME
 set -gx PATH $PATH $GOPATH/bin /opt/homebrew/opt/go/libexec/bin
