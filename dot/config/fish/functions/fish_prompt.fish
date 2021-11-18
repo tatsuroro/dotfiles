@@ -11,7 +11,7 @@ function fish_right_prompt
   set laststatus $status
 
   function _git_branch_name
-    echo (git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
+    echo (git symbolic-ref HEAD 2>/dev/null | sed -e 's|^refs/heads/||')
   end
 
   function _is_git_dirty
