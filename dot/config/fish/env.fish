@@ -5,8 +5,11 @@ set -gx SHELL /opt/homebrew/bin/fish
 # for neovim
 set -gx XDG_CONFIG_HOME $HOME/.config
 
+# volta
+set -gx VOLTA_HOME $HOME/.volta
+
 # PATH
-set -gx PATH ./bin $HOME/sh $HOME/Dropbox/dev/tmux $PATH
+set -gx PATH ./bin $HOME/sh $HOME/Dropbox/dev/tmux $VOLTA_HOME/bin $PATH
 
 ## GoRoot
 set -gx GOPATH $HOME
