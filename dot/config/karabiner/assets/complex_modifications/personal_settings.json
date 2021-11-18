@@ -37,33 +37,6 @@
           ]
         }
       ]
-    },
-    {
-      "description": "右オプションキーを単体で押したときに、かなキーを送信する (for Barroco Keyboard)",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_option",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_option",
-              "lazy": true
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "japanese_kana"
-            }
-          ]
-        }
-      ]
     }
   ]
 }
