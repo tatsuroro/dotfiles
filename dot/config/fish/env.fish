@@ -1,6 +1,6 @@
 set -gx LANG ja_JP.UTF-8
 set -gx EDITOR nvim
-set -gx SHELL /usr/local/bin/fish
+set -gx SHELL /opt/homebrew/bin/fish
 
 # for neovim
 set -gx XDG_CONFIG_HOME $HOME/.config
@@ -10,7 +10,7 @@ set -gx PATH ./bin $HOME/sh $HOME/Dropbox/dev/tmux $PATH
 
 ## GoRoot
 set -gx GOPATH $HOME
-set -gx PATH $PATH $GOPATH/bin /usr/local/opt/go/libexec/bin
+set -gx PATH $PATH $GOPATH/bin /opt/homebrew/opt/go/libexec/bin
 
 ## flutter
 set -gx PATH $PATH $HOME/src/github.com/flutter/flutter/bin
