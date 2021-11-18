@@ -2,6 +2,9 @@ set -gx LANG ja_JP.UTF-8
 set -gx EDITOR nvim
 set -gx SHELL /opt/homebrew/bin/fish
 
+# homebrew
+fish_add_path /opt/homebrew/bin
+
 # for neovim
 set -gx XDG_CONFIG_HOME $HOME/.config
 
