@@ -11,22 +11,27 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 # volta
 set -gx VOLTA_HOME $HOME/.volta
 
-# PATH
-set -gx PATH ./bin $HOME/sh $HOME/Dropbox/dev/tmux $VOLTA_HOME/bin $PATH
-
 # Java
-set -gx JAVA_HOME (/usr/libexec/java_home -v '17')
-set -gx PATH $PATH $JAVA_HOME/bin
+fish_add_path /opt/homebrew/opt/openjdk/bin
+set -gx CPPFLAGS "-I/opt/homebrew/opt/openjdk/include"
 
-## GoRoot
+# GoRoot
 set -gx GOPATH $HOME
 set -gx PATH $PATH $GOPATH/bin /opt/homebrew/opt/go/libexec/bin
 
-## flutter
+# flutter
 set -gx PATH $PATH $HOME/src/github.com/flutter/flutter/bin
 
-## deno
+# deno
 set -gx PATH $PATH $HOME/.deno/bin
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/tatsuroro/google-cloud-sdk/path.fish.inc' ]; . '/Users/tatsuroro/google-cloud-sdk/path.fish.inc'; end
+# libpq
+fish_add_path /opt/homebrew/opt/libpq/bin
+set -gx LDFLAGS "-L/opt/homebrew/opt/libpq/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/libpq/include"
+
+set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/libpq/lib/pkgconfig"
+
+# misc PATH
+set -gx PATH ./bin $HOME/sh $HOME/Dropbox/dev/tmux $VOLTA_HOME/bin $PATH
+

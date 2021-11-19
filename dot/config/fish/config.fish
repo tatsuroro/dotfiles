@@ -30,3 +30,5 @@ end
 # direnv
 # direnv hook fish | source
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/tatsuroro/google-cloud-sdk/path.fish.inc' ]; . '/Users/tatsuroro/google-cloud-sdk/path.fish.inc'; end
