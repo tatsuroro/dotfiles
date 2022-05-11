@@ -40,7 +40,7 @@ balias gca "git commit -v -a"
 balias gca! "git commit -v -a --amend"
 
 balias gcb "git checkout -b"
-balias gcm "git checkout master"
+balias gcm "git checkout main"
 balias gcd "git checkout develop"
 balias gco "git checkout"
 
