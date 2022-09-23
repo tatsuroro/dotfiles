@@ -12,8 +12,8 @@ do
 done
 
 echo "+++ copy global gitconfig"
-echo "cp -f \"${dir}/dot/gitconfig\" \"$HOME/.gitconfig\""
-cp -f "${dir}/dot/gitconfig" "$HOME/.gitconfig"
+echo "cp -f \"${dir}/dot/git/config\" \"$HOME/.gitconfig\""
+cp -f "${dir}/dot/git/config" "$HOME/.gitconfig"
 
 echo "+++ copy global git hooks"
 echo "cp -f \"${dir}/dot/git/hooks/*\" \"$HOME/.git/hooks\""
