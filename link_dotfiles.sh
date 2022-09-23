@@ -10,13 +10,8 @@ dotfiles=(
   scss-lint.yml
   snippets.json
   tigrc
-  tmux.conf
-  tmux-powerlinerc
-  tmux.d
-  config/direnv/direnvrc
   config/fish
   config/kitty
-  config/starship.toml
   config/karabiner/assets/complex_modifications/personal_settings.json
 )
 
