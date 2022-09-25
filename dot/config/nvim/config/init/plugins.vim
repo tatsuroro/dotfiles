@@ -17,38 +17,18 @@ call plug#begin('~/.vim/plugged')
 """ enhancement
 Plug 'Shougo/context_filetype.vim'
 Plug 'tyru/open-browser.vim'
-Plug 'voldikss/vim-floaterm'
 
 " editor UI
-Plug 'itchyny/lightline.vim'
-Plug 'RRethy/vim-illuminate'
 
 " colorscheme
-Plug 'w0ng/vim-hybrid'
-Plug 'cocopon/iceberg.vim'
 Plug 'jacoborus/tender.vim'
-Plug 'morhetz/gruvbox'
-Plug 'ghifarit53/tokyonight-vim'
-Plug 'lu-ren/SerialExperimentsLain'
-Plug 'rakr/vim-one'
-Plug 'tyrannicaltoucan/vim-deep-space'
-Plug 'larsbs/vimterial_dark'
 
 """ fuzzy Finder
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 
 """ lsp
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'mattn/vim-lsp-icons'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
 
 """ completion
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-file.vim'
-Plug 'akaimo/asyncomplete-around.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 """ search
 Plug 'rhysd/clever-f.vim'
@@ -57,7 +37,7 @@ Plug 'markonm/traces.vim'
 Plug 'brooth/far.vim'
 
 """ version control
-Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
 
 """ code navigation
 Plug 'pechorin/any-jump.vim'
@@ -101,9 +81,7 @@ Plug 'docunext/closetag.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " backend / lang
-Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
