@@ -6,8 +6,7 @@
 */.zcompdump*
 fishd.*
 dot/config/vim/plugged
-dot/config/nvim/plugged
 dot/config/vim/sessions
-dot/config/vim/init.vim
+dot/config/nvim/plugin/packer_compiled.lua
 dot/config/fish/env_local.fish
 
