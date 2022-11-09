@@ -5,19 +5,14 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 dotfiles=(
   gitignore_global
   editorconfig
-  vimrc
-  vim
   scss-lint.yml
   snippets.json
   tigrc
-  tmux.conf
-  tmux-powerlinerc
-  tmux.d
-  config/direnv/direnvrc
   config/fish
   config/kitty
-  config/starship.toml
   config/karabiner/assets/complex_modifications/personal_settings.json
+  config/nvim
+  config/vim
 )
 
 for file in ${dotfiles[@]}
@@ -26,9 +21,6 @@ do
   ln -nfs "${dir}/dot/${file}" "$HOME/.${file}"
 done
 
-# for nvim
-echo "ln -nfs \"${dir}/dot/vim\" \"$HOME/.config/nvim\""
-ln -nfs "${dir}/dot/vim" "$HOME/.config/nvim"
-
-echo "ln -nfs \"${dir}/dot/vimrc\" \"$HOME/.config/nvim/init.vim\""
-ln -nfs "${dir}/dot/vimrc" "$HOME/.config/nvim/init.vim"
+# for vim
+echo "ln -nfs \"${dir}/dot/config/vim/vimrc\" \"$HOME/.vimrc\""
+ln -nfs "${dir}/dot/config/vim/vimrc" "$HOME/.vimrc"

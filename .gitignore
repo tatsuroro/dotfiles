@@ -5,9 +5,8 @@
 .netrwhist
 */.zcompdump*
 fishd.*
-dot/vim/plugged
-dot/vim/sessions
-dot/vim/config/plugins/rhubarb.vim
-dot/vim/init.vim
+dot/config/vim/plugged
+dot/config/vim/sessions
+dot/config/nvim/plugin/packer_compiled.lua
 dot/config/fish/env_local.fish
 
