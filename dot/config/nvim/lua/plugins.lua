@@ -44,6 +44,7 @@ return packer.startup(function(use)
 
   -- Common utilities
   use "nvim-lua/plenary.nvim"
+  use "kkharji/sqlite.lua"
 
   -- repeat util
   use "tpope/vim-repeat"
@@ -111,6 +112,10 @@ return packer.startup(function(use)
       }
     end
   }
+
+  -- git utils
+  use "tyru/open-browser.vim"
+  use "tyru/open-browser-github.vim"
 
   --
   -- UI Parts
@@ -258,6 +263,16 @@ return packer.startup(function(use)
     end
   }
 
+  -- frequency file browser
+  use {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require"telescope".load_extension("frecency")
+      vim.api.nvim_set_keymap("n", "<leader><leader>", ":Telescope frecency<CR>", {noremap = true, silent = true})
+    end,
+    requires = {"kkharji/sqlite.lua"}
+  }
+
   -- file browser extension for telescope
   use {
     "nvim-telescope/telescope-file-browser.nvim",
@@ -341,19 +356,19 @@ return packer.startup(function(use)
     local set = vim.keymap.set
     set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
     set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-    set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+    -- set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
     set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
     set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
     set("n", "<Leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
     set("n", "<Leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
     set("n", "<Leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
     set("n", "<Leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
-    set("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-    set("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-    set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-    set("n", "<Leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>")
-    set("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
-    set("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
+    -- set("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+    -- set("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+    set("n", "<Leader>r", "<cmd>lua vim.lsp.buf.references()<CR>")
+    -- set("n", "<Leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>")
+    -- set("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
+    -- set("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
     set("n", "<Leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
     set("n", "<Leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
   end
@@ -381,7 +396,28 @@ return packer.startup(function(use)
   }
 
   -- lsp ui
-  use 'kkharji/lspsaga.nvim'
+  use {
+    'kkharji/lspsaga.nvim',
+    config = function()
+      local map = vim.api.nvim_buf_set_keymap
+      map(0, "n", "gr", "<cmd>Lspsaga rename<cr>", {silent = true, noremap = true})
+      map(0, "n", "gx", "<cmd>Lspsaga code_action<cr>", {silent = true, noremap = true})
+      map(0, "x", "gx", ":<c-u>Lspsaga range_code_action<cr>", {silent = true, noremap = true})
+      map(0, "n", "K",  "<cmd>Lspsaga hover_doc<cr>", {silent = true, noremap = true})
+      map(0, "n", "go", "<cmd>Lspsaga show_line_diagnostics<cr>", {silent = true, noremap = true})
+      map(0, "n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", {silent = true, noremap = true})
+      map(0, "n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", {silent = true, noremap = true})
+      map(0, "n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
+      map(0, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
+
+      vim.cmd([[
+        augroup lspsaga_filetypes
+          autocmd!
+          autocmd FileType LspsagaHover nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
+        augroup END
+      ]])
+    end
+  }
   use 'folke/lsp-colors.nvim'
   use {
     'j-hui/fidget.nvim',
@@ -417,7 +453,7 @@ return packer.startup(function(use)
           end,
         },
         window = {
-          -- completion = cmp.config.window.bordered(),
+          completion = cmp.config.window.bordered(),
           -- documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
@@ -425,7 +461,24 @@ return packer.startup(function(use)
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-a>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ['<CR>'] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = false
+          }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ['<Tab>'] = function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            else
+              fallback()
+            end
+          end,
+          ['<S-Tab>'] = function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            else
+              fallback()
+            end
+          end,
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
