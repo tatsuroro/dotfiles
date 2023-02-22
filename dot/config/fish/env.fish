@@ -4,6 +4,7 @@ set -gx SHELL /opt/homebrew/bin/fish
 
 # homebrew
 fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/sbin
 
 # for neovim
 set -gx XDG_CONFIG_HOME $HOME/.config
