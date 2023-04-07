@@ -52,6 +52,9 @@ return packer.startup(function(use)
   -- surrounding
   use "tpope/vim-surround"
 
+  -- input mode handler
+  use "brglng/vim-im-select"
+
   -- Colorschemes
   use "jacoborus/tender.vim"
   use "folke/tokyonight.nvim"
