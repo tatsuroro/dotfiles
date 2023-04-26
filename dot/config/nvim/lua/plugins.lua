@@ -238,7 +238,12 @@ return packer.startup(function(use)
   }
 
   -- Lock a buffer to a window (must for filer drawer!!)
-  use "stevearc/stickybuf.nvim"
+  use {
+    "stevearc/stickybuf.nvim",
+    config = function()
+      require("stickybuf").setup()
+    end,
+  }
 
   --
   -- Syntax Highligts: Treesitter
