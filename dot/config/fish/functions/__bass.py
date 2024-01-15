@@ -36,11 +36,16 @@ def ignored(name):
         return True
     if name in IGNORED or name.startswith("BASH_FUNC"):
         return True
+    if name.startswith('%'):
+        return True
     return False
 
 def escape(string):
     # use json.dumps to reliably escape quotes and backslashes
     return json.dumps(string).replace(r'$', r'\$')
+
+def escape_identifier(word):
+    return escape(word.replace('?', '\\?'))
 
 def comment(string):
     return '\n'.join(['# ' + line for line in string.split('\n')])
@@ -65,12 +70,12 @@ def gen_script():
     os.close(pipe_w)
     with os.fdopen(pipe_r) as f:
         new_env = f.readline()
-        alias = f.read()
+        alias_str = f.read()
     if p.wait() != 0:
         raise subprocess.CalledProcessError(
             returncode=p.returncode,
             cmd=' '.join(sys.argv[1:]),
-            output=new_env + alias
+            output=new_env + alias_str
         )
     new_env = new_env.strip()
 
@@ -105,6 +110,13 @@ def gen_script():
         script_lines.append('set -e %s' % var)
 
     script = '\n'.join(script_lines)
+
+    alias_lines = []
+    for line in alias_str.splitlines():
+        _, rest = line.split(None, 1)
+        k, v = rest.split("=", 1)
+        alias_lines.append("alias " + escape_identifier(k) + "=" + v)
+    alias = '\n'.join(alias_lines)
 
     return script + '\n' + alias
 

@@ -1,13 +1,6 @@
 # env
 source ~/.config/fish/env.fish
-# source ~/.config/fish/env_local.fish
-
-# Ensure fisherman and plugins are installed
-if not functions -q fisher
-    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-    fish -c fisher
-end
+source ~/.config/fish/env_local.fish
 
 # fff
 # Fish don't support recursive calls so use f function
