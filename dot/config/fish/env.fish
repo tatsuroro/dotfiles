@@ -36,3 +36,5 @@ set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/libpq/lib/pkgconfig"
 # misc PATH
 set -gx PATH ./bin $HOME/sh $VOLTA_HOME/bin $PATH
 
+# ubie
+set -gx PATH $PATH $HOME/.ubie-bin
