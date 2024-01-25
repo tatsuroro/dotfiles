@@ -26,7 +26,7 @@ local options = {
   expandtab = true,
   shiftwidth = 2,
   tabstop = 2,
-  cursorline = true,
+  cursorline = false,
   number = true,
   relativenumber = false,
   numberwidth = 4,
@@ -44,8 +44,12 @@ local options = {
   whichwrap= "b,s,<,>,[,]" -- enable moving toward lines with left-right cursor
 }
 
-vim.opt.shortmess:append("c")
-
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+-- opts append
+vim.opt.shortmess:append("c")
+vim.opt.path:append({ "**" })
+vim.opt.formatoptions:append({ "r" })
+vim.opt.wildignore:append({ "*/node_modules/*" })
