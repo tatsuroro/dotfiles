@@ -24,7 +24,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("r", "  Recent file", ":Telescope oldfiles <CR>"),
 	dashboard.button("f", "󰥨  Find file", ":Telescope find_files <CR>"),
 	dashboard.button("g", "󰱼  Find text", ":Telescope live_grep <CR>"),
-	dashboard.button("s", "  Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
+	dashboard.button("x", "  Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
 	dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 
