@@ -40,21 +40,6 @@ require('pckr').add{
   -- input mode handler
   "brglng/vim-im-select";
 
-  -- Colorschemes
-  "jacoborus/tender.vim";
-  "neanias/everforest-nvim";
-  "folke/tokyonight.nvim";
-
-  -- File icons
-  "kyazdani42/nvim-web-devicons";
-
-  -- Colorize color code
-  {
-    "norcalli/nvim-colorizer.lua",
-    config = function() require("colorizer").setup() end
-  };
-  "RRethy/vim-illuminate";
-
   -- Close buffer without break window layout
   "famiu/bufdelete.nvim";
 
@@ -70,9 +55,27 @@ require('pckr').add{
   -- comment handler
   "terrortylor/nvim-comment";
 
+  -- copilot
+  "github/copilot.vim";
+
   --
   -- UI Parts
   --
+  -- Colorschemes
+  "jacoborus/tender.vim";
+  "neanias/everforest-nvim";
+  "folke/tokyonight.nvim";
+
+  -- File icons
+  "kyazdani42/nvim-web-devicons";
+
+  -- Colorize color code
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function() require("colorizer").setup() end
+  };
+  "RRethy/vim-illuminate";
+
   -- Statusline
   "nvim-lualine/lualine.nvim";
 
