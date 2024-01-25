@@ -127,9 +127,10 @@ require("neo-tree").setup({
 			["<esc>"] = "cancel", -- close preview or floating neo-tree window
 			["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
 			-- Read `# Preview Mode` for more information
-			["l"] = "focus_preview",
+			["O"] = "focus_preview",
+			["l"] = "open",
 			["S"] = "open_split",
-			["s"] = "open_vsplit",
+			["s"] = "",
 			-- ["S"] = "split_with_window_picker",
 			-- ["s"] = "vsplit_with_window_picker",
 			["t"] = "open_tabnew",
@@ -138,6 +139,7 @@ require("neo-tree").setup({
 			["w"] = "open_with_window_picker",
 			--["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
 			["C"] = "close_node",
+			["h"] = "close_node",
 			-- ['C'] = 'close_all_subnodes',
 			["z"] = "close_all_nodes",
 			--["Z"] = "expand_all_nodes",
@@ -290,10 +292,10 @@ require("neo-tree").setup({
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
 
-vim.keymap.set("n", "<C-t>", ":Neotree toggle<Return>")
-vim.keymap.set("v", "<C-t>", ":Neotree toggle<Return>")
-vim.keymap.set("n", "<C-f>", ":Neotree focus<Return>")
-vim.keymap.set("v", "<C-f>", ":Neotree focus<Return>")
+vim.keymap.set("n", "\\", ":Neotree toggle<Return>")
+vim.keymap.set("v", "\\", ":Neotree toggle<Return>")
+vim.keymap.set("n", "<C-\\>", ":Neotree focus<Return>")
+vim.keymap.set("v", "<C-\\>", ":Neotree focus<Return>")
 vim.keymap.set("n", "gs", ":Neotree git_status<Return>")
 vim.keymap.set("v", "gs", ":Neotree git_status<Return>")
-vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
+-- vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
