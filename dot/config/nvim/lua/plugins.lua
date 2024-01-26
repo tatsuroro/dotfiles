@@ -109,7 +109,11 @@ require('pckr').add{
   "nvim-treesitter/nvim-treesitter";
 
   -- autoclose and autorename html tag
-  "windwp/nvim-ts-autotag";
+  {
+    "windwp/nvim-ts-autotag",
+    requires = {"nvim-treesitter/nvim-treesitter"},
+    config = function() require("nvim-ts-autotag").setup() end
+  };
 
   --
   -- Filer
