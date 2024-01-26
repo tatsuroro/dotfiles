@@ -4,7 +4,7 @@ if not status then
 end
 
 nvim_comment.setup({
-	line_mapping = "gcc",
-	operator_mapping = "gc",
+	line_mapping = "<Leader>c",
+	operator_mapping = "<Leader>c",
 	comment_chunk_text_object = "ic"
 })
