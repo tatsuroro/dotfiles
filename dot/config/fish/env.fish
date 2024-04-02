@@ -29,3 +29,6 @@ set -gx PYENV_ROOT $HOME/.pyenv
 # ubie
 set -gx PATH $PATH $HOME/.ubie-bin
 
+# skipcd
+set -gx SKIPCD_REPO_PATH $HOME/src/github.com/ubie-inc/genpaku
+set -gx SKIPCD_SUBDIR_NAME client

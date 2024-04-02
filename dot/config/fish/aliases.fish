@@ -6,6 +6,7 @@ balias sed gsed
 balias tm tmux
 balias mux tmuxinator
 
+balias cd "skipcd"
 balias ll "ls -GaF"
 balias la "ls -la"
 
