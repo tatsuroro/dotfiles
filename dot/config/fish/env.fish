@@ -18,11 +18,14 @@ set -gx GOPATH $HOME
 set -gx PATH $PATH $HOME/.deno/bin
 
 # libpq
-fish_add_path /opt/homebrew/opt/libpq/bin
 set -gx LDFLAGS "-L/opt/homebrew/opt/libpq/lib"
 set -gx CPPFLAGS "-I/opt/homebrew/opt/libpq/include"
 
 set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/libpq/lib/pkgconfig"
 
+# pyenv
+set -gx PYENV_ROOT $HOME/.pyenv
+
 # ubie
 set -gx PATH $PATH $HOME/.ubie-bin
+
