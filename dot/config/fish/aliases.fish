@@ -6,8 +6,7 @@ balias sed gsed
 balias tm tmux
 balias mux tmuxinator
 
-balias ls exa
-balias ll "exa -GaF"
+balias ll "ls -GaF"
 balias la "ls -la"
 
 balias cat bat
