@@ -44,9 +44,9 @@
   insteadOf = https://github.com/
 
 [pager]
-  log = diff-highlight | less -r
-  show = diff-highlight | less -r
-  diff = diff-highlight | less -r
+  log = less -r
+  show = less -r
+  diff = less -r
 
 [alias]
   sh = show
