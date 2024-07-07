@@ -91,9 +91,6 @@ require('pckr').add{
   -- status bar
   "petertriho/nvim-scrollbar";
 
-  -- notification; search, and cmdline
-  "folke/noice.nvim";
-
   -- git decorations
   "lewis6991/gitsigns.nvim";
 
