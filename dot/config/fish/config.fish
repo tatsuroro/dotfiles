@@ -28,3 +28,7 @@ pyenv init - | source
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/opt/homebrew/share/google-cloud-sdk/path.fish.inc' ]; . '/opt/homebrew/share/google-cloud-sdk/path.fish.inc'; end
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "/Users/tatsuroro/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
