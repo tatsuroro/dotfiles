@@ -33,7 +33,9 @@ set -gx PATH $PATH $HOME/.rd/bin
 set -gx PATH $PATH $HOME/.ubie-bin
 
 # skipcd
-set -gx SKIPCD_REPO_PATH $HOME/src/github.com/ubie-inc/genpaku,$HOME/src/github.com/AOI-Inc/AIDocumentWorks
+# set -gx SKIPCD_REPO_PATH $HOME/src/github.com/ubie-inc/genpaku,$HOME/src/github.com/AOI-Inc/AIDocumentWorks
 set -gx SKIPCD_SUBDIR_NAME client,webapp
 
 set -gx USE_GKE_GCLOUD_AUTH_PLUGIN True
+
+set -gx ANDROID_SDK_ROOT $HOME/Library/Android/sdk

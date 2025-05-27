@@ -10,7 +10,7 @@ balias cd "skipcd"
 balias ll "ls -GaF"
 balias la "ls -la"
 
-balias cat bat
+# balias cat bat
 
 # utils
 balias vims "nvim (git diff --name-only)"
