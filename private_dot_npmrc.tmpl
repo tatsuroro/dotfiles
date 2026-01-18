@@ -1,2 +1,7 @@
+{{ if env "CI" -}}
+//npm.pkg.github.com/:_authToken=dummy-for-ci
+//asia-northeast1-npm.pkg.dev/ubie-gl-artifacts-prd/packages-npm/:_authToken=dummy-for-ci
+{{ else -}}
 //npm.pkg.github.com/:_authToken={{ onepasswordRead "op://Personal/github_com_npm_auth_token/password" }}
 //asia-northeast1-npm.pkg.dev/ubie-gl-artifacts-prd/packages-npm/:_authToken={{ onepasswordRead "op://Personal/npm_ubie_auth_token/password" }}
+{{ end -}}
