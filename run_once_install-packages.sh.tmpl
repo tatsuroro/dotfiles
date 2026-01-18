@@ -1,4 +1,8 @@
-{{ if eq .chezmoi.os "linux" -}}
+{{ if env "CI" -}}
+#!/bin/sh
+# Skip install script in CI environment
+exit 0
+{{ else if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
 # TBD
