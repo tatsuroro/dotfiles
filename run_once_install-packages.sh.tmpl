@@ -1,0 +1,43 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+# TBD
+
+
+{{ else if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+
+# os setup
+set -e
+
+# Install Xcode Command Line Tools
+xcode-select --install
+
+echo "+++ update osx defaults"
+defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write com.apple.finder AppleShowAllFiles TRUE
+killall Finder
+
+# Install homebrew if it's not there already.
+if ! brew --version
+then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    brew tap caskroom/cask
+    brew install mas
+    brew install rcmdnk/file/brew-file
+
+    brew file install -f "$HOME/.Brewfile"
+
+fi
+
+git config --global core.excludesFile '~/.gitignore'
+vim +PlugInstall +qal
+
+{{ end -}}
+
+# Change default shell
+echo "+++ Activate fish shell"
+
+sudo sh -c "echo '/opt/homebrew/bin/fish' >> /etc/shells"
+chsh -s /opt/homebrew/bin/fish
