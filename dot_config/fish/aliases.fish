@@ -88,3 +88,6 @@ balias gcl "git-clean-up-branches"
 balias ghv "gh repo view --web"
 balias ghp "gh pr create --web"
 
+# Claude
+balias claude-who "claude auth status"
+balias cl "claude --dangerously-skip-permissions"
