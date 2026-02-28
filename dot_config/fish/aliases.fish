@@ -90,4 +90,3 @@ balias ghp "gh pr create --web"
 
 # Claude
 balias claude-who "claude auth status"
-balias cl "claude --dangerously-skip-permissions"

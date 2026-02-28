@@ -42,3 +42,8 @@ set --export --prepend PATH "/Users/tatsuroro/.rd/bin"
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /Users/tatsuroro/.lmstudio/bin
 # End of LM Studio CLI section
+
+# Claude
+function cc
+  claude --dangerously-skip-permissions $argv
+end
