@@ -89,6 +89,9 @@ export FZF_DEFAULT_COMMAND='fd'
 export FZF_FIND_FILE_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--height 40%"
 
+# disable XON/XOFF flow control so Ctrl+S is available for keybindings
+stty -ixon
+
 # fzf key bindings & completion (replaces jethrokuan/fzf)
 source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 source /opt/homebrew/opt/fzf/shell/completion.zsh
