@@ -349,3 +349,8 @@ precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats ' %F{magenta}(%b)%f'
 PROMPT='%F{cyan}%~%f %F{red}❯%F{yellow}❯%F{green}❯%f '
 RPROMPT='${vcs_info_msg_0_}'
+
+# ============================================================
+# Plugins
+# ============================================================
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
