@@ -1,0 +1,351 @@
+. "$HOME/.local/bin/env"
+
+# ============================================================
+# env (from fish env.fish)
+# ============================================================
+export LANG="ja_JP.UTF-8"
+export EDITOR="nvim"
+
+# scripts
+export PATH="$PATH:$HOME/psh"
+
+# neovim
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# volta
+export VOLTA_HOME="$HOME/.volta"
+
+# Java
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
+# GoRoot
+export GOPATH="$HOME"
+
+# deno
+export PATH="$PATH:$HOME/.deno/bin"
+
+# libpq (overwrites CPPFLAGS, same as env.fish)
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+
+# ubie
+export PATH="$PATH:$HOME/.ubie-bin"
+{{ if env "CI" -}}
+export OP_SESSION_dr_ubie="dummy-for-ci"
+{{ else -}}
+export OP_SESSION_dr_ubie={{ onepasswordRead "op://Personal/OP_session_dr_ubie/password" }}
+{{ end -}}
+export SKIPCD_SUBDIR_NAME="client,webapp"
+
+export USE_GKE_GCLOUD_AUTH_PLUGIN="True"
+
+# java / android studio
+export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$PATH:$ANDROID_HOME/emulator"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+
+# AWS
+{{ if env "CI" -}}
+export AWS_PROFILE="dummy-for-ci"
+{{ else -}}
+export AWS_PROFILE={{ onepasswordRead "op://AmalaDesigns/aws_profile_aoi/username" }}
+{{ end -}}
+
+# ============================================================
+# fish_user_paths equivalent (from fish_variables)
+# ============================================================
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/go/libexec/bin:$PATH"
+export PATH="/opt/homebrew/opt/icu4c@77/bin:$PATH"
+export PATH="$HOME/.volta/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/sh:$PATH"
+export PATH="$HOME/src/github.com/ubie-inc/eng-tools:$PATH"
+
+# ============================================================
+# fff
+# ============================================================
+f() {
+    fff "$@"
+    cd "$(cat "${XDG_CACHE_HOME:-$HOME/.cache}/fff/.fff_d")"
+}
+
+# ============================================================
+# fzf
+# ============================================================
+export FZF_DEFAULT_COMMAND='fd'
+export FZF_FIND_FILE_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="--height 40%"
+
+# fzf key bindings & completion (replaces jethrokuan/fzf)
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+source /opt/homebrew/opt/fzf/shell/completion.zsh
+
+# ============================================================
+# skipcd (port of tatsuroro/skipcd.fish)
+# ============================================================
+skipcd() {
+    builtin cd "$@" || return
+
+    IFS=',' read -rA skipcd_repo_paths <<< "$SKIPCD_REPO_PATH"
+    IFS=',' read -rA skipcd_subdir_names <<< "$SKIPCD_SUBDIR_NAME"
+
+    local toplevel
+    toplevel=$(git rev-parse --show-toplevel 2>/dev/null)
+
+    for repo_path in "${skipcd_repo_paths[@]}"; do
+        if [[ "$toplevel" = "$repo_path" ]]; then
+            for subdir_name in "${skipcd_subdir_names[@]}"; do
+                if [[ -d "$subdir_name" ]]; then
+                    builtin cd "$subdir_name"
+                    return
+                fi
+            done
+        fi
+    done
+}
+
+# ============================================================
+# bd (port of 0rax/fish-bd)
+# ============================================================
+bd() {
+    local oldpwd=$(pwd)
+    local newpwd=""
+    local opts="${BD_OPT:-classic}"
+    local pattern=""
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -h)
+                echo "bd: Quickly go back to a parent directory"
+                echo "Usage: bd [option] <pattern>"
+                echo "Options: -c classic (default), -s sensitive, -i insensitive, -h help"
+                return 0
+                ;;
+            -s) opts="sensitive"; shift ;;
+            -i) opts="insensitive"; shift ;;
+            -c) opts="classic"; shift ;;
+            *)  pattern="$1"; shift ;;
+        esac
+    done
+
+    if [[ -z "$pattern" ]]; then
+        cd ..
+        pwd
+        return 0
+    fi
+
+    case "$opts" in
+        sensitive)
+            newpwd=$(echo "$oldpwd" | sed "s|\(.*/${pattern}[^/]*/\).*|\1|")
+            ;;
+        insensitive)
+            newpwd=$(echo "$oldpwd" | perl -pe "s|(.*/${pattern}[^/]*/).*|\$1|i")
+            ;;
+        *)
+            newpwd=$(echo "$oldpwd" | sed "s|\(.*/${pattern}/\).*|\1|")
+            ;;
+    esac
+
+    if [[ "$newpwd" = "$oldpwd" ]]; then
+        echo "No such occurence." >&2
+    else
+        echo "$newpwd"
+        cd "$newpwd"
+    fi
+}
+
+# ============================================================
+# fzf_select_ghq_repository (Ctrl+S)
+# ============================================================
+fzf_select_ghq_repository() {
+    local selected
+    selected=$(ghq list | fzf)
+    if [[ -n "$selected" ]]; then
+        cd "$(ghq root)/$selected"
+    fi
+    zle reset-prompt
+}
+zle -N fzf_select_ghq_repository
+bindkey '^S' fzf_select_ghq_repository
+
+# ============================================================
+# fzf_kill (Ctrl+Q)
+# ============================================================
+fzf_kill() {
+    local pid
+    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    if [[ -n "$pid" ]]; then
+        echo "$pid" | xargs kill -${1:-9}
+    fi
+    zle reset-prompt
+}
+zle -N fzf_kill
+bindkey '^Q' fzf_kill
+
+# ============================================================
+# aliases
+# ============================================================
+alias sudo="sudo "
+alias v="nvim"
+alias vi="nvim"
+alias nv="nvim"
+alias sed="gsed"
+alias tm="tmux"
+alias mux="tmuxinator"
+
+alias cd="skipcd"
+alias ll="ls -GaF"
+alias la="ls -la"
+
+# utils
+alias vims='nvim $(git diff --name-only)'
+alias vimt='nvim -p $(git diff --name-only)'
+alias wifiConnect="networksetup -setairportpower en0 off && networksetup -setairportpower en0 on"
+
+# ghq
+alias ghq-init="source ~/sh/ghq-init"
+
+# git
+alias g="git"
+alias gst="git status"
+alias ga="git add"
+
+alias gb="git branch"
+alias gba="git branch -a"
+alias gbd="git branch -d"
+alias gbl="git blame -b -w"
+alias gbnm="git branch --no-merged"
+
+alias gbr="fzf_git_branch_checkout"
+
+alias gc="git commit -v"
+alias 'gc!'="git commit -v --amend"
+alias 'gcn!'="git commit -v --no-edit --amend"
+alias gca="git commit -v -a"
+alias 'gca!'="git commit -v -a --amend"
+
+alias gcb="git checkout -b"
+alias gcm="git checkout main"
+alias gcd="git checkout develop"
+alias gco="git checkout"
+
+alias gd="git diff"
+alias gdca="git diff --cached"
+
+alias gf="git fetch"
+alias gfa="git fetch --all --prune"
+alias gfo="git fetch origin"
+
+alias gl="git pull"
+
+alias gm="git merge"
+alias gmom="git merge origin/master"
+
+alias gp="git push"
+alias gpd="git push --dry-run"
+
+alias gr="git remote"
+alias gra="git remote add"
+
+alias grb="git rebase"
+alias grba="git rebase --abort"
+alias grbc="git rebase --continue"
+alias grbi="git rebase -i"
+alias grbm="git rebase master"
+
+alias grs="git restore"
+
+alias gsta="git stash save"
+alias gstaa="git stash apply"
+alias gstc="git stash clear"
+alias gstd="git stash drop"
+alias gstl="git stash list"
+alias gstp="git stash pop"
+alias gsts="git stash show --text"
+
+alias gsm="git switch master"
+alias gsw="git switch"
+
+alias gfx="git fixup"
+alias gbra="git branch-list"
+alias gcl="git-clean-up-branches"
+
+alias ghv="gh repo view --web"
+alias ghp="gh pr create --web"
+
+# Claude
+alias claude-who="claude auth status"
+
+# ============================================================
+# rbenv (replaces daenney/rbenv)
+# ============================================================
+if command -v rbenv >/dev/null 2>&1; then
+    eval "$(rbenv init - zsh)"
+fi
+
+# ============================================================
+# direnv
+# ============================================================
+eval "$(direnv hook zsh)"
+
+# ============================================================
+# pyenv
+# ============================================================
+eval "$(pyenv init -)"
+
+# ============================================================
+# Google Cloud SDK
+# ============================================================
+if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then
+    source '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc'
+fi
+if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then
+    source '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'
+fi
+
+# ============================================================
+# pnpm
+# ============================================================
+export PNPM_HOME="/Users/tatsuroro/Library/pnpm"
+case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/tatsuroro/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/tatsuroro/.lmstudio/bin"
+# End of LM Studio CLI section
+
+# ============================================================
+# Claude
+# ============================================================
+cc() {
+    claude --dangerously-skip-permissions "$@"
+}
+
+# ============================================================
+# Prompt (matching fish_prompt.fish style)
+# ============================================================
+setopt PROMPT_SUBST
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats ' %F{magenta}(%b)%f'
+PROMPT='%F{cyan}%~%f %F{red}❯%F{yellow}❯%F{green}❯%f '
+RPROMPT='${vcs_info_msg_0_}'
