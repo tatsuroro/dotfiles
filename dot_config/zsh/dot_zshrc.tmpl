@@ -1,5 +1,7 @@
 . "$HOME/.local/bin/env"
 
+setopt AUTO_CD
+
 # ============================================================
 # env (from fish env.fish)
 # ============================================================
@@ -356,5 +358,5 @@ RPROMPT='${vcs_info_msg_0_}'
 # ============================================================
 # Plugins
 # ============================================================
-source $brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
