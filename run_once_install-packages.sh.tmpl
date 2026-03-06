@@ -4,10 +4,7 @@
 exit 0
 {{ else if eq .chezmoi.os "linux" -}}
 #!/bin/sh
-
 # TBD
-
-
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 
@@ -15,7 +12,11 @@ exit 0
 set -e
 
 # Install Xcode Command Line Tools
-xcode-select --install
+if ! xcode-select -p &>/dev/null; then
+    xcode-select --install
+else
+    echo "Xcode Command Line Tools already installed, skipping."
+fi
 
 echo "+++ update osx defaults"
 defaults write -g ApplePressAndHoldEnabled -bool false
@@ -27,17 +28,14 @@ if ! brew --version
 then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    brew tap caskroom/cask
     brew install mas
     brew install rcmdnk/file/brew-file
 
     brew file install -f "$HOME/.Brewfile"
-
 fi
 
 git config --global core.excludesFile '~/.gitignore'
 vim +PlugInstall +qal
-
 {{ end -}}
 
 # Change default shell
