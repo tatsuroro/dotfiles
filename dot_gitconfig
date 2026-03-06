@@ -7,6 +7,7 @@
   excludesfiles = ~/.gitignore_global
   ignorecase = false
 	editor = vim
+	excludesFile = ~/.gitignore
 
 [color]
   ui = true
