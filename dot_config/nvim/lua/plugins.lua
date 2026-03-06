@@ -46,14 +46,12 @@ require('pckr').add{
   -- Auto close parentheses
   "cohama/lexima.vim";
 
-  -- f move customize
-  "ggandor/lightspeed.nvim";
 
   -- Restrict edit history jump to only one buffer
   "osyo-manga/vim-milfeulle";
 
   -- comment handler
-  "terrortylor/nvim-comment";
+  "numToStr/Comment.nvim";
 
   -- copilot
   "github/copilot.vim";
@@ -67,11 +65,11 @@ require('pckr').add{
   "folke/tokyonight.nvim";
 
   -- File icons
-  "kyazdani42/nvim-web-devicons";
+  "nvim-tree/nvim-web-devicons";
 
   -- Colorize color code
   {
-    "norcalli/nvim-colorizer.lua",
+    "NvChad/nvim-colorizer.lua",
     config = function() require("colorizer").setup() end
   };
   "RRethy/vim-illuminate";
@@ -142,7 +140,7 @@ require('pckr').add{
   "onsails/lspkind.nvim";
 
   -- lsp ui
-  'kkharji/lspsaga.nvim';
+  'nvimdev/lspsaga.nvim';
 
   -- Linter / Formatter
   "jay-babu/mason-null-ls.nvim";
