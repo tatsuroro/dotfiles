@@ -117,6 +117,7 @@ cask "gcloud-cli"
 cask "ghostty"
 cask "google-chrome"
 cask "google-japanese-ime"
+cask "hammerspoon"
 cask "insomnia"
 cask "kap"
 cask "karabiner-elements"
@@ -132,6 +133,8 @@ cask "visual-studio-code"
 cask "zed"
 cask "zoom"
 cask "zulu@17"
+mas "Dato", id: 1470584107
+mas "Gifski", id: 1351639930
 mas "Keynote", id: 409183694
 mas "Todoist", id: 585829637
 mas "Toggl Track", id: 1291898086
