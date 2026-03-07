@@ -14,8 +14,6 @@ export PATH="$PATH:$HOME/psh"
 # neovim
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# volta
-export VOLTA_HOME="$HOME/.volta"
 
 # Java
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
@@ -32,8 +30,6 @@ export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
 
 export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
 
 # ubie
 export PATH="$PATH:$HOME/.ubie-bin"
@@ -70,8 +66,6 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/go/libexec/bin:$PATH"
 export PATH="/opt/homebrew/opt/icu4c@77/bin:$PATH"
-export PATH="$HOME/.volta/bin:$PATH"
-export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/sh:$PATH"
 export PATH="$HOME/src/github.com/ubie-inc/eng-tools:$PATH"
@@ -295,21 +289,15 @@ alias ghp="gh pr create --web"
 alias claude-who="claude auth status"
 
 # ============================================================
-# rbenv (replaces daenney/rbenv)
-# ============================================================
-if command -v rbenv >/dev/null 2>&1; then
-    eval "$(rbenv init - zsh)"
-fi
-
-# ============================================================
 # direnv
 # ============================================================
 eval "$(direnv hook zsh)"
 
 # ============================================================
-# pyenv
+# mise
 # ============================================================
-eval "$(pyenv init -)"
+eval "$(mise activate zsh)"
+
 
 # ============================================================
 # Google Cloud SDK
