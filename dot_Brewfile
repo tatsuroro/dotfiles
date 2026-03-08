@@ -1,5 +1,6 @@
 tap "derailed/k9s"
 tap "heroku/brew"
+tap "laishulu/homebrew"
 tap "localstack/tap"
 tap "rcmdnk/file"
 tap "sqldef/sqldef"
@@ -103,6 +104,7 @@ brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 brew "derailed/k9s/k9s"
+brew "laishulu/homebrew/macism"
 brew "localstack/tap/localstack-cli"
 brew "rcmdnk/file/brew-file"
 brew "sqldef/sqldef/psqldef"
@@ -140,4 +142,5 @@ mas "Todoist", id: 585829637
 mas "Toggl Track", id: 1291898086
 mas "Unsplash Wallpapers", id: 1284863847
 mas "Xcode", id: 497799835
+vscode "vscodevim.vim"
 go "chezmoi.io/chezmoi"
