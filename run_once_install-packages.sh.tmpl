@@ -24,22 +24,25 @@ defaults write com.apple.finder AppleShowAllFiles TRUE
 killall Finder
 
 # Install homebrew if it's not there already.
-if ! brew --version
-then
+if ! brew --version; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-    brew install mas
-    brew install rcmdnk/file/brew-file
-
-    brew file install -f "$HOME/.Brewfile"
 fi
 
+brew install mas
+brew install rcmdnk/file/brew-file
+brew file install -f "$HOME/.Brewfile"
+
 git config --global core.excludesFile '~/.gitignore'
-vim +PlugInstall +qal
-{{ end -}}
+vim +PlugInstall +qal || echo "WARNING: vim PlugInstall failed, run manually later"
 
 # Change default shell
-echo "+++ Activate z shell"
-
-sudo sh -c "echo '/opt/homebrew/bin/zsh' >> /etc/shells"
-chsh -s /opt/homebrew/bin/zsh
+if [ -x /opt/homebrew/bin/zsh ]; then
+    echo "+++ Activate z shell"
+    if ! grep -q '/opt/homebrew/bin/zsh' /etc/shells; then
+        sudo sh -c "echo '/opt/homebrew/bin/zsh' >> /etc/shells"
+    fi
+    chsh -s /opt/homebrew/bin/zsh
+else
+    echo "WARNING: /opt/homebrew/bin/zsh not found, skipping chsh"
+fi
+{{ end -}}
