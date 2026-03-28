@@ -1,6 +1,0 @@
-{{ if env "CI" -}}
-//npm.pkg.github.com/:_authToken=dummy-for-ci
-{{ else -}}
-@ubie-internal:registry={{ onepasswordRead "op://Personal/npm_ubie_internal_registory/password" }}
-//asia-northeast1-npm.pkg.dev/ubie-gl-artifacts-prd/packages-npm/:always-auth=true
-{{ end -}}
