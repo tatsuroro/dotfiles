@@ -96,14 +96,9 @@ brew "pgvector"
 brew "pnpm"
 brew "postgresql@14"
 brew "pv"
-brew "pyenv"
-brew "python@3.10"
-brew "python@3.11"
-brew "python@3.9"
 brew "qemu"
 brew "qt"
 brew "ruby-build"
-brew "rbenv"
 brew "redpen"
 brew "ripgrep"
 brew "skaffold"
@@ -155,13 +150,7 @@ cask "zed"
 cask "zoom"
 cask "zulu@17"
 mas "Dato", id: 1470584107
-mas "GarageBand", id: 682658836
 mas "Gifski", id: 1351639930
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "LINE", id: 539883307
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "Todoist", id: 585829637
 mas "Toggl Track", id: 1291898086
 mas "Unsplash Wallpapers", id: 1284863847
@@ -171,17 +160,10 @@ vscode "dbaeumer.vscode-eslint"
 vscode "eamodio.gitlens"
 vscode "esbenp.prettier-vscode"
 vscode "gruntfuggly.activitusbar"
-vscode "jackiotyu.git-worktree-manager"
-vscode "kevinrose.vsc-python-indent"
 vscode "marchrock.vscode-ghq"
-vscode "mcu-debug.debug-tracker-vscode"
 vscode "mechatroner.rainbow-csv"
 vscode "mhutchie.git-graph"
-vscode "ms-python.debugpy"
-vscode "ms-python.python"
-vscode "ms-python.vscode-python-envs"
 vscode "naumovs.color-highlight"
-vscode "paulober.pico-w-go"
 vscode "redhat.vscode-xml"
 vscode "redhat.vscode-yaml"
 vscode "stylelint.vscode-stylelint"
