@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SETUP_DIR="$HOME/.config/setup"
+
+list_steps() {
+  for f in "$SETUP_DIR"/[0-9]*.sh; do
+    [[ -f "$f" ]] || continue
+    local name
+    name=$(basename "$f" .sh)
+    local desc
+    desc=$(sed -n 's/^echo "==> \(.*\)"/\1/p' "$f" | head -1)
+    printf "  %-20s %s\n" "$name" "$desc"
+  done
+}
+
+run_step() {
+  local pattern="$1"
+  local found=false
+  for f in "$SETUP_DIR"/*"${pattern}"*.sh; do
+    [[ -f "$f" ]] || continue
+    found=true
+    echo ""
+    bash "$f"
+  done
+  $found || echo "error: no step matching '$pattern'" >&2
+}
+
+run_all() {
+  for f in "$SETUP_DIR"/[0-9]*.sh; do
+    [[ -f "$f" ]] || continue
+    echo ""
+    bash "$f"
+  done
+  echo ""
+  echo "==> All steps completed."
+}
+
+case "${1:-}" in
+  all)  run_all ;;
+  list) list_steps ;;
+  run)  [[ -n "${2:-}" ]] || { echo "usage: setup run <step>" >&2; exit 1; }
+        run_step "$2" ;;
+  *)
+    echo "Usage: setup <command>"
+    echo ""
+    echo "Commands:"
+    echo "  all           Run all setup steps in order"
+    echo "  list          List available steps"
+    echo "  run <step>    Run a specific step (partial match ok)"
+    echo ""
+    echo "Steps:"
+    list_steps
+    ;;
+esac
