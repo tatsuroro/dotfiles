@@ -1,0 +1,3 @@
+# chezmoi 管理外にしたが、ローカルの source ディレクトリには残っているファイル
+# （.chezmoiignore で chezmoi 側も無視している）
+dot_config/dev-sessions.yml

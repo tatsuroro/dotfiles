@@ -1,0 +1,5 @@
+# 管理対象から除外するターゲット（パスは $HOME 相対）
+#
+# dev-sessions.yml: Ubie の内部リポジトリ名・GCP プロジェクト ID を含むため、
+# public リポジトリには置かない。ローカルにのみ存在させる。
+.config/dev-sessions.yml
