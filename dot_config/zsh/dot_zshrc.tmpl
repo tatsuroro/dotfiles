@@ -2,6 +2,8 @@
 
 setopt AUTO_CD
 
+bindkey -e
+
 # ============================================================
 # env (from fish env.fish)
 # ============================================================
@@ -213,6 +215,7 @@ alias la="ls -la"
 alias vims='nvim $(git diff --name-only)'
 alias vimt='nvim -p $(git diff --name-only)'
 alias wifiConnect="networksetup -setairportpower en0 off && networksetup -setairportpower en0 on"
+alias curation='glow -p "$(ls -t ~/src/github.com/tatsuroro/work-context/logs/daily-curation/*.md | head -1)"'
 
 # ghq
 alias ghq-init="source ~/sh/ghq-init"

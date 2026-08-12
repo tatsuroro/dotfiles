@@ -3,8 +3,8 @@ filetype off
 
 " -----
 " vim-plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.config/vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   augroup pluginstall
     autocmd!
@@ -12,7 +12,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   augroup END
 endif
 
-call plug#begin('~/.vim/plugged')
+set runtimepath^=~/.config/vim
+call plug#begin('~/.config/vim/plugged')
 
 """ enhancement
 Plug 'tyru/open-browser.vim'
