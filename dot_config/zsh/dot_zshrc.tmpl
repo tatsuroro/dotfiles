@@ -35,11 +35,6 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
 
 # ubie
 export PATH="$PATH:$HOME/.ubie-bin"
-{{ if env "CI" -}}
-export OP_SESSION_dr_ubie="dummy-for-ci"
-{{ else if eq .chezmoi.hostname "ub-pp-tatsuroro" -}}
-export OP_SESSION_dr_ubie={{ onepasswordRead "op://Personal/OP_session_dr_ubie/password" }}
-{{ end -}}
 export SKIPCD_SUBDIR_NAME="client,webapp"
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN="True"
