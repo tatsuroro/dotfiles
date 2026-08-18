@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+#
+# herdr-new-tab — 呼び出し元ペインの git 状態からメインリポジトリのルートを求め、
+# そこを cwd にして新しいタブを開く。
+#
+# 組み込みの new_tab は terminal.new_cwd（follow / home / 固定パス）という
+# 単一のグローバルポリシーしか持たず、worktree からメインリポジトリへ戻るような
+# 「その場の git 状態に応じた cwd」を選べない。config.toml で keys.new_tab を
+# 解放し、prefix+c からこのスクリプトを呼ぶ想定。
+#
+# 解決順:
+#   1. 呼び出し元ペイン = $HERDR_PANE_ID → 無ければ UI でフォーカス中のペイン
+#   2. そのペインの foreground_cwd（無ければ cwd）
+#   3. そこから見たメインリポジトリのルート（worktree なら共有 .git の親）
+#      git 管理外なら手順 2 の cwd をそのまま使う
+#
+# 依存: herdr, git, jq
+
+set -euo pipefail
+
+readonly PROG=${0##*/}
+
+die() {
+  printf '%s: %s\n' "$PROG" "$1" >&2
+  exit 1
+}
+
+usage() {
+  cat <<'USAGE'
+Usage: herdr-new-tab [options]
+
+Options:
+  -n, --dry-run   タブを作らず、解決した workspace と cwd だけを表示する
+  -h, --help      このヘルプを表示する
+USAGE
+}
+
+dry_run=false
+while [ $# -gt 0 ]; do
+  case $1 in
+    -n | --dry-run) dry_run=true ;;
+    -h | --help)
+      usage
+      exit 0
+      ;;
+    *) die "unknown option: $1" ;;
+  esac
+  shift
+done
+
+for cmd in herdr git jq; do
+  command -v "$cmd" >/dev/null 2>&1 || die "$cmd not found in PATH"
+done
+
+# 呼び出し元ペインの JSON を返す。
+# keys.command の type = "shell" はデタッチ実行なので HERDR_PANE_ID が
+# 渡らない場合がある。その場合は UI でフォーカス中のペインを探す。
+source_pane() {
+  local pane ws
+
+  if [ -n "${HERDR_PANE_ID:-}" ]; then
+    if pane=$(herdr pane current --pane "$HERDR_PANE_ID" 2>/dev/null |
+      jq -e '.result.pane'); then
+      printf '%s\n' "$pane"
+      return 0
+    fi
+  fi
+
+  ws=$(herdr workspace list |
+    jq -r 'first(.result.workspaces[] | select(.focused) | .workspace_id) // empty')
+  [ -n "$ws" ] || return 1
+
+  herdr pane list --workspace "$ws" |
+    jq -e 'first(.result.panes[] | select(.focused))'
+}
+
+# $1 から見たメインリポジトリのルートを出力する。git 管理外なら非ゼロで返る。
+# worktree からは共有 .git（--git-common-dir）の親、すなわちメイン作業ツリーを指す。
+main_repo_root() {
+  local dir=$1 common
+
+  git -C "$dir" rev-parse --is-inside-work-tree >/dev/null 2>&1 || return 1
+  common=$(git -C "$dir" rev-parse --path-format=absolute --git-common-dir 2>/dev/null) ||
+    return 1
+
+  if [ "${common##*/}" = ".git" ]; then
+    printf '%s\n' "${common%/.git}"
+  else
+    # bare リポジトリを共有する worktree などルートを一意に決められない構成では、
+    # いま居る作業ツリーのルートで妥協する。
+    git -C "$dir" rev-parse --show-toplevel
+  fi
+}
+
+pane=$(source_pane) || die 'could not resolve the source pane (is Herdr running?)'
+
+workspace=$(printf '%s' "$pane" | jq -r '.workspace_id // empty')
+cwd=$(printf '%s' "$pane" | jq -r '.foreground_cwd // .cwd // empty')
+[ -n "$workspace" ] || die 'source pane has no workspace_id'
+[ -d "$cwd" ] || die "source pane cwd is not a directory: ${cwd:-<empty>}"
+
+target=$(main_repo_root "$cwd") || target=$cwd
+
+if [ "$dry_run" = true ]; then
+  printf 'workspace=%s\nsource_cwd=%s\ntarget_cwd=%s\n' "$workspace" "$cwd" "$target"
+  exit 0
+fi
+
+tab_id=$(herdr tab create --workspace "$workspace" --cwd "$target" --focus |
+  jq -r '.result.tab.tab_id')
+
+printf '%s\t%s\n' "$tab_id" "$target"

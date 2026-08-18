@@ -1,0 +1,55 @@
+# ~/.config/herdr/config.toml
+
+
+onboarding = false
+keys.prefix = "ctrl+u"
+keys.previous_workspace = "ctrl+["
+keys.next_workspace = "ctrl+]"
+
+keys.next_tab = ["prefix+n", "cmd+]"]
+keys.previous_tab = ["prefix+p", "cmd+["]
+
+# The built-in new tab always uses terminal.new_cwd, a single global policy that
+# cannot pick a directory from the source pane's git state. Release the key so
+# herdr-new-tab can open the tab in the main repository root instead.
+keys.new_tab = ""
+
+[[keys.command]]
+key = "prefix+c"
+type = "shell"
+command = "herdr-new-tab"
+
+# サイドバーに「いま何をしているか」を表示する設定。
+# 既定値の一覧は `herdr --default-config` で確認できる。
+
+[ui]
+# 日本語のタスク名は 26 桁だとすぐ切れるので少し広げる（不要なら削除）
+sidebar_width = 30
+sidebar_max_width = 44
+
+show_agent_labels_on_pane_borders = true
+prompt_new_tab_name = false
+agent_panel_sort = "spaces"
+
+[ui.sidebar.agents]
+row_gap = 0
+# claude 以外の agent 向けのデフォルト行。
+# terminal_title_stripped は agent 自身が出すターミナルタイトル。
+rows = [["state_icon", "workspace", "tab"], ["terminal_title_stripped"], ["agent"]]
+
+[ui.sidebar.agents.rows_by_agent]
+# $task は herdr-hooks プラグインが UserPromptSubmit で報告するカスタムトークン
+# （直近に送信したプロンプトの 1 行目）。
+claude = [
+  ["state_icon", "workspace", "tab"],
+  ["$task"],
+  ["agent"],
+]
+
+[ui.sidebar.spaces]
+row_gap = 0
+rows = [
+  ["state_icon", "workspace"],
+  ["$task"],
+  ["branch", "git_status"],
+]

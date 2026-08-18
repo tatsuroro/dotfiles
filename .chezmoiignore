@@ -3,3 +3,10 @@
 # dev-sessions.yml: Ubie の内部リポジトリ名・GCP プロジェクト ID を含むため、
 # public リポジトリには置かない。ローカルにのみ存在させる。
 .config/dev-sessions.yml
+
+# herdr: ランタイム生成物（ログ・ソケット・セッション状態）は管理しない
+.config/herdr/*.log
+.config/herdr/*.sock
+.config/herdr/session.json
+.config/herdr/.plugins.lock
+.config/herdr/.claude
