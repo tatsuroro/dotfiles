@@ -39,7 +39,9 @@ rows = [["state_icon", "workspace", "tab"], ["terminal_title_stripped"], ["agent
 
 [ui.sidebar.agents.rows_by_agent]
 # $task は herdr-hooks プラグインが UserPromptSubmit で報告するカスタムトークン
-# （直近に送信したプロンプトの 1 行目）。
+# （直近に送信したプロンプトの 1 行目）。1 つの workspace に複数 agent がいる場合、
+# workspace 名は rename されない（誰の作業名か決められないため）ので、
+# agents サイドバーだけは pane 単位で正確な $task を残しておく。
 claude = [
   ["state_icon", "workspace", "tab"],
   ["$task"],
@@ -48,8 +50,9 @@ claude = [
 
 [ui.sidebar.spaces]
 row_gap = 0
+# workspace 名そのものが作業名（herdr-hooks が workspace rename する）ので
+# $task 行は不要。
 rows = [
   ["state_icon", "workspace"],
-  ["$task"],
   ["branch", "git_status"],
 ]
