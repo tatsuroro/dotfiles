@@ -3,6 +3,11 @@ if not status then
 	return
 end
 
+-- Neovide は起動直後に新規ドキュメントを開きたいのでダッシュボードを出さない
+if vim.g.neovide then
+	return
+end
+
 local dashboard = require("alpha.themes.dashboard")
 
 -- Set header
