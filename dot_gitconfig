@@ -41,10 +41,6 @@
 [rebase]
   autosquash = true
 
-[url "git@github.com:"]
-  pushInsteadOf = git://github.com/
-  insteadOf = https://github.com/
-
 [pager]
   log = less -r
   show = less -r
